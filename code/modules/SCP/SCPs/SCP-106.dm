@@ -709,3 +709,11 @@ GLOBAL_LIST_EMPTY(femur_breakers)
 	for(var/source in sources)
 		for(var/turf/T in seen_turfs_in_range(get_turf(source), 16))
 			visible[T] = T
+
+/mob/living/carbon/human/scp106/verb/scp_say(message as text)
+	set category = "SCP-106"
+	set name = "SCP say"
+
+	for(var/mob/A in GLOB.SCP_list)
+		if(A.client)
+			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))

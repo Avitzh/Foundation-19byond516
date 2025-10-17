@@ -737,3 +737,11 @@
 			. = TRUE
 			qdel(src)
 	acid_melted++
+
+/mob/living/scp173/verb/scp_say(message as text)
+	set category = "SCP-173"
+	set name = "SCP say"
+
+	for(var/mob/A in GLOB.SCP_list)
+		if(A.client)
+			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))

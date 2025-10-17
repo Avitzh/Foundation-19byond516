@@ -189,3 +189,11 @@
 		return PROJECTILE_FORCE_MISS
 	else
 		return PROJECTILE_NO_DAMAGE
+
+/mob/living/simple_animal/hostile/scp457/verb/scp_say(message as text)
+	set category = "SCP-457"
+	set name = "SCP say"
+
+	for(var/mob/A in GLOB.SCP_list)
+		if(A.client)
+			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))

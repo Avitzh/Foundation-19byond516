@@ -423,3 +423,11 @@
 				W.force = initial(W.force) *= 2
 			movement_cooldown = initial(movement_cooldown) - 2
 	return src
+
+/mob/living/simple_animal/hostile/scp2427_3/verb/scp_say(message as text)
+	set category = "SCP-2427-3"
+	set name = "SCP say"
+
+	for(var/mob/A in GLOB.SCP_list)
+		if(A.client)
+			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))
