@@ -42,20 +42,27 @@ var/list/department_radio_keys = list(
 
 	  //kinda localization -- rastaf0
 	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	".ê" = "right ear",
-	  ":ä" = "left ear",	".ä" = "left ear",
-	  ":ø" = "intercom",	".ø" = "intercom",
-	  ":ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	".û" = "Security",
-	  ":ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Supply",		".é" = "Supply",
-	  ":g" = "GOC",			".g" = "GOC", //GOC
+	  ":к" = "right ear",	".к" = "right ear",
+	  ":д" = "left ear",	".д" = "left ear",
+	  ":ш" = "intercom",	".ш" = "intercom",
+	  ":р" = "department",	".р" = "department",
+	  ":с" = "Command",		".с" = "Command",
+	  ":т" = "Science",		".т" = "Science",
+	  ":ь" = "Medical",		".ь" = "Medical",
+	  ":у" = "Engineering",	".у" = "Engineering",
+	  ":ы" = "Security",	".ы" = "Security",
+	  ":ц" = "whisper",		".ц" = "whisper",
+	  ":е" = "Mercenary",	".е" = "Mercenary",
+	  ":г" = "Supply",		".г" = "Supply",
+	  ":п" = "GOC",			".п" = "GOC", //GOC
+	  ":g" = "GOC",			".g" = "GOC",
 
+	  ":ч" = "LCZ-Security",		".ч" = "LCZ-Security",
+	  ":л" = "HCZ-Security",		".л" = "HCZ-Security",
+	  ":я" = "ECZ-Security",		".я" = "ECZ-Security",
+	  ":Ч" = "LCZ-Security",		".Ч" = "LCZ-Security",
+	  ":Л" = "HCZ-Security",		".Л" = "HCZ-Security",
+	  ":Я" = "ECZ-Security",		".Я" = "ECZ-Security",
 	  ":x" = "LCZ-Security",		".x" = "LCZ-Security",
 	  ":k" = "HCZ-Security",		".k" = "HCZ-Security",
 	  ":z" = "ECZ-Security",		".z" = "ECZ-Security",
@@ -205,9 +212,9 @@ var/list/channel_to_radio_key = new
 	var/message_mode = parse_message_mode(message, "headset")
 	if (message_mode)
 		if (message_mode == "headset")
-			message = copytext(message,2)	//it would be really nice if the parse procs could do this for us.
+			message = copytext_char(message, 2)	//it would be really nice if the parse procs could do this for us.
 		else
-			message = copytext(message,3)
+			message = copytext_char(message, 3)
 
 	message = trim_left(message)
 
