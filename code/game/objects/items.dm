@@ -920,6 +920,7 @@ GLOBAL_LIST_EMPTY(items_by_convert_rating)
 // A list of types that will not be added to the auto-item-generator below;
 GLOBAL_LIST_INIT(items_conversion_blacklist, list(
 	/obj/item/card/id/syndicate/station_access,
+	/obj/item/scp063,
 	/obj/item/paper/scp012,
 	/obj/item/photo/scp096,
 	/obj/item/photo/scp096/scp096_photo,
