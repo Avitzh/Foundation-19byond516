@@ -23,6 +23,9 @@
 	/// How this atom should react to having its pathfinding blocking checked
 	var/can_astar_pass = CANPATHINGPASS_DENSITY
 
+	/// This defines whether this atom will be added to SSpoi, set TRUE if you want it to be shown in follow panel
+	var/is_poi = FALSE
+
 /atom/New(loc, ...)
 	//atom creation method that preloads variables at creation
 	if(GLOB.use_preloader && (src.type == GLOB._preloader.target_path))//in case the instanciated atom is creating other atoms in New()
@@ -74,6 +77,9 @@
 
 	if(health_max)
 		health_current = health_max
+
+	if(is_poi)
+		SSpoints_of_interest.make_point_of_interest(src)
 
 	return INITIALIZE_HINT_NORMAL
 

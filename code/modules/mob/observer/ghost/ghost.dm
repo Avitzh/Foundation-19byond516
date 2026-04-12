@@ -32,6 +32,9 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	var/obj/item/device/multitool/ghost_multitool
 	var/list/hud_images // A list of hud images
 
+	/// Holder for a follow-orbit panel.
+	var/datum/follow_panel/follow_panel = new()
+
 /mob/observer/ghost/Initialize(mapload)
 	see_in_dark = 100
 	add_verb(src, /mob/proc/toggle_antag_pool)
@@ -276,10 +279,18 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Follow"
 	set desc = "Follow a player"
 
+
+	if(!client)
+		return
+
+	follow_panel.tgui_interact(usr)
+
+	/*
 	if(!fh)
 		to_chat(src, SPAN_WARNING("No active players found."))
 		return
 	start_following(fh)
+	*/
 
 /mob/observer/ghost/verb/jumptomob(mob/M in SSmobs.mob_list)
 	set category = "Ghost"

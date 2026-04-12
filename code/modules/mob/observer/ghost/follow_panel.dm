@@ -1,4 +1,4 @@
-/*/datum/follow_panel/tgui_interact(mob/user, datum/tgui/ui)
+/datum/follow_panel/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 
 	if(!ui)
@@ -24,7 +24,7 @@
 
 		var/poi_ref = ref(mob_poi)
 
-		var/number_of_orbiters = length(mob_poi.get_all_orbiters())
+		var/number_of_orbiters = 0
 
 		serialized["ref"] = poi_ref
 		serialized["full_name"] = name || "Unknown"
@@ -56,9 +56,6 @@
 			serialized["health"] = max((player.health / player.maxHealth * 100), 1)
 			if(issilicon(player))
 				serialized["job"] = player.job
-			else
-				var/obj/item/card/id/id_card = player.get_id_card()
-				serialized["job"] = id_card?.assignment
 
 		var/show_antags = FALSE
 		if(isghost(user))
@@ -84,23 +81,6 @@
 			"ref" = ref(atom_poi),
 			"full_name" = name,
 		))
-
-		if(istype(atom_poi, /obj/machinery/power/supermatter))
-			var/obj/machinery/power/supermatter/crystal = atom_poi
-			misc[length(misc)]["extra"] = "Integrity: [round(crystal.get_integrity())]%"
-			continue
-
-		if(istype(atom_poi, /obj/machinery/nuclearbomb))
-			var/obj/machinery/nuclearbomb/bomb = atom_poi
-			if(bomb.timing)
-				misc[length(misc)]["extra"] = "Timer: [bomb.timeleft / 10]s"
-			continue
-
-		if(istype(atom_poi, /obj/item/disk/nuclear))
-			var/obj/item/disk/nuclear/disk = atom_poi
-			var/mob/holder = disk.pulledby || get(disk, /mob)
-			misc[length(misc)]["extra"] = "Location: [holder?.real_name || "Unsecured"]"
-			continue
 
 	return list(
 		"alive" = alive,
@@ -129,7 +109,7 @@
 				return TRUE
 
 			var/mob/observer/ghost/user = usr
-			user.ManualFollow(poi)
+			user.orbit(poi)
 			return TRUE
 
 		if ("refresh")
@@ -137,4 +117,4 @@
 			return TRUE
 
 /datum/follow_panel/tgui_state(mob/user)
-	return GLOB.tgui_always_state          */ // WORK IN PROGRESS    ported from chaotic onyx
+	return GLOB.always_tgui_state

@@ -220,6 +220,12 @@
 /// Called on `mob/logout` (/mob)
 #define COMSIG_GLOB_MOB_LOGOUT "!mob_logout"
 
+// Point of interest signals
+/// Sent from base of /datum/controller/subsystem/points_of_interest/proc/on_poi_element_added : (atom/new_poi)
+#define SIGNAL_ADDED_POI "added_point_of_interest"
+/// Sent from base of /datum/controller/subsystem/points_of_interest/proc/on_poi_element_removed : (atom/old_poi)
+#define SIGNAL_REMOVED_POI "removed_point_of_interest"
+
 /*
 *	Mob
 */

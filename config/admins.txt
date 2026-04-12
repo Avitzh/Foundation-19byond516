@@ -6,6 +6,7 @@
 ######################################################################
 
 # not_a_user - Admin
+omega1234 - Host
 serpyxov - Host
 fgfffffff - HeadAdmin
 sneeek - HeadAdmin
