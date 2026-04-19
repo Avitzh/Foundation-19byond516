@@ -332,7 +332,6 @@ var/bomb_set
 /obj/machinery/nuclearbomb/ex_act(severity)
 	return
 
-#define NUKERANGE 80
 /obj/machinery/nuclearbomb/proc/explode()
 	if (safety)
 		timing = 0
@@ -457,7 +456,7 @@ var/bomb_set
 
 	var/announced = 0
 	var/time_to_explosion = 0
-	var/self_destruct_cutoff = 60 //Seconds
+	var/self_destruct_cutoff = 45 //Seconds
 	timeleft = 300
 	minTime = 300
 	maxTime = 900
@@ -491,6 +490,12 @@ var/bomb_set
 			return
 	visible_message(SPAN_WARNING("Warning. The self-destruct sequence override will be disabled [self_destruct_cutoff] seconds before detonation."))
 	..()
+	sleep(150) // Need wait before start
+	var/list/zlevels = GLOB.using_map.contact_levels
+	for(var/mob/M in GLOB.player_list)
+		if((get_z(M) in (zlevels | GLOB.using_map.admin_levels)) && !istype(M,/mob/new_player) && M.can_hear())
+			sound_to(M, sound('sounds/scp/delta_sirens.ogg'))
+
 
 /obj/machinery/nuclearbomb/station/check_cutoff()
 	if(timeleft <= self_destruct_cutoff)
@@ -507,24 +512,10 @@ var/bomb_set
 	if(timeleft > 0 && GAME_STATE < RUNLEVEL_POSTGAME)
 		if(timeleft <= self_destruct_cutoff)
 			if(!announced)
+				for(var/mob/M in GLOB.player_list) //I guess so that people in the lobby only hear the explosion
+					sound_to(M, sound('sounds/scp/last_seconds.ogg'))
 				priority_announcement.Announce("The self-destruct sequence has reached terminal countdown, abort systems have been disabled.", "Self-Destruct Control Computer")
 				announced = 1
-			if(world.time >= time_to_explosion)
-				var/range
-				var/high_intensity
-				var/low_intensity
-				if(timeleft <= (self_destruct_cutoff/2))
-					range = rand(2, 3)
-					high_intensity = rand(5,8)
-					low_intensity = rand(7,10)
-					time_to_explosion = world.time + 2 SECONDS
-				else
-					range = rand(1, 2)
-					high_intensity = rand(3, 6)
-					low_intensity = rand(5, 8)
-					time_to_explosion = world.time + 5 SECONDS
-				var/turf/T = pick_area_and_turf(GLOB.is_station_but_not_space_or_shuttle_area)
-				explosion(T, range, high_intensity, low_intensity)
 
 /obj/machinery/nuclearbomb/station/secure_device()
 	..()

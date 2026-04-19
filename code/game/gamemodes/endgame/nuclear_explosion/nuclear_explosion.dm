@@ -11,7 +11,7 @@ var/global/universe_has_ended = 0
 	//create the cinematic screen obj
 	cinematic = new
 	cinematic.icon = 'icons/effects/station_explosion.dmi'
-	cinematic.icon_state = "station_intact"
+	cinematic.icon_state = "site_intact"
 	cinematic.plane = HUD_PLANE
 	cinematic.layer = HUD_ABOVE_ITEM_LAYER
 	cinematic.mouse_opacity = MOUSE_OPACITY_OPAQUE
@@ -21,7 +21,7 @@ var/global/universe_has_ended = 0
 	if(SSticker.mode)
 		SSticker.mode.explosion_in_progress = 1
 
-	start_cinematic_intro()
+	sleep(5) // Wait before big explosion
 
 	var/turf/T = get_turf(explosion_source)
 	if(isStationLevel(T.z))
@@ -69,30 +69,22 @@ var/global/universe_has_ended = 0
 			M.client.screen += cinematic
 
 /datum/universal_state/nuclear_explosion/proc/start_cinematic_intro()
-	for(var/mob/M in GLOB.player_list) //I guess so that people in the lobby only hear the explosion
-		sound_to(M, sound('sounds/machines/Alarm.ogg'))
-
 	sleep(100)
-
 	show_cinematic_to_players()
 	flick("intro_nuke",cinematic)
 	sleep(30)
 
 /datum/universal_state/nuclear_explosion/proc/play_cinematic_station_destroyed()
+	flick("site_explosion",cinematic)
 	sound_to(world, sound('sounds/effects/explosionfar.ogg'))//makes no sense if you're not on the station but whatever
-
-	flick("station_explode_fade_red",cinematic)
-	cinematic.icon_state = "summary_selfdes"
+	cinematic.icon_state = "summary_site"
 	sleep(80)
 
 /datum/universal_state/nuclear_explosion/proc/play_cinematic_station_unaffected()
-	cinematic.icon_state = "station_intact"
+	cinematic.icon_state = "site_intact"
 	sleep(5)
 	sound_to(world, sound('sounds/effects/explosionfar.ogg'))//makes no sense if you are on the station but whatever
-
-
 	sleep(75)
-
 
 //MALF
 /datum/universal_state/nuclear_explosion/malf/start_cinematic_intro()
