@@ -466,3 +466,17 @@
 	author = "Monochrome Media"
 	license = /decl/license/cc_by_sa_3_0
 	url = "https://www.youtube.com/watch?v=LtkJmAAknLE"
+
+/decl/audio/track/dawn_of_the_moors_main_menu
+	source = 'sounds/music/Dawn_Of_The_Doors_Main_Menu.ogg'
+	title = "Dawn Of The Doors Main Menu"
+	author = "LSPLASH"
+	license = /decl/license/cc_by_sa_3_0
+	url = "https://www.youtube.com/watch?v=__cCs-zxsVo"
+
+/decl/audio/track/scp_cb_main_menu
+	source = 'sounds/music/SCP_CB_Main_Menu.ogg'
+	title = "SCP: CB Main Menu"
+	author = "Joonas Rikkonen"
+	license = /decl/license/cc_by_sa_3_0
+	url = "https://www.youtube.com/watch?v=octyAY4SWE0"

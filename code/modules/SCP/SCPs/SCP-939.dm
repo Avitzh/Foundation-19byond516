@@ -36,13 +36,17 @@
 	mymob.client.screen += src.adding + src.other
 	var/list/hud_elements = list()
 	var/mob/living/H = mymob
-	H.fov = new /obj/screen/fov/scp939()
+	H.fov = new /atom/movable/screen/fov/scp939()
 	hud_elements |= H.fov
 
-	H.fov_mask = new /obj/screen/fov_mask/scp939()
+	H.fov_mask = new /atom/movable/screen/fov/fov_mask/scp939()
 	hud_elements |= H.fov_mask
 	mymob.client.screen += hud_elements
 
+	mymob.update_cone_size()
+	mymob.reload_fullscreen()
+	mymob.update_lighting_size()
+	to_chat(mymob, SPAN_BOLD("Use Rest to look around."))
 /datum/ai_holder/simple_animal/melee/scp939
 	mauling = TRUE
 
@@ -117,14 +121,13 @@
 /mob/living/simple_animal/hostile/scp939
 	name = "large red dog"
 	desc = "A huge, hulking dog-looking creature. It lacks eyes and seems to respond to sound..."
-	icon = 'icons/SCP/scp-939.dmi'
+	icon = 'icons/SCP/SCP-939.dmi'
 
 	icon_state = "crawling"
 	icon_dead = "dead_dramatic"
 	icon_rest = "standing"
 	icon_living = "crawling" //backup incase admins fuck something up
 	alpha = 255
-	default_pixel_x = -8
 	default_pixel_y = -8
 
 	maxHealth = 650 // Ditto for below
@@ -202,9 +205,8 @@
 /mob/living/simple_animal/hostile/scp939/proc/FallAsleep()
 	if(is_sleeping)
 		return
-	visible_message(
-		SPAN_NOTICE("[src] falls asleep."),
-		SPAN_NOTICE("You fall asleep."))
+	visible_message(SPAN_NOTICE("[src] falls asleep."))
+	to_chat(src, SPAN_NOTICE("You fall asleep."))
 	icon_state = "slep"
 	is_sleeping = TRUE
 	addtimer(CALLBACK(src, PROC_REF(WakeUp)), rand((2 MINUTES), (4 MINUTES)))
@@ -269,6 +271,10 @@
 	if(nutrition >= 1)
 		AdjustNutrition(-nutriloss)
 
+	if(resting)
+		icon_state = icon_rest
+	if(!resting)
+		icon_state = "crawling"
 /mob/living/simple_animal/hostile/scp939/proc/memetic_effect(mob/living/carbon/human/H)
 	var/obj/item/organ/internal/stomach/stomach_organ = H.internal_organs_by_name[BP_STOMACH]
 	var/randval = rand(1,4)

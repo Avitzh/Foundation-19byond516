@@ -607,8 +607,24 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 /datum/species/proc/update_skin(mob/living/carbon/human/H)
 	return
 
+/obj/item/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(SpawnDisarmEffect), target)) //Spawn bite effect, as it looks good.
+
+/obj/item/proc/SpawnDisarmEffect(mob/living/target)
+	if(!QDELETED(target))
+		var/obj/effect/temp_visual/disarm/B = new (get_turf(target))
+		B.pixel_x = rand(-8, 8)
+		B.pixel_y = rand(-8, 8)
+
 /datum/species/proc/disarm_attackhand(mob/living/carbon/human/attacker, mob/living/carbon/human/target)
 	attacker.do_attack_animation(target)
+
+	// Spawn disarm visual effect
+	if(!QDELETED(target))
+		var/obj/effect/temp_visual/disarm/B = new (get_turf(target))
+		B.pixel_x = rand(-8, 8)
+		B.pixel_y = rand(-8, 8)
 
 	if(target.w_uniform)
 		target.w_uniform.add_fingerprint(attacker)

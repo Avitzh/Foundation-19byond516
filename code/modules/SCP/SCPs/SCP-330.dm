@@ -47,7 +47,6 @@
 
 	var/obj/item/I = new candy_type
 	H.put_in_active_hand(I)
-	visible_message(user_takes) // for check
 	if(user_candies_taken >= 3)
 		amputate(H)
 

@@ -7,10 +7,10 @@
 	response_help  = "pokes"
 	response_disarm = "prods"
 	response_harm   = "stomps on"
-	icon_state = "brainslug"
-	item_state = "voxslug" // For the lack of a better sprite...
-	icon_living = "brainslug"
-	icon_dead = "brainslug_dead"
+	icon_state = "voxslug"
+	item_state = "voxslug"
+	icon_living = "voxslug"
+	icon_dead = "voxslug_dead"
 	movement_cooldown = 3
 	a_intent = I_HURT
 	status_flags = CANPUSH
