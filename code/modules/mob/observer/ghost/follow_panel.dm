@@ -1,4 +1,6 @@
-/*/datum/follow_panel/tgui_interact(mob/user, datum/tgui/ui)
+// It will be live
+
+/datum/follow_panel/tgui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 
 	if(!ui)
@@ -17,6 +19,8 @@
 	var/list/misc = list()
 	var/list/npcs = list()
 
+	var/list/scps = list()
+
 	for(var/name in new_mob_pois)
 		var/list/serialized = list()
 
@@ -24,7 +28,7 @@
 
 		var/poi_ref = ref(mob_poi)
 
-		var/number_of_orbiters = length(mob_poi.get_all_orbiters())
+		var/number_of_orbiters = 0 //length(mob_poi.get_all_orbiters())
 
 		serialized["ref"] = poi_ref
 		serialized["full_name"] = name || "Unknown"
@@ -44,6 +48,8 @@
 			continue
 
 		if(isnull(mob_poi.mind))
+			if(mob_poi in GLOB.SCP_list)
+				continue
 			npcs += list(serialized)
 			continue
 
@@ -57,7 +63,7 @@
 			if(issilicon(player))
 				serialized["job"] = player.job
 			else
-				var/obj/item/card/id/id_card = player.get_id_card()
+				var/obj/item/card/id/id_card = player.GetIdCard()
 				serialized["job"] = id_card?.assignment
 
 		var/show_antags = FALSE
@@ -79,28 +85,20 @@
 
 	for(var/name in new_other_pois)
 		var/atom/atom_poi = new_other_pois[name]
+		if(atom_poi in GLOB.SCP_list)
+			continue
 
 		misc += list(list(
 			"ref" = ref(atom_poi),
 			"full_name" = name,
 		))
 
-		if(istype(atom_poi, /obj/machinery/power/supermatter))
-			var/obj/machinery/power/supermatter/crystal = atom_poi
-			misc[length(misc)]["extra"] = "Integrity: [round(crystal.get_integrity())]%"
-			continue
+	for(var/mob/mob_poi in GLOB.SCP_list)
 
-		if(istype(atom_poi, /obj/machinery/nuclearbomb))
-			var/obj/machinery/nuclearbomb/bomb = atom_poi
-			if(bomb.timing)
-				misc[length(misc)]["extra"] = "Timer: [bomb.timeleft / 10]s"
-			continue
-
-		if(istype(atom_poi, /obj/item/disk/nuclear))
-			var/obj/item/disk/nuclear/disk = atom_poi
-			var/mob/holder = disk.pulledby || get(disk, /mob)
-			misc[length(misc)]["extra"] = "Location: [holder?.real_name || "Unsecured"]"
-			continue
+		scps += list(list(
+			"ref" = ref(mob_poi),
+			"full_name" = "SCP-[mob_poi.SCP.designation]",
+		))
 
 	return list(
 		"alive" = alive,
@@ -109,6 +107,7 @@
 		"ghosts" = ghosts,
 		"misc" = misc,
 		"npcs" = npcs,
+		"scps" = scps,
 	)
 
 /datum/follow_panel/tgui_act(action, params)
@@ -129,7 +128,7 @@
 				return TRUE
 
 			var/mob/observer/ghost/user = usr
-			user.ManualFollow(poi)
+			user.start_following(poi)
 			return TRUE
 
 		if ("refresh")
@@ -137,4 +136,4 @@
 			return TRUE
 
 /datum/follow_panel/tgui_state(mob/user)
-	return GLOB.tgui_always_state          */ // WORK IN PROGRESS    ported from chaotic onyx
+	return GLOB.always_tgui_state

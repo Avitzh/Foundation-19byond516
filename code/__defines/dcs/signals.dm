@@ -266,3 +266,10 @@
 
 /// Called in '/mob/proc/reset_view' on every atom in view of new eyeobj (/mob/viewer, /atom/new_view)
 #define COMSIG_ATOM_VIEW_RESET "atomViewReset"
+
+
+// Point of interest signals
+/// Sent from base of /datum/controller/subsystem/points_of_interest/proc/on_poi_element_added : (atom/new_poi)
+#define SIGNAL_ADDED_POI "added_point_of_interest"
+/// Sent from base of /datum/controller/subsystem/points_of_interest/proc/on_poi_element_removed : (atom/old_poi)
+#define SIGNAL_REMOVED_POI "removed_point_of_interest"

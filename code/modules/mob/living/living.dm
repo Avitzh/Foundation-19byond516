@@ -4,6 +4,7 @@
 	var/usefov = 0 //By default, mobs should not use FOV
 	var/lastsound
 	var/scpLocalFlickLightCooldown = 0 // Cooldown timer for SCP light flick ability
+	is_poi = TRUE // Making them sooo interest for ghost
 
 /mob/living/Initialize()
 	. = ..()

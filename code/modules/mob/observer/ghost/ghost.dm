@@ -32,6 +32,11 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	var/obj/item/device/multitool/ghost_multitool
 	var/list/hud_images // A list of hud images
 
+	/// Holder for a follow-orbit panel.
+	var/datum/follow_panel/follow_panel = new()
+
+	is_poi = TRUE
+
 /mob/observer/ghost/Initialize(mapload)
 	see_in_dark = 100
 	add_verb(src, /mob/proc/toggle_antag_pool)

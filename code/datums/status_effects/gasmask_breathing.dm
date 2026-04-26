@@ -1,7 +1,7 @@
 /datum/status_effect/gasmask_breathing
 	id = "gasmask_breathing"
 	duration = -1
-	tick_interval = 30                     // проверяем каждые 3 секунды
+	tick_interval = 30
 	alert_type = null
 	var/obj/item/clothing/mask/linked_mask
 	var/sound_channel_internal = 1012
@@ -13,11 +13,6 @@
 	if(!.)
 		return
 	linked_mask = source_mask
-
-	var/mob/living/carbon/human/H = owner
-	if(istype(H))
-		H.overlay_fullscreen("gasmask", /atom/movable/screen/fullscreen/impaired, 1)
-
 	play_breath_sounds()
 
 /datum/status_effect/gasmask_breathing/tick()
@@ -26,9 +21,7 @@
 		qdel(src)
 		return
 
-	// Проверяем, должен ли персонаж дышать и способен ли он это делать сейчас
-	var/can_breathe = H.need_breathe() && (H.stat == CONSCIOUS) && !H.InStasis()
-	if(!can_breathe || H.wear_mask != linked_mask)
+	if(H.wear_mask != linked_mask)
 		qdel(src)
 		return
 
@@ -39,22 +32,18 @@
 	if(!istype(H))
 		return
 
-	var/can_breathe = H.need_breathe() && (H.stat == CONSCIOUS) && !H.InStasis()
-	if(!can_breathe)
-		return
-
 	if(is_playing)
 		return
 	is_playing = TRUE
 
-	// ВНУТРЕННИЙ ЗВУК — слышит ТОЛЬКО владелец
+	// Внутренний звук — слышит только владелец
 	var/sound/internal_sound = sound('sounds/effects/gasmask_breath_internal.ogg')
-	internal_sound.volume = 30
+	internal_sound.volume = 20 // УМЕНЬШИЛ ГРОМКОСТЬ
 	internal_sound.channel = sound_channel_internal
 	internal_sound.wait = 1
 	H << internal_sound
 
-	// ВНЕШНИЙ ЗВУК — слышат ВСЕ КРОМЕ владельца
+	// Внешний звук — слышат все кроме владельца
 	var/sound/external_sound = sound('sounds/effects/gasmask_breath_external.ogg')
 	external_sound.volume = 30
 	external_sound.channel = sound_channel_external
@@ -75,7 +64,6 @@
 /datum/status_effect/gasmask_breathing/Destroy()
 	var/mob/living/carbon/human/H = owner
 	if(istype(H))
-		H.clear_fullscreen("gasmask")
 		// Останавливаем внутренний канал
 		var/sound/stop1 = sound(null)
 		stop1.channel = sound_channel_internal

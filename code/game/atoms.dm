@@ -20,6 +20,9 @@
 	///Value used to increment ex_act() if reactionary_explosions is on
 	var/explosion_block = 0
 
+	/// This defines whether this atom will be added to SSpoi, set TRUE if you want it to be shown in follow panel
+	var/is_poi = FALSE
+
 	/// How this atom should react to having its pathfinding blocking checked
 	var/can_astar_pass = CANPATHINGPASS_DENSITY
 
@@ -71,6 +74,9 @@
 		var/turf/T = loc
 		if(istype(T))
 			T.RecalculateOpacity()
+
+	if(is_poi)
+		SSpoints_of_interest.make_point_of_interest(src)
 
 	if(health_max)
 		health_current = health_max

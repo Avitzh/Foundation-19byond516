@@ -1,0 +1,464 @@
+// ----------------------------
+// Базовые типы SCP-бумаг (иконки Safe / Euclid / Keter)
+// ----------------------------
+
+/obj/item/paper/scp_document
+	icon = 'icons/obj/bureaucracy.dmi'
+
+/obj/item/paper/scp_document/on_update_icon()
+	return
+
+/obj/item/paper/scp_document/safe
+	icon_state = "Safe_paper"
+
+/obj/item/paper/scp_document/euclid
+	icon_state = "Euclid_paper"
+
+/obj/item/paper/scp_document/keter
+	icon_state = "Keter_paper"
+
+// ----------------------------
+// БЕЗОПАСНЫЕ (SAFE)
+// ----------------------------
+
+/obj/item/paper/scp_document/safe/scp008
+	name = "Документ SCP-008"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-008
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Образцы SCP-008 хранятся в криогенном хранилище биологического уровня 4. Доступ только с письменного разрешения двух сотрудников уровня 4.<br>
+<b>Описание:</b> SCP-008 — прион, вызывающий 100% летальный геморрагический энцефалит. При попадании в организм трансформирует его в агрессивного переносчика («зомби»).<br>
+<i>Примечание: Несмотря на свой потенциал, объект считается безопасным при соблюдении протоколов.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp066
+	name = "Документ SCP-066"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-066
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Хранить в звукоизолированном сейфе. Не подвергать воздействию света с длиной волны 400-700 нм.<br>
+<b>Описание:</b> SCP-066 — маленький моток голубой пряжи, который при освещении издаёт звуки, напоминающие человеческий голос, и пытается перемещаться.<br>
+<i>Примечание: Безвреден в темноте.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp151
+	name = "Документ SCP-151"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-151
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Хранить накрытым непрозрачной тканью. Просмотр разрешён только с одобрения персонала уровня 2.<br>
+<b>Описание:</b> Картина, изображающая вид из-под воды. При просмотре в течение 24 часов лёгкие субъекта заполняются морской водой.<br>
+<i>Примечание: Жертвы умирают на суше с водой в лёгких.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp247
+	name = "Документ SCP-247"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-247
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Содержать в стандартной клетке для мелких животных. Кормить дважды в день.<br>
+<b>Описание:</b> Кот, который кажется человеку тем, кого он больше всего хочет видеть. На самом деле это обычный рыжий кот.<br>
+<i>Примечание: Не позволяет брать себя на руки.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp263
+	name = "Документ SCP-263"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-263
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Дверь должна быть заперта с обеих сторон. Входить только с ключ-картой уровня 2.<br>
+<b>Описание:</b> Обычная деревянная дверь, которая ведёт в случайное помещение в радиусе 5 км.<br>
+<i>Примечание: Полезно для экстренной эвакуации.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp294
+	name = "Документ SCP-294"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-294
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Стандартное содержание в столовой. Не запрашивать опасные жидкости.<br>
+<b>Описание:</b> Кофейный автомат, способный выдать любую жидкость, которую можно описать.<br>
+<i>Примечание: Пытались заказать «жидкое золото» — сломали автомат.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp343
+	name = "Документ SCP-343"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-343
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Содержится в комфортной камере. Сотрудничает добровольно.<br>
+<b>Описание:</b> Пожилой мужчина, утверждающий, что он — Бог. Демонстрирует всеведение и способность изменять реальность.<br>
+<i>Примечание: Попытки доказать обратное провалились.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp409
+	name = "Документ SCP-409"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-409
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Хранить в свинцовом контейнере. Не прикасаться голыми руками.<br>
+<b>Описание:</b> Кристалл, превращающий органические ткани в аналогичный кристалл. Процесс необратим.<br>
+<i>Примечание: Заражённые участки подлежат ампутации.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp529
+	name = "Документ SCP-529"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-529
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Стандартная клетка с лотком. Кормить сыром.<br>
+<b>Описание:</b> Кошка, у которой отсутствует задняя половина тела. Несмотря на это, передвигается и мяукает.<br>
+<i>Примечание: Не пытайтесь увидеть место среза.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp714
+	name = "Документ SCP-714"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-714
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Хранить в ящике стола. Не надевать без необходимости.<br>
+<b>Описание:</b> Нефритовое кольцо, которое при ношении вызывает сильную сонливость и замедляет метаболизм.<br>
+<i>Примечание: Можно использовать как средство от бессонницы.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp896
+	name = "Документ SCP-896"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-896
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Диск должен храниться в футляре. Запускать только на изолированной консоли.<br>
+<b>Описание:</b> Видеоигра, которая при проигрыше вызывает у игрока разрыв сосудов головного мозга.<br>
+<i>Примечание: Никто не прошёл дальше третьего уровня.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp953
+	name = "Документ SCP-953"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-953
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Содержать в гуманоидной камере. Не кормить мясом.<br>
+<b>Описание:</b> Женщина-лисица, способная очаровывать людей и высасывать их жизненную силу через прикосновение.<br>
+<i>Примечание: В мифологии известна как кицунэ.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp999
+	name = "Документ SCP-999"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-999
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> SCP-999 может свободно перемещаться по зоне содержания при условии, что он не пытается покинуть её пределы. Объект должен ежедневно получать порцию сладостей и иметь доступ к играм и развлечениям. Любые эксперименты с SCP-999 должны проводиться с учетом его психологического состояния.<br>
+<b>Описание:</b> SCP-999 представляет собой аморфное, полупрозрачное существо оранжевого цвета, напоминающее желе. При контакте с человеком SCP-999 вызывает сильное чувство эйфории и радости, а также способно временно облегчать симптомы депрессии и тревоги. Объект проявляет игривое и дружелюбное поведение по отношению ко всем формам жизни.<br>
+<i>Примечание: SCP-999 — одно из немногих существ, которое способно улучшать настроение SCP-682, хотя эффект временный.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp1025
+	name = "Документ SCP-1025"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-1025
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Хранить в библиотеке. Читателям напоминать о возможной ипохондрии.<br>
+<b>Описание:</b> Энциклопедия болезней, которая после прочтения вызывает у читателя симптомы описанной болезни.<br>
+<i>Примечание: Рекомендовано к прочтению только здоровым сотрудникам.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/safe/scp1499
+	name = "Документ SCP-1499"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-1499
+<b>Класс:</b> Безопасный
+<hr><b>Особые условия содержания:</b> Хранить в стандартном шкафу. Не надевать без разрешения.<br>
+<b>Описание:</b> Противогаз, надев который, человек перемещается в безлюдный индустриальный мир.<br>
+<i>Примечание: Возвращение происходит после снятия противогаза.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+// ----------------------------
+// ЕВКЛИДЫ (EUCLID)
+// ----------------------------
+
+/obj/item/paper/scp_document/euclid/scp012
+	name = "Документ SCP-012"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-012
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> Хранить в затемнённой камере. Освещать только инфракрасным светом.<br>
+<b>Описание:</b> Незавершённая музыкальная партитура, написанная кровью. При взгляде на неё людей тянет завершить её своей кровью.<br>
+<i>Примечание: Завершение произведения приводит к смерти.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/euclid/scp049
+	name = "Документ SCP-049"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-049
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> SCP-049 должен содержаться в стандартной гуманоидной камере содержания. Любые эксперименты требуют одобрения не менее двух сотрудников 3-го уровня допуска. Объект может свободно передвигаться по лёгкой зоне содержания с сопровождением.<br>
+<b>Описание:</b> SCP-049 — гуманоидный объект, внешне напоминающий чумного доктора XIV века. Объект разумен и способен общаться на нескольких языках. При контакте с человеком SCP-049 утверждает, что замечает "чуму" и предлагает "лечение". Лечение приводит к летальному исходу и последующей реанимации в виде SCP-049-1 (зомби).<br>
+<i>Примечание: Объект испытывает неподдельное удивление, когда его "лечение" отвергают.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/euclid/scp080
+	name = "Документ SCP-080"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-080
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> Хранить в звуконепроницаемой камере. Постоянное освещение.<br>
+<b>Описание:</b> Сущность, обитающая в темноте и питающаяся страхом. Проявляет себя как неестественно тёмный угол.<br>
+<i>Примечание: Свет его рассеивает.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/euclid/scp082
+	name = "Документ SCP-082"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-082
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> Содержать в гуманоидной камере с усиленными стенами. Не вступать в беседу.<br>
+<b>Описание:</b> Оживший мультяшный персонаж огромного роста, страдающий каннибализмом. Называет себя «Фердинанд».<br>
+<i>Примечание: Способен прокусить бетон.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/euclid/scp087
+	name = "Документ SCP-087"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-087
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> Вход в лестничный пролёт закрыт стальной дверью. Любые исследования требуют видеонаблюдения.<br>
+<b>Описание:</b> Бесконечный тёмный лестничный пролёт, в котором слышен детский плач. На глубине около 200 метров появляется лицо.<br>
+<i>Примечание: Исследователи не возвращались.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/euclid/scp096
+	name = "Документ SCP-096"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-096
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> SCP-096 должен содержаться в герметичной стальной камере размером 5 x 5 x 5 метров. Категорически запрещено просматривать любые изображения объекта, включая видеозаписи и фотографии. При нарушении условий смотреть прямо на лицо SCP-096 разрешено только сертифицированным сотрудникам с убранными лицевыми изображениями.<br>
+<b>Описание:</b> SCP-096 — худой гуманоид ростом около 2.38 метра. При просмотре его лица (включая непрямые изображения) объект впадает в неконтролируемую ярость и бежит к наблюдателю, игнорируя любые препятствия. После достижения цели он убивает её, после чего успокаивается.<br>
+<i>Примечание: Никакие известные материалы не могут остановить движение объекта после активации.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/euclid/scp173
+	name = "Документ SCP-173"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-173
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> SCP-173 должен содержаться в закрытом контейнере не менее 3 x 3 метра. Персонал должен входить в камеру только группами не менее трёх человек. Дверь должна запираться за ними. При нахождении в камере как минимум два человека должны постоянно поддерживать прямой зрительный контакт с объектом, пока третий убирает помещение.<br>
+<b>Описание:</b> SCP-173 представляет собой бетонную скульптуру неизвестного происхождения. Объект неподвижен, пока за ним наблюдают. При разрыве зрительного контакта он мгновенно перемещается и атакует жертву, ломая ей шею. Издаёт характерный скрежет бетона при движении.<br>
+<i>Примечание: Красный краситель на поверхности не является краской. Анализ показывает, что это смесь человеческой крови и мочи.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/euclid/scp966
+	name = "Документ SCP-966"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-966
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> Содержать в клетке с постоянным ультрафиолетовым освещением.<br>
+<b>Описание:</b> Человекоподобные существа, лишённые оперения и кожи. Излучают радиоволны, вызывающие бессонницу и галлюцинации.<br>
+<i>Примечание: Видимы только в УФ-спектре.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/euclid/scp1102_ru
+	name = "Документ SCP-1102-RU"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-1102-RU
+<b>Класс:</b> Евклид
+<hr><b>Особые условия содержания:</b> Зеркало хранить в закрытом помещении без окон. Смотреть только через видеокамеру.<br>
+<b>Описание:</b> Зеркало, отражающее не реальность, а альтернативную версию событий. Может предсказывать будущее.<br>
+<i>Примечание: Не заглядывайтесь в него слишком долго.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+// ----------------------------
+// КЕТЕРЫ (KETER)
+// ----------------------------
+
+/obj/item/paper/scp_document/keter/scp106
+	name = "Документ SCP-106"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-106
+<b>Класс:</b> Кетер
+<hr><b>Особые условия содержания:</b> SCP-106 должен содержаться в герметичном контейнере с облицовкой из свинца и постоянным притоком свежей воды. Контейнер укреплён и должен регулярно осматриваться на предмет коррозии. При нарушении условий содержания персонал должен немедленно сообщить по тревоге.<br>
+<b>Описание:</b> SCP-106 — гуманоидный объект, способный проходить сквозь любые твёрдые материалы путём коррозии. При контакте с живой тканью вызывает быстрое гниение. Объект проявляет садистские наклонности, предпочитая медленно преследовать жертву.<br>
+<i>Примечание: Свет вызывает у SCP-106 временную дезориентацию, что может быть использовано для отступления.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/keter/scp280
+	name = "Документ SCP-280"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-280
+<b>Класс:</b> Кетер
+<hr><b>Особые условия содержания:</b> Содержится в магнитном поле. При прорыве — эвакуация персонала.<br>
+<b>Описание:</b> Чёрный туман, поглощающий всё живое. При контакте вызывает мгновенное разложение.<br>
+<i>Примечание: Он ищет тепло.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/keter/scp457
+	name = "Документ SCP-457"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-457
+<b>Класс:</b> Кетер
+<hr><b>Особые условия содержания:</b> SCP-457 должен содержаться в камере с инертной атмосферой и отсутствием горючих материалов. Все источники воспламенения запрещены в радиусе 20 метров. Объект нельзя тушить водой — использовать только гасящие пены.<br>
+<b>Описание:</b> SCP-457 представляет собой разумное пламя, способное менять свою форму. При поглощении горючего материала объект увеличивает свою массу и силу. Обладает примитивным интеллектом и агрессивно реагирует на любое органическое вещество.<br>
+<i>Примечание: Любые попытки потушить объект водой приводили к взрывообразному распространению пламени.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/keter/scp682
+	name = "Документ SCP-682"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-682
+<b>Класс:</b> Кетер
+<hr><b>Особые условия содержания:</b> SCP-682 должен быть уничтожен как можно скорее. На данный момент ни один из известных методов не способен полностью уничтожить объект. SCP-682 должен содержаться в камере с стенами, усиленными кислотным покрытием, и регулярно проверяться на предмет повреждений. Любые попытки общения с SCP-682 должны быть ограничены и проводиться только с одобрения О5.<br>
+<b>Описание:</b> SCP-682 — крупная рептилия неясного происхождения с чрезвычайно высоким интеллектом. Проявляет агрессию ко всему живому. Способен к регенерации и адаптации к любым видам повреждений. Обладает способностью поглощать материю для восстановления и изменения своего тела.<br>
+<i>Примечание: Попытки использования SCP-682 в экспериментах с другими SCP-объектами запрещены без специального разрешения.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/keter/scp939
+	name = "Документ SCP-939"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-939
+<b>Класс:</b> Кетер
+<hr><b>Особые условия содержания:</b> SCP-939 должны содержаться в звуконепроницаемой камере. Персонал обязан использовать визуальное наблюдение через камеры без аудиоканала. Любое голосовое общение вблизи камеры запрещено.<br>
+<b>Описание:</b> SCP-939 — стайные хищники, лишённые зрения, но обладающие исключительным слухом. Они способны имитировать человеческую речь, включая голоса ранее убитых жертв, чтобы заманить добычу. Их слюна вызывает амнезию и галлюцинации.<br>
+<i>Примечание: Анализ вокализаций показал, что объекты способны запоминать и воспроизводить фразы целиком.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+/obj/item/paper/scp_document/keter/scp1366
+	name = "Документ SCP-1366"
+	info = {"<center><b><h1>Фонд SCP</h1></b></center>
+<small><center>Зона 53</center></small>
+<center><img src="scplogo.png"></center>
+<center><b>Secure. Contain. Protect.</b></center>
+<hr><b>Объект №:</b> SCP-1366
+<b>Класс:</b> Кетер
+<hr><b>Особые условия содержания:</b> Образцы воды хранить в герметичных ёмкостях. Не выливать в открытые водоёмы.<br>
+<b>Описание:</b> Образец океанской воды, который телепатически призывает к себе морских существ. При попадании в океан вызывает цунами.<br>
+<i>Примечание: Источник неизвестен.</i>
+<hr><b>Подпись исследователя:</b> <span class="paper_field"></span>"}
+
+// ----------------------------
+// ПАПКА С ПОЛНЫМ ДОСЬЕ
+// ----------------------------
+
+/obj/item/folder/scp_docs/full
+	name = "Папка с полным досье SCP"
+	desc = "Содержит отчёты по большинству известных аномалий."
+
+/obj/item/folder/scp_docs/full/New()
+	..()
+	// Безопасные
+	new /obj/item/paper/scp_document/safe/scp008(src)
+	new /obj/item/paper/scp_document/safe/scp066(src)
+	new /obj/item/paper/scp_document/safe/scp151(src)
+	new /obj/item/paper/scp_document/safe/scp247(src)
+	new /obj/item/paper/scp_document/safe/scp263(src)
+	new /obj/item/paper/scp_document/safe/scp294(src)
+	new /obj/item/paper/scp_document/safe/scp343(src)
+	new /obj/item/paper/scp_document/safe/scp409(src)
+	new /obj/item/paper/scp_document/safe/scp529(src)
+	new /obj/item/paper/scp_document/safe/scp714(src)
+	new /obj/item/paper/scp_document/safe/scp896(src)
+	new /obj/item/paper/scp_document/safe/scp953(src)
+	new /obj/item/paper/scp_document/safe/scp999(src)
+	new /obj/item/paper/scp_document/safe/scp1025(src)
+	new /obj/item/paper/scp_document/safe/scp1499(src)
+	// Евклиды
+	new /obj/item/paper/scp_document/euclid/scp012(src)
+	new /obj/item/paper/scp_document/euclid/scp049(src)
+	new /obj/item/paper/scp_document/euclid/scp080(src)
+	new /obj/item/paper/scp_document/euclid/scp082(src)
+	new /obj/item/paper/scp_document/euclid/scp087(src)
+	new /obj/item/paper/scp_document/euclid/scp096(src)
+	new /obj/item/paper/scp_document/euclid/scp173(src)
+	new /obj/item/paper/scp_document/euclid/scp966(src)
+	new /obj/item/paper/scp_document/euclid/scp1102_ru(src)
+	// Кетеры
+	new /obj/item/paper/scp_document/keter/scp106(src)
+	new /obj/item/paper/scp_document/keter/scp280(src)
+	new /obj/item/paper/scp_document/keter/scp457(src)
+	new /obj/item/paper/scp_document/keter/scp682(src)
+	new /obj/item/paper/scp_document/keter/scp939(src)
+	new /obj/item/paper/scp_document/keter/scp1366(src)
