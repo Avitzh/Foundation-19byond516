@@ -206,6 +206,7 @@
 	icon_state = "securitybelt"
 	item_state = "security"
 	storage_slots = 8
+	max_w_class = ITEM_SIZE_LARGE
 	overlay_flags = BELT_OVERLAY_ITEMS|BELT_OVERLAY_HOLSTER
 	can_hold = list(
 		/obj/item/crowbar,
@@ -240,6 +241,7 @@
 	desc = "Can hold security gear like handcuffs and flashes."
 	icon_state = "basicsecuritybelt"
 	item_state = "basicsecurity"
+	max_w_class = ITEM_SIZE_LARGE
 	overlay_flags = BELT_OVERLAY_ITEMS
 	can_hold = list(
 		/obj/item/crowbar,
@@ -579,6 +581,7 @@
 
 /obj/item/storage/belt/holster/security/tactical
 	name = "combat belt"
+	max_w_class = ITEM_SIZE_LARGE
 	desc = "Can hold security gear like handcuffs and flashes, with more pouches for more storage."
 	icon_state = "swatbelt"
 	item_state = "swatbelt"

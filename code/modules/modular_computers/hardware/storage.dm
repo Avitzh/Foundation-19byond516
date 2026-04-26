@@ -217,3 +217,40 @@
 /obj/item/stock_parts/computer/storage/portable_drive/merchant/New()
 	store_file(new/datum/computer_file/program/merchant(src))
 	. = ..()
+
+// Флешка с шаблонами документов для научного отдела
+/obj/item/stock_parts/computer/storage/portable_drive/universal_templates
+	name = "data drive - 'Universal Templates'"
+	desc = "A small drive containing various blank document templates for SCP Foundation personnel."
+	icon_state = "flashdrive_basic" // можно заменить на уникальную иконку
+
+/obj/item/stock_parts/computer/storage/portable_drive/universal_templates/Initialize(mapload)
+	. = ..()
+	// Очищаем список файлов (если вдруг что-то уже есть)
+	stored_files = list()
+	used_capacity = 0
+
+	// Шаблон 1: Отчёт об эксперименте
+	var/datum/computer_file/data/text/template1 = new()
+	template1.filename = "Форма_тестирования_SCP"
+	template1.filetype = "TXT"
+	template1.stored_data = "\[center\] \[h1\]Журнал испытаний фонда\[/h1\] \[/center\]\[br\]\[b\]\[small\]\[center\] Зона 53 \[/center\]\[/small\]\[/b\]\[br\]\[center\] \[scilogo\] \[/center\]\[br\]\[center\] \[b\] Secure. Contain. Protect. \[/b\] \[/center\]\[br\]\[hr\]\[b\]Назначение теста\[/b\]: \[field\]\[br\]\[b\]Ведущий научный сотрудник\[/b\]: \[field\]\[br\]\[b\]Дополнительные научные сотрудники\[/b\]: \[field\]\[br\]\[b\]Дата и время тестирования\[/b\]: \[field\]\[br\]\[b\]Объект(ы), участвующие в тесте\[/b\]: \[field\]\[br\]\[b\]Использованные материалы\[/b\]: \[field\]\[br\]\[b\]Цель теста\[/b\]: \[field\]\[br\]\[hr\]\[b\]Примечания\[/b\]: \[field\]\[br\]\[hr\]\[b\]Сопутствующие документы\[/b\]: \[field\]\[br\]\[b\]Краткий отчёт\[/b\]: \[field\]"
+	template1.calculate_size()
+	store_file(template1)
+
+	// Шаблон 2: Заявка на строительство
+	var/datum/computer_file/data/text/template2 = new()
+	template2.filename = "Разрешение_на_Строительство"
+	template2.filetype = "TXT"
+	template2.stored_data = "\[center\] \[h1\]Разрешение на строительства Фонда\[/h1\] \[/center\]\[br\]\[b\]\[small\]\[center\] Зона 53 \[/center\]\[/small\]\[/b\]\[br\]\[center\] \[englogo\] \[/center\]\[br\]\[center\] \[b\] Secure. Contain. Protect. \[/b\] \[/center\]\[br\]\[b\]Ведущий инженер\[/b\]: \[field\]\[br\]\[b\]Дополнительные инженеры\[/b\]: \[field\]\[br\]\[b\]Описание планируемой постройки\[/b\]: \[field\]\[br\]\[b\]Срок строительства\[/b\]: \[field\]\[br\]\[b\]Необходимые материалы\[/b\]: \[field\]\[br\]\[hr\]\[b\]Подпись или печать руководителя\[/b\]: \[field\]"
+	template2.calculate_size()
+	store_file(template2)
+
+	// Шаблон 3: пропуск на КПП
+	var/datum/computer_file/data/text/template3 = new()
+	template3.filename = "Разрешение_на_Строительство"
+	template3.filetype = "TXT"
+	template3.stored_data = "\[center\]\[h1\]Фонд\[/h1\]\[/center\]\[br\]\[b\]\[small\]\[center\] Зона 53 \[/center\]\[/small\]\[/b\]\[br\]\[center\] \[seclogo\] \[/center\]\[br\]\[center\] \[b\] Secure. Contain. Protect. \[/b\] \[/center\]\[br\]\[hr\]\[small\]\[i\]РАЗРЕШЕНИЕ ДОЛЖНО БЫТЬ ВЫДАНО ПРИ ВЪЕЗДЕ И ВОЗВРАЩЕНО ПРИ ВЫЕЗДЕ С КОНТРОЛЬНО-ПРОПУСКНОГО ПУНКТА\[/i\]\[/small\]\[br\]Персоналу, выдавшему это разрешение, предоставляется доступ в указанную зону.\[br\]\[b\]Зона\[/b\]: \[field\]\[br\]\[b\]Имя работника\[/b\]: \[field\]\[br\]\[b\]Должность работника\[/b\]: \[field\]\[br\]\[b\]Цель входа\[/b\]: \[field\]\[br\]\[hr\]\[b\]Выдавший разрешение на пропуск через КПП\[/b\]: \[field\]"
+	template3.calculate_size()
+	store_file(template3)
+

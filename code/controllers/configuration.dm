@@ -2,7 +2,7 @@ var/list/gamemode_cache = list()
 
 /datum/configuration
 	var/server_name = null				// server name (for world name / status)
-	var/server_desc = null				// message to appear on the hub below server name, if set
+	var/server_desc = "<font color=\"#ff0000\"><b>Name:</b> Russian SCP Foundation 13<br>RP Mode: <b> HRP</b><br><b>Game Map:</b> Site 53<BR><b>Game Mode:</b> Extended"
 	var/server_suffix = null			// message to appear right after server's name
 	var/game_version = "Baystation12" //for topic status requests
 

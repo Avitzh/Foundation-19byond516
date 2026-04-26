@@ -12,13 +12,19 @@
 	icon_state = "intent_help"
 	screen_loc = SCP939_SCREEN_LOC_INTENT
 
-/obj/screen/intent/scp939/on_update_icon(mob/user)
+//obj/screen/intent/scp939/on_update_icon(mob/user)
+
+
+
+/obj/screen/intent/scp939/update_icon(mob/user)
+	// for intent icons
 	if(user.a_intent == I_HURT || user.a_intent == I_GRAB)
 		user.a_intent = I_HURT
 		icon_state = "intent_bite"
 	else
 		user.a_intent = I_HELP
 		icon_state = "intent_help"
+
 
 /datum/hud/scp939/FinalizeInstantiation() //uses SCP939 hud as placeholders
 	src.adding = list()
@@ -46,7 +52,8 @@
 	mymob.update_cone_size()
 	mymob.reload_fullscreen()
 	mymob.update_lighting_size()
-	to_chat(mymob, SPAN_BOLD("Use Rest to look around."))
+	to_chat(mymob, SPAN_GLOW(FONT_LARGE("Use Rest to look around.")))
+
 /datum/ai_holder/simple_animal/melee/scp939
 	mauling = TRUE
 
@@ -180,13 +187,22 @@
 		SCP_PLAYABLE|SCP_MEMETIC
 	)
 
-	SCP.min_time = 25 MINUTES //These things become VERY dangerous when multiple of them spawn
+	SCP.min_time = 30 MINUTES //These things become VERY dangerous when multiple of them spawn
+	SCP.min_playercount = 20
 	SCP.memeticFlags = MVISUAL|MAUDIBLE|MSYNCED //Needs to be synced to not indefinitely add this. Also uses VISUAL and AUDIBLE as if you're in range to see or hear 939, you're usually breathing the same air as it.
 	SCP.memetic_proc = TYPE_PROC_REF(/mob/living/simple_animal/hostile/scp939, memetic_effect) //re-used SCP-012 code, works for our purposes
 	SCP.compInit() //if only I understood this code
 	spawn_area = get_area(src) //Used to track where SCP-939 is mapped in (or spawned)
 
 //Incorporates lots of 2427-3 code, just because its good
+
+/mob/living/simple_animal/hostile/scp939/verb/scp_say(message as text)
+	set category = "SCP-939"
+	set name = "SCP say"
+
+	for(var/mob/A in GLOB.SCP_list)
+		if(A.client)
+			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))
 
 /mob/living/simple_animal/hostile/scp939/Bump(atom/A)
 	. = ..()
@@ -271,10 +287,32 @@
 	if(nutrition >= 1)
 		AdjustNutrition(-nutriloss)
 
+
 	if(resting)
+		/* if(!do_after(src, 1 SECOND, bonus_percentage = 25))
+			to_chat(src, SPAN_NOTICE("You must stand still to get up"))
+			return 1
+		src.visible_message( \
+			SPAN_NOTICE("\The [src] stands up"), \
+			SPAN_NOTICE("You stands up."))
+		sleep(1) */
 		icon_state = icon_rest
+		update_icons()
 	if(!resting)
 		icon_state = "crawling"
+		update_icons()
+
+	if(stat == DEAD)
+		icon_state = icon_dead
+		update_icons()
+	else
+		icon_state = icon_living
+		update_icons()
+
+
+
+
+
 /mob/living/simple_animal/hostile/scp939/proc/memetic_effect(mob/living/carbon/human/H)
 	var/obj/item/organ/internal/stomach/stomach_organ = H.internal_organs_by_name[BP_STOMACH]
 	var/randval = rand(1,4)

@@ -26,6 +26,8 @@
 	var/clogged
 	var/filter_water
 	var/gas_filter_strength = 1			//For gas mask filters
+	var/sound_breathing_active = FALSE
+	var/mob/living/carbon/human/wearer
 	hidden_from_codex = FALSE
 
 
@@ -58,6 +60,27 @@
 	filtered.update_values()
 
 	return filtered
+
+/obj/item/clothing/mask/gas/equipped(mob/user, slot)
+	. = ..()
+	if(slot == slot_wear_mask)
+		if(ishuman(user))
+			wearer = user
+			var/mob/living/carbon/human/H = user
+			H.remove_status_effect(/datum/status_effect/gasmask_breathing)
+			H.apply_status_effect(/datum/status_effect/gasmask_breathing, src)
+
+/obj/item/clothing/mask/gas/dropped(mob/user)
+	. = ..()
+	if(wearer)
+		wearer.remove_status_effect(/datum/status_effect/gasmask_breathing)
+		wearer = null
+
+/obj/item/clothing/mask/gas/Destroy()
+	if(wearer)
+		wearer.remove_status_effect(/datum/status_effect/gasmask_breathing)
+		wearer = null
+	return ..()
 
 /obj/item/clothing/mask/gas/half
 	name = "face mask"

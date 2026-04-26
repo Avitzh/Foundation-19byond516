@@ -3,6 +3,7 @@
 	var/atom/movable/screen/fov/fov_mask/fov_mask
 	var/usefov = 0 //By default, mobs should not use FOV
 	var/lastsound
+	var/scpLocalFlickLightCooldown = 0 // Cooldown timer for SCP light flick ability
 
 /mob/living/Initialize()
 	. = ..()

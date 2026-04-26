@@ -100,6 +100,7 @@
 	add_language(LANGUAGE_GUTTER, FALSE)
 	add_language(LANGUAGE_SIGN, FALSE)
 	add_language(LANGUAGE_ENGLISH, FALSE)
+	add_language(LANGUAGE_HUMAN_RUSSIAN, FALSE) // RU SCP 13
 	return ..()
 
 /mob/living/scp173/Destroy()
@@ -747,3 +748,30 @@
 	for(var/mob/A in GLOB.SCP_list)
 		if(A.client)
 			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))
+
+
+/mob/living/scp173/verb/flick_light()
+	set hidden = FALSE
+	set category = "SCP-173"
+	set name = "Flick light"
+	set desc = "Flick light like a dancepoll."
+
+	// 2 minutes cooldown
+	var/static/cooldown_time = 2 MINUTES
+
+	// Check cooldown
+	if(scpLocalFlickLightCooldown > world.time)
+		var/remaining_seconds = round((scpLocalFlickLightCooldown - world.time) / 10)
+		to_chat(src, "You need to wait [remaining_seconds] seconds before using this again.")
+		return
+
+	var/area/A = get_area(src)
+	if(!A)
+		return
+
+	log_and_message_staff("[src] flicks lights.")
+	for(var/obj/machinery/light/L in A)
+		L.flicker(rand(10, 20))
+
+	// Set cooldown
+	scpLocalFlickLightCooldown = world.time + cooldown_time
