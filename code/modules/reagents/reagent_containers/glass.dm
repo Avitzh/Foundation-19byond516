@@ -131,6 +131,9 @@
 	center_of_mass = "x=15;y=10"
 	matter = list(MATERIAL_GLASS = 500)
 
+	pickup_sound = SFX_PICKUP_HELMET
+	drop_sound = SFX_DROP_HELMET
+
 /obj/item/reagent_containers/glass/beaker/New()
 	..()
 	desc += " It can hold up to [volume] units."
@@ -280,6 +283,12 @@
 	volume = 180
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	acid_resistance = 1
+
+	drop_sound = SFX_DROP_METALPOT // lol glass
+	pickup_sound = SFX_PICKUP_METALPOT
+
+/obj/item/reagent_containers/glass/bucket/throw_impact(atom/hit_atom)
+	return
 
 /obj/item/reagent_containers/glass/bucket/wood
 	name = "bucket"

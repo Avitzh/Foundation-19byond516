@@ -206,10 +206,15 @@ var/const/NEGATIVE_INFINITY = -1#INF // win: -1.#INF, lin: -inf
 #define SPAN_FLASH_GREEN(X) "<font color='green'><blink>[X]</blink></font>" //green blink
 #define SPAN_FLASH_YELLOW(X) "<font color='yellow'><blink>[X]</blink></font>" //yellow blink
 
+
+
+#define SPAN_RED_1(X) "<font color='red'><font color='green'>[X]</font></font>" //red blink
+#define SPAN_GREEN_1(X) "<font color='green'><font color='yellow'>[X]</font></font>" //green blink
+#define SPAN_YELLOW_1(X) "<font color='yellow'><font color='red'><font color='green'>[X]</font></font></font>"
 // CSS ANIMATED TEXT - WORKS IN TGUI / BROWSER WINDOWS
 #define SPAN_RAINBOW(X) "<span style='color:red; animation: rainbow 2s linear infinite; @keyframes rainbow { 0%{color:red} 17%{color:orange} 33%{color:yellow} 50%{color:green} 67%{color:blue} 83%{color:indigo} 100%{color:red} }'>[X]</span>" //nothing
 #define SPAN_PULSE(X) "<span style='animation: pulse 1s ease-in-out infinite; @keyframes pulse { 0%{opacity:1} 50%{opacity:0.3} 100%{opacity:1} }'>[X]</span>" //nothing
-#define SPAN_GLOW(X) "<span style='text-shadow: 0 0 2px cyan; animation: glow 1s ease-in-out infinite alternate; @keyframes glow { 0%{text-shadow:0 0 4px cyan} 100%{text-shadow:0 0 20px cyan, 0 0 30px cyan} }'>[X]</span>" // bad glow
+#define SPAN_GLOW(X) "<span style='text-shadow: 0 0 3px red; animation: glow 1s ease-in-out infinite alternate; @keyframes glow { 0%{text-shadow:0 0 7px red} 100%{text-shadow:0 0 20px red, 0 0 30px red} }'>[X]</span>" // bad glow
 #define SPAN_SHAKE(X) "<span style='animation: shake 0.5s linear infinite; @keyframes shake { 0%{transform:translateX(0)} 25%{transform:translateX(-2px)} 75%{transform:translateX(2px)} 100%{transform:translateX(0)} }'>[X]</span>" // nothing
 
 #define FONT_COLORED(color, text) "<font color='[color]'>[text]</font>"

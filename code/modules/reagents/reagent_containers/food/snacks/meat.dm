@@ -13,6 +13,9 @@
 	food_reagents = list(/datum/reagent/nutriment/protein = 9)
 	cooks_into_type = /obj/item/reagent_containers/food/snacks/plainsteak
 
+	drop_sound = SFX_DROP_FLESH
+	pickup_sound = SFX_PICKUP_FLESH
+
 /obj/item/reagent_containers/food/snacks/meat/syntiflesh
 	name = "synthetic meat"
 	desc = "A slab of flesh synthetized from reconstituted biomass or artificially grown from chemicals."

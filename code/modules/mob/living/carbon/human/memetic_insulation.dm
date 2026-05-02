@@ -176,6 +176,22 @@ Made by TheDarkElites
 
 	cause_blink()
 
+/mob/living/carbon/human/proc/close_eyes() //This cant be handled in the eyes as eye processing and human life() processing are out of sync, causing weird bugs.
+	set_temp_blindness_if_lower(INFINITY)
+	visible_message(SPAN_NOTICE("[src] closed his eyes."), SPAN_NOTICE("You closed your eyes."))
+	BITSET(hud_updateflag, BLINK_HUD)
+	if(is_blinking)
+		blink_total = INFINITY
+		blink_current = blink_total
+
+/mob/living/carbon/human/proc/open_eyes() //This cant be handled in the eyes as eye processing and human life() processing are out of sync, causing weird bugs.
+	set_temp_blindness_if_lower(FALSE)
+	visible_message(SPAN_NOTICE("[src] opened his eyes."), SPAN_NOTICE("You opened your eyes."))
+	BITSET(hud_updateflag, BLINK_HUD)
+	if(is_blinking)
+		blink_total = 0
+		blink_current = blink_total
+
 #undef AUDIBLE_RANGE_FULL
 #undef AUDIBLE_RANGE_DECREASED
 #undef AUDIBLE_RANGE_NONE

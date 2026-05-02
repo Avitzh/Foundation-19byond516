@@ -551,6 +551,22 @@ var/global/floorIsLava = 0
 	log_and_message_staff("toggled AOOC.")
 	SSstatistics.add_field_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/datum/admins/proc/togglescpooc()
+	set category = "Server"
+	set desc="Globally Toggles SCPOOC"
+	set name="Toggle SCPOOC"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	config.scpooc_allowed = !(config.scpooc_allowed)
+	if (config.scpooc_allowed)
+		communicate_broadcast(/decl/communication_channel/scpooc, "The SCPOOC channel has been globally enabled!", TRUE)
+	else
+		communicate_broadcast(/decl/communication_channel/scpooc, "The SCPOOC channel has been globally disabled!", TRUE)
+	log_and_message_staff("toggled SCPOOC.")
+	SSstatistics.add_field_details("admin_verb","TSCPOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /datum/admins/proc/togglelooc()
 	set category = "Server"
 	set desc="Globally Toggles LOOC"

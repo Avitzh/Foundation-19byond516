@@ -7,6 +7,9 @@
 	base_type = /obj/item/stock_parts/console_screen
 	part_flags = PART_FLAG_HAND_REMOVE
 
+	drop_sound = SFX_DROP_GLASS
+	pickup_sound = SFX_PICKUP_GLASS
+
 /obj/item/stock_parts/console_screen/on_refresh(obj/machinery/machine)
 	..()
 	machine.set_noscreen(FALSE)

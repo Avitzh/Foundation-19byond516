@@ -187,6 +187,12 @@
 	icon_state = "steel"
 	initial_flooring = /decl/flooring/tiling
 
+/turf/simulated/floor/tiled_steel
+	name = "steel floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "tiled"
+	initial_flooring = /decl/flooring/tiled_steel
+
 /turf/simulated/floor/tiled/dark
 	name = "dark floor"
 	icon_state = "dark"
@@ -483,9 +489,233 @@
 	icon_state = "scales0"
 	initial_flooring = /decl/flooring/flesh
 
+// NEW FLOOR TILES
+/turf/simulated/floor/plating_norn
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "plating_norn"
+	initial_flooring = /decl/flooring/plating_norn
+
+/turf/simulated/floor/steel_monofloor
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "steel_monofloor"
+	initial_flooring = /decl/flooring/tiling/steel_monofloor
+
+/turf/simulated/floor/tiled_white
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "tiled_white"
+	initial_flooring = /decl/flooring/tiling/white
+
+/turf/simulated/floor/white_ridged
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "white_ridged"
+	initial_flooring = /decl/flooring/tiling/new_tile/white_ridged
+
+/turf/simulated/floor/white_herringbone
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "white_herringbone"
+	initial_flooring = /decl/flooring/tiling/white_herringbone
+
+/turf/simulated/floor/white_norn
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "white_norn"
+	initial_flooring = /decl/flooring/tiling/white_norn
+
+/turf/simulated/floor/textured_white
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_white"
+	initial_flooring = /decl/flooring/tiling/textured_white
+
+/turf/simulated/floor/textured_white_edge
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_white_edge"
+	initial_flooring = /decl/flooring/tiling/textured_white_edge
+
+/turf/simulated/floor/textured_white_half
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_white_half"
+	initial_flooring = /decl/flooring/tiling/textured_white_half
+
+/turf/simulated/floor/textured_white_corner
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_white_corner"
+	initial_flooring = /decl/flooring/tiling/textured_white_corner
+
+/turf/simulated/floor/white_grid
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "white_grid"
+	initial_flooring = /decl/flooring/tiling/new_tile/white_grid
+
+/turf/simulated/floor/textured_white_large
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_white_large"
+	initial_flooring = /decl/flooring/tiling/textured_white_large
+
+/turf/simulated/floor/darkfull
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "darkfull"
+	initial_flooring = /decl/flooring/tiling/darkfull
+
+/turf/simulated/floor/dark_old
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "dark_old"
+	initial_flooring = /decl/flooring/tiling/dark_old
+
+/turf/simulated/floor/dark_herringbone
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "dark_herringbone"
+	initial_flooring = /decl/flooring/tiling/dark_herringbone
+
+/turf/simulated/floor/tiled_dark
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "tiled_dark"
+	initial_flooring = /decl/flooring/tiling/dark
+
+/turf/simulated/floor/dark_ridged
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "dark_ridged"
+	initial_flooring = /decl/flooring/tiling/new_tile/dark_ridged
+
+/turf/simulated/floor/smooth_corner
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "smooth_corner"
+	initial_flooring = /decl/flooring/tiling/smooth_corner
+
+/turf/simulated/floor/smooth_large
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "smooth_large"
+	initial_flooring = /decl/flooring/tiling/smooth_large
+
+/turf/simulated/floor/smooth
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "smooth"
+	initial_flooring = /decl/flooring/tiling/smooth
+
+/turf/simulated/floor/smooth_edge
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "smooth_edge"
+	initial_flooring = /decl/flooring/tiling/smooth_edge
+
+/turf/simulated/floor/smooth_half
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "smooth_half"
+	initial_flooring = /decl/flooring/tiling/smooth_half
+
+/turf/simulated/floor/textured
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured"
+	initial_flooring = /decl/flooring/tiling/textured
+
+/turf/simulated/floor/textured_edge
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_edge"
+	initial_flooring = /decl/flooring/tiling/textured_edge
+
+/turf/simulated/floor/textured_half
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_half"
+	initial_flooring = /decl/flooring/tiling/textured_half
+
+/turf/simulated/floor/textured_corner
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_corner"
+	initial_flooring = /decl/flooring/tiling/textured_corner
+
+/turf/simulated/floor/textured_large
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_large"
+	initial_flooring = /decl/flooring/tiling/textured_large
+
+/turf/simulated/floor/steel_old
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "steel_old"
+	initial_flooring = /decl/flooring/tiling/steel_old
+
+/turf/simulated/floor/textured_dark
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_dark"
+	initial_flooring = /decl/flooring/tiling/textured_dark
+
+/turf/simulated/floor/textured_dark_edge
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_dark_edge"
+	initial_flooring = /decl/flooring/tiling/textured_dark_edge
+
+/turf/simulated/floor/textured_dark_half
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_dark_half"
+	initial_flooring = /decl/flooring/tiling/textured_dark_half
+
+/turf/simulated/floor/textured_dark_corner
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_dark_corner"
+	initial_flooring = /decl/flooring/tiling/textured_dark_corner
+
+/turf/simulated/floor/textured_dark_large
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "textured_dark_large"
+	initial_flooring = /decl/flooring/tiling/textured_dark_large
+
+/turf/simulated/floor/black_half
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "black_half"
+	initial_flooring = /decl/flooring/tiling/black_half
+
+/turf/simulated/floor/vault
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "vault"
+	initial_flooring = /decl/flooring/tiling/vault
+
+/turf/simulated/floor/darkfull_norn
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "darkfull_norn"
+	initial_flooring = /decl/flooring/tiling/darkfull_norn
+
+/turf/simulated/floor/tiled/steel_herringbone
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "steel_herringbone"
+	initial_flooring = /decl/flooring/tiling/steel_herringbone
+
 //Water go splish
 /turf/simulated/floor/pool
 	name = "pool floor"
 	icon = 'icons/turf/flooring/pool.dmi'
 	icon_state = "pool"
 	initial_flooring = /decl/flooring/pool
+

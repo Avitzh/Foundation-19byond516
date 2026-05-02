@@ -406,11 +406,9 @@
 	set name = "Play Different Lobby Track"
 	set category = "Server"
 
-	if(get_preference_value(/datum/client_preference/play_lobby_music) == GLOB.PREF_NO)
-		return
+	if(!check_rights(R_SERVER)) return
 
-	if(!check_rights(R_FUN)) return
-	SSstatistics.add_field_details("admin_verb","PDT") //Unique identifier for local flick
+	SSstatistics.add_field_details("admin_verb","PDT") //Unique identifier
 	log_and_message_staff("[src] changes lobby track.")
 
 	var/list/available_tracks = subtypesof(/decl/audio/track)
@@ -428,10 +426,11 @@
 		return
 
 	var/index = track_names.Find(selection)
-	if(index)
-		var/decl/audio/track/selected_track = initial(track_types[index])
-		var/mob/new_player/N
-		sound_to(N, sound(null, repeat = 0, wait = 0, volume = 85, channel = GLOB.lobby_sound_channel))
-		sleep(50)
-		sound_to(N, sound(selected_track.source, repeat = 1, wait = 0, volume = 85, channel = GLOB.lobby_sound_channel))
-		to_chat(world, SPAN_FLASH_GREEN("Now playing: [selected_track.title] by [selected_track.author]")) // green blink
+	if(!index)
+		return
+	var/decl/audio/track/selected_track = initial(track_types[index])
+	for(var/mob/new_player/N in GLOB.player_list)
+		sound_to(N, sound(null, repeat = 0, wait = 0, volume = 100, channel = GLOB.lobby_sound_channel))
+		sound_to(N, sound(selected_track.source, repeat = 1, wait = 5, volume = 100, channel = GLOB.lobby_sound_channel))
+	to_chat(world, SPAN_GLOW("Now playing: [selected_track.title] by [selected_track.author]")) // green blink
+

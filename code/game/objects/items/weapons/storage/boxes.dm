@@ -29,6 +29,9 @@
 	open_icon = "boxopen"
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 
+	drop_sound = SFX_DROP_CARDBOARD
+	pickup_sound = SFX_PICKUP_CARDBOARD
+
 /obj/item/storage/box/large
 	name = "large box"
 	icon_state = "largebox"
@@ -186,50 +189,72 @@
 	name = "box of blank shells"
 	desc = "It has a picture of a gun and several warning symbols on the front."
 	startswith = list(/obj/item/ammo_casing/shotgun/blank = 8)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/ammo/practiceshells
 	name = "box of practice shells"
 	startswith = list(/obj/item/ammo_casing/shotgun/practice = 8)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/ammo/beanbags
 	name = "box of beanbag shells"
 	startswith = list(/obj/item/ammo_magazine/shotholder/beanbag = 4)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/ammo/shotgunammo
 	name = "box of shotgun slugs"
 	startswith = list(/obj/item/ammo_magazine/shotholder = 3)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/ammo/shotgunshells
 	name = "box of shotgun shells"
 	startswith = list(/obj/item/ammo_magazine/shotholder/shell = 3)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/ammo/flashshells
 	name = "box of illumination shells"
 	startswith = list(/obj/item/ammo_magazine/shotholder/flash = 3)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/ammo/stunshells
 	name = "box of stun shells"
 	startswith = list(/obj/item/ammo_magazine/shotholder/stun = 4)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/ammo/sniperammo
 	name = "box of sniper shells"
 	startswith = list(/obj/item/ammo_casing/shell = 7)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/ammo/sniperammo/apds
 	name = "box of sniper APDS shells"
 	startswith = list(/obj/item/ammo_casing/shell/apds = 3)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/flashbangs
 	name = "box of flashbangs"
 	desc = "A box containing 7 antipersonnel flashbang grenades.<br> WARNING: These devices are extremely dangerous and can cause blindness or deafness from repeated use."
 	icon_state = "flashbang"
 	startswith = list(/obj/item/grenade/flashbang = 7)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/teargas
 	name = "box of pepperspray grenades"
 	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
 	icon_state = "flashbang"
 	startswith = list(/obj/item/grenade/chem_grenade/teargas = 7)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/emps
 	name = "box of emp grenades"
@@ -242,12 +267,16 @@
 	desc = "A box containing 5 military grade fragmentation grenades.<br> WARNING: Live explosives. Misuse may result in serious injury or death."
 	icon_state = "flashbang"
 	startswith = list(/obj/item/grenade/frag = 5)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/fragshells
 	name = "box of frag shells"
 	desc = "A box containing 5 military grade fragmentation shells.<br> WARNING: Live explosive munitions. Misuse may result in serious injury or death."
 	icon_state = "flashbang"
 	startswith = list(/obj/item/grenade/frag/shell = 5)
+	drop_sound = SFX_DROP_AMMOBOX
+	pickup_sound = SFX_PICKUP_AMMOBOX
 
 /obj/item/storage/box/smokes
 	name = "box of smoke bombs"
@@ -387,6 +416,9 @@
 	desc = "It has pictures of pill bottles on its front."
 	startswith = list(/obj/item/storage/pill_bottle = 7)
 
+	pickup_sound = SFX_PICKUP_PILLBOTTLE
+	drop_sound = SFX_DROP_PILLBOTTLE
+
 /obj/item/storage/box/snappops
 	name = "snap pop box"
 	desc = "Eight wrappers of fun! Ages 8 and up. Not suitable for children."
@@ -405,6 +437,9 @@
 	slot_flags = SLOT_BELT
 	can_hold = list(/obj/item/flame/match)
 	startswith = list(/obj/item/flame/match = 10)
+
+	drop_sound = SFX_DROP_MATCHBOX
+	pickup_sound = SFX_PICKUP_MATCHBOX
 
 /obj/item/storage/box/matches/attackby(obj/item/flame/match/W as obj, mob/user as mob)
 	if(istype(W) && !W.lit && !W.burnt)

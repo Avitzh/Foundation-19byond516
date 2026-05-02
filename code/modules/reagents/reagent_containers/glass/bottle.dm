@@ -16,6 +16,9 @@
 	obj_flags = 0
 	volume = 60
 
+	pickup_sound = SFX_PICKUP_BOTTLE
+	drop_sound = SFX_DROP_BOTTLE
+
 /obj/item/reagent_containers/glass/bottle/on_reagent_change()
 	update_icon()
 

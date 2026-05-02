@@ -23,6 +23,8 @@
 	item_flags = 0
 	obj_flags = 0
 
+	drop_sound = SFX_DROP_AXE
+	pickup_sound = SFX_PICKUP_AXE
 /*
  * Grass
  */
@@ -32,6 +34,9 @@
 	desc = "A patch of grass like they often use on golf courses."
 	icon_state = "tile_grass"
 	origin_tech = list(TECH_BIO = 1)
+
+	drop_sound = SFX_DROP_HERB
+	pickup_sound = SFX_PICKUP_HERB
 
 /*
  * Wood
@@ -43,6 +48,9 @@
 	icon_state = "tile-wood"
 	color = WOOD_COLOR_GENERIC
 	matter = list(MATERIAL_WOOD = 450)
+
+	drop_sound = SFX_DROP_WOODEN
+	pickup_sound = SFX_PICKUP_WOODEN
 
 /obj/item/stack/tile/wood/cyborg
 	name = "wood floor tile synthesizer"
@@ -104,6 +112,16 @@
 	name = "steel floor tile"
 	singular_name = "steel floor tile"
 	desc = "Those could work as a pretty decent throwing weapon." //why?
+	icon_state = "tile"
+	force = 6
+	matter = list(MATERIAL_STEEL = 450)
+	throwforce = 15
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/tiled
+	name = "steel floor tile"
+	singular_name = "steel floor tile"
+	desc = "Those could work as a pretty decent throwing weapon."
 	icon_state = "tile"
 	force = 6
 	matter = list(MATERIAL_STEEL = 450)
@@ -407,3 +425,310 @@
 	singular_name = "pool tile"
 	icon_state = "tile_pool"
 	matter = list(MATERIAL_STEEL = 450)
+
+
+ // New Floor Tiles
+
+/obj/item/stack/tile/plating_norn
+	name = "plating norn tile"
+	singular_name = "plating norn floor tile"
+	desc = "Norn plating floor tile."
+	icon_state = "techtile_grey"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/steel_monofloor
+	name = "steel monofloor tile"
+	singular_name = "steel monofloor tile"
+	desc = "Steel monofloor tile."
+	icon_state = "tile"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/tiled_white
+	name = "tiled white tile"
+	singular_name = "tiled white floor tile"
+	desc = "Tiled white floor tile."
+	icon_state = "tile"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/white_ridged
+	name = "white ridged tile"
+	singular_name = "white ridged floor tile"
+	desc = "White ridged floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/white_herringbone
+	name = "white herringbone tile"
+	singular_name = "white herringbone floor tile"
+	desc = "White herringbone floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/white_norn
+	name = "white norn tile"
+	singular_name = "white norn floor tile"
+	desc = "White norn floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_white
+	name = "textured white tile"
+	singular_name = "textured white floor tile"
+	desc = "Textured white floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_white_edge
+	name = "textured white edge tile"
+	singular_name = "textured white edge floor tile"
+	desc = "Textured white edge floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_white_half
+	name = "textured white half tile"
+	singular_name = "textured white half floor tile"
+	desc = "Textured white half floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_white_corner
+	name = "textured white corner tile"
+	singular_name = "textured white corner floor tile"
+	desc = "Textured white corner floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/white_grid
+	name = "white grid tile"
+	singular_name = "white grid floor tile"
+	desc = "White grid floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_white_large
+	name = "textured white large tile"
+	singular_name = "textured white large floor tile"
+	desc = "Textured white large floor tile."
+	icon_state = "white_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/darkfull
+	name = "darkfull tile"
+	singular_name = "darkfull floor tile"
+	desc = "Darkfull floor tile."
+	icon_state = "fr_tile"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/dark_old
+	name = "dark old tile"
+	singular_name = "dark old floor tile"
+	desc = "Dark old floor tile."
+	icon_state = "fr_tile"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/dark_herringbone
+	name = "dark herringbone tile"
+	singular_name = "dark herringbone floor tile"
+	desc = "Dark herringbone floor tile."
+	icon_state = "fr_tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/tiled_dark
+	name = "tiled dark tile"
+	singular_name = "tiled dark floor tile"
+	desc = "Tiled dark floor tile."
+	icon_state = "fr_tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/dark_ridged
+	name = "dark ridged tile"
+	singular_name = "dark ridged floor tile"
+	desc = "Dark ridged floor tile."
+	icon_state = "fr_tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/smooth_corner
+	name = "smooth corner tile"
+	singular_name = "smooth corner floor tile"
+	desc = "Smooth corner floor tile."
+	icon_state = "techtile_grid"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/smooth_large
+	name = "smooth large tile"
+	singular_name = "smooth large floor tile"
+	desc = "Smooth large floor tile."
+	icon_state = "techtile_grid"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/smooth
+	name = "smooth tile"
+	singular_name = "smooth floor tile"
+	desc = "Smooth floor tile."
+	icon_state = "techtile_grid"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/smooth_edge
+	name = "smooth edge tile"
+	singular_name = "smooth edge floor tile"
+	desc = "Smooth edge floor tile."
+	icon_state = "techtile_grid"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/smooth_half
+	name = "smooth half tile"
+	singular_name = "smooth half floor tile"
+	desc = "Smooth half floor tile."
+	icon_state = "techtile_grid"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured
+	name = "steel cropped"
+	singular_name = "textured floor tile"
+	desc = "Textured floor tile."
+	icon_state = "steel_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_edge
+	name = "steel cropped"
+	singular_name = "textured edge floor tile"
+	desc = "Textured edge floor tile."
+	icon_state = "steel_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_half
+	name = "steel cropped"
+	singular_name = "textured half floor tile"
+	desc = "Textured half floor tile."
+	icon_state = "steel_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_corner
+	name = "steel cropped"
+	singular_name = "textured corner floor tile"
+	desc = "Textured corner floor tile."
+	icon_state = "steel_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_large
+	name = "textured large tile"
+	singular_name = "textured large floor tile"
+	desc = "Textured large floor tile."
+	icon_state = "steel_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/steel_old
+	name = "steel old tile"
+	singular_name = "steel old floor tile"
+	desc = "Steel old floor tile."
+	icon_state = "tile"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_dark
+	name = "textured dark tile"
+	singular_name = "textured dark floor tile"
+	desc = "Textured dark floor tile."
+	icon_state = "fr_tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_dark_edge
+	name = "textured dark edge tile"
+	singular_name = "textured dark edge floor tile"
+	desc = "Textured dark edge floor tile."
+	icon_state = "fr_tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_dark_half
+	name = "textured dark half tile"
+	singular_name = "textured dark half floor tile"
+	desc = "Textured dark half floor tile."
+	icon_state = "fr_tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_dark_corner
+	name = "textured dark corner tile"
+	singular_name = "textured dark corner floor tile"
+	desc = "Textured dark corner floor tile."
+	icon_state = "textured_dark_corner"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/textured_dark_large
+	name = "textured dark large tile"
+	singular_name = "textured dark large floor tile"
+	desc = "Textured dark large floor tile."
+	icon_state = "fr_tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/black_half
+	name = "black half tile"
+	singular_name = "black half floor tile"
+	desc = "Black half floor tile."
+	icon_state = "tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/vault
+	name = "vault tile"
+	singular_name = "vault floor tile"
+	desc = "Vault floor tile."
+	icon_state = "tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/darkfull_norn
+	name = "darkfull norn tile"
+	singular_name = "darkfull norn floor tile"
+	desc = "Darkfull norn floor tile."
+	icon_state = "tile_rough"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/floor_norn
+	name = "floor norn tile"
+	singular_name = "floor norn floor tile"
+	desc = "Floor norn floor tile."
+	icon_state = "tile"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE
+
+/obj/item/stack/tile/steel_herringbone
+	name = "steel herringbone tile"
+	singular_name = "steel herringbone floor tile"
+	desc = "Steel herringbone floor tile."
+	icon_state = "steel_herringbone"
+	matter = list(MATERIAL_STEEL = 450)
+	obj_flags = OBJ_FLAG_CONDUCTIBLE

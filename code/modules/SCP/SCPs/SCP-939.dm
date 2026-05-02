@@ -175,6 +175,10 @@
 	ai_holder_type = /datum/ai_holder/simple_animal/melee/scp939 //janky but acceptable 939 AI
 	melee_attack_delay = 0
 
+	var/sound_cooldown_time = 4 SECONDS
+	///sound cooldown track
+	var/sound_cooldown
+
 /mob/living/simple_animal/hostile/scp939/Initialize()
 	. = ..()
 	add_language(LANGUAGE_ZOMBIE, 0) //Can understand their growls, can't speak
@@ -186,6 +190,7 @@
 		"939-[rand(0,999)]", //randomises instance number
 		SCP_PLAYABLE|SCP_MEMETIC
 	)
+	add_verb(src, /client/proc/scpooc)
 
 	SCP.min_time = 30 MINUTES //These things become VERY dangerous when multiple of them spawn
 	SCP.min_playercount = 20
@@ -195,14 +200,6 @@
 	spawn_area = get_area(src) //Used to track where SCP-939 is mapped in (or spawned)
 
 //Incorporates lots of 2427-3 code, just because its good
-
-/mob/living/simple_animal/hostile/scp939/verb/scp_say(message as text)
-	set category = "SCP-939"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))
 
 /mob/living/simple_animal/hostile/scp939/Bump(atom/A)
 	. = ..()
@@ -223,8 +220,10 @@
 		return
 	visible_message(SPAN_NOTICE("[src] falls asleep."))
 	to_chat(src, SPAN_NOTICE("You fall asleep."))
-	icon_state = "slep"
+	if(icon_state=="crawling"||icon_state=="standing")
+		icon_state = "slep"
 	is_sleeping = TRUE
+	update_icons()
 	addtimer(CALLBACK(src, PROC_REF(WakeUp)), rand((2 MINUTES), (4 MINUTES)))
 
 /mob/living/simple_animal/hostile/scp939/proc/WakeUp(attacked = FALSE)
@@ -237,8 +236,9 @@
 	sleep(2 SECONDS)
 	is_sleeping = FALSE
 	icon_state = "crawling"
+	update_icons()
 	if(icon_state == "slep") // If somehow we died before WakeUp got called
-		icon_state = null
+		icon_state = "crawling"
 
 /mob/living/simple_animal/hostile/scp939/SelfMove(direction)
 	resting = FALSE //Yeh.
@@ -287,29 +287,17 @@
 	if(nutrition >= 1)
 		AdjustNutrition(-nutriloss)
 
-
-	if(resting)
-		/* if(!do_after(src, 1 SECOND, bonus_percentage = 25))
-			to_chat(src, SPAN_NOTICE("You must stand still to get up"))
-			return 1
-		src.visible_message( \
-			SPAN_NOTICE("\The [src] stands up"), \
-			SPAN_NOTICE("You stands up."))
-		sleep(1) */
-		icon_state = icon_rest
-		update_icons()
-	if(!resting)
-		icon_state = "crawling"
-		update_icons()
-
 	if(stat == DEAD)
 		icon_state = icon_dead
 		update_icons()
-	else
+	else if(!is_sleeping)
 		icon_state = icon_living
 		update_icons()
 
-
+	if(!is_sleeping)
+		icon_state = resting ? icon_rest : icon_living
+		update_icons()
+	..()
 
 
 
@@ -338,6 +326,8 @@
 
 /mob/living/simple_animal/hostile/scp939/UnarmedAttack(atom/A)
 	if(is_sleeping)
+		return
+	if(A == src)
 		return
 	if(istype(A, /obj/machinery/door))
 		OpenDoor(A)
@@ -436,3 +426,25 @@
 	A.set_broken(TRUE)
 	var/check = A.open(TRUE)
 	visible_message("\The [src] slices \the [A]'s controls[check ? ", ripping it open!" : ", breaking it!"]")
+
+/mob/living/simple_animal/hostile/scp939/verb/HeyWhoThere()
+	set name = "\[Sound\] Who There?"
+	set category = "SCP-939"
+	set desc = "M-m-m, yummy!"
+	set hidden = 0
+
+	if(world.time < sound_cooldown)
+		return
+	playsound(get_turf(src), 'sounds/scp/939/939_HeyWhoThere.ogg', rand(35, 65), TRUE)
+	sound_cooldown = world.time + sound_cooldown_time
+
+/mob/living/simple_animal/hostile/scp939/verb/OhGod()
+	set name = "\[Sound\] Oh God!"
+	set category = "SCP-939"
+	set desc = "AAAAA!"
+	set hidden = 0
+
+	if(world.time < sound_cooldown)
+		return
+	playsound(get_turf(src), 'sounds/scp/939/939_OhGodWhatTheHellIsThat.ogg', rand(35, 65), TRUE)
+	sound_cooldown = world.time + sound_cooldown_time

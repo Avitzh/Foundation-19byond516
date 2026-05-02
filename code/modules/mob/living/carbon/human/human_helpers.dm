@@ -65,6 +65,17 @@
 			add_clothing_protection(head)
 		if(istype(src.glasses, /obj/item/clothing/glasses))
 			process_glasses(glasses)
+		// === НАЧАЛО ДОБАВЛЕННОГО БЛОКА ДЛЯ ТАКТИЧЕСКОГО ВИЗОРА ===
+	if(istype(head, /obj/item/clothing/head/helmet/scp/security/mtftactical))
+		var/obj/item/clothing/head/helmet/scp/security/mtftactical/visor_helm = head
+		if(visor_helm.body_parts_covered & EYES) // визор опущен
+			equipment_darkness_modifier += 7
+			if(!equipment_see_invis)
+				equipment_see_invis = SEE_INVISIBLE_NOLIGHTING
+			else
+				equipment_see_invis = min(equipment_see_invis, SEE_INVISIBLE_NOLIGHTING)
+			equipment_overlays |= /atom/movable/screen/fullscreen/hud/nvg
+		// === КОНЕЦ БЛОКА ===
 		if(istype(src.wear_mask, /obj/item/clothing/mask))
 			add_clothing_protection(wear_mask)
 		if(istype(back,/obj/item/rig))

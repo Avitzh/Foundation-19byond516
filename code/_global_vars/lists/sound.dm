@@ -385,6 +385,341 @@ GLOBAL_LIST_INIT(sfx_list, list(
 		'sounds/scp/1507/attack4.ogg',
 		'sounds/scp/1507/attack5.ogg',
 		'sounds/scp/1507/attack6.ogg'
-	)
 
+		),
+		// THROWING
+	SFX_THROWING = list(
+		'sounds/effects/throwing/swoosh1.ogg',
+		'sounds/effects/throwing/swoosh2.ogg',
+		'sounds/effects/throwing/swoosh3.ogg',
+		'sounds/effects/throwing/swoosh4.ogg'
+		),
+		// PICKUP
+	SFX_PICKUP_GENERIC = list(
+		'sounds/effects/pickup/generic1.ogg',
+		'sounds/effects/pickup/generic2.ogg',
+		'sounds/effects/pickup/generic3.ogg'
+		),
+	SFX_PICKUP_ACCESSORY = list(
+		'sounds/effects/pickup/accessory.ogg'
+		),
+	SFX_PICKUP_AMMOBOX = list(
+		'sounds/effects/pickup/ammobox.ogg'
+		),
+	SFX_PICKUP_AXE = list(
+		'sounds/effects/pickup/axe.ogg'
+		),
+	SFX_PICKUP_BACKPACK = list(
+		'sounds/effects/pickup/backpack.ogg'
+		),
+	SFX_PICKUP_BALL = list(
+		'sounds/effects/pickup/ball.ogg'
+		),
+	SFX_PICKUP_BOTTLE = list(
+		'sounds/effects/using/bottles/pickup1.ogg',
+		'sounds/effects/using/bottles/pickup2.ogg',
+		),
+	SFX_PICKUP_GLASSBOTTLE = list(
+		'sounds/effects/using/bottles/pickup3.ogg',
+		),
+	SFX_PICKUP_BOOK = list(
+		'sounds/effects/pickup/book.ogg'
+		),
+	SFX_PICKUP_BOOTS = list(
+		'sounds/effects/pickup/boots.ogg'
+		),
+	SFX_PICKUP_CARD = list(
+		'sounds/effects/pickup/card.ogg'
+		),
+	SFX_PICKUP_CARDBOARD = list(
+		'sounds/effects/pickup/cardboardbox.ogg'
+		),
+	SFX_PICKUP_CLOTH = list(
+		'sounds/effects/pickup/cloth.ogg'
+		),
+	SFX_PICKUP_COMPONENT = list(
+		'sounds/effects/pickup/component.ogg'
+		),
+	SFX_PICKUP_CROWBAR = list(
+		'sounds/effects/pickup/crowbar.ogg'
+		),
+	SFX_PICKUP_DEVICE = list(
+		'sounds/effects/pickup/device.ogg'
+		),
+	SFX_PICKUP_DISK = list(
+		'sounds/effects/pickup/disk.ogg'
+		),
+	SFX_PICKUP_DRINKGLASS = list(
+		'sounds/effects/pickup/drinkglass.ogg'
+		),
+	SFX_PICKUP_FLESH = list(
+		'sounds/effects/pickup/flesh.ogg'
+		),
+	SFX_PICKUP_FOOD = list(
+		'sounds/effects/pickup/food.ogg'
+		),
+	SFX_PICKUP_GASCAN = list(
+		'sounds/effects/pickup/gascan.ogg'
+		),
+	SFX_PICKUP_GLASS = list(
+		'sounds/effects/pickup/glass.ogg'
+		),
+	SFX_PICKUP_GLASSSMALL = list(
+		'sounds/effects/pickup/glass_small.ogg'
+		),
+	SFX_PICKUP_GLOVES = list(
+		'sounds/effects/pickup/gloves.ogg'
+		),
+	SFX_PICKUP_GUN = list(
+		'sounds/effects/pickup/gun.ogg'
+		),
+	SFX_PICKUP_HAT = list(
+		'sounds/effects/pickup/hat.ogg'
+		),
+	SFX_PICKUP_HELMET = list(
+		'sounds/effects/pickup/helm.ogg'
+		),
+	SFX_PICKUP_HERB = list(
+		'sounds/effects/pickup/herb.ogg'
+		),
+	SFX_PICKUP_KNIFE = list(
+		'sounds/effects/pickup/knife.ogg'
+		),
+	SFX_PICKUP_LEATHER = list(
+		'sounds/effects/pickup/leather.ogg'
+		),
+	SFX_PICKUP_MATCHBOX = list(
+		'sounds/effects/pickup/matchbox.ogg'
+		),
+	SFX_PICKUP_METALPOT = list(
+		'sounds/effects/pickup/metal_pot.ogg'
+		),
+	SFX_PICKUP_METALWEAPON = list(
+		'sounds/effects/pickup/metalweapon.ogg'
+		),
+	SFX_PICKUP_MULTITOOL = list(
+		'sounds/effects/pickup/multitool.ogg'
+		),
+	SFX_PICKUP_PAPER = list(
+		'sounds/effects/pickup/paper.ogg'
+		),
+	SFX_PICKUP_PAPERCUP = list(
+		'sounds/effects/pickup/papercup.ogg'
+		),
+	SFX_PICKUP_PILLBOTTLE = list(
+		'sounds/effects/pickup/pillbottle.ogg'
+		),
+	SFX_PICKUP_PLUSHIE = list(
+		'sounds/effects/pickup/plushie.ogg'
+		),
+	SFX_PICKUP_RING = list(
+		'sounds/effects/pickup/ring.ogg'
+		),
+	SFX_PICKUP_RUBBER = list(
+		'sounds/effects/pickup/rubber.ogg'
+		),
+	SFX_PICKUP_SCREWDRIVER = list(
+		'sounds/effects/pickup/screwdriver.ogg'
+		),
+	SFX_PICKUP_SHELL = list(
+		'sounds/effects/drop/shell_drop.ogg'
+		),
+	SFX_PICKUP_SHOES = list(
+		'sounds/effects/pickup/shoes.ogg'
+		),
+	SFX_PICKUP_SHOVEL = list(
+		'sounds/effects/pickup/shovel.ogg'
+		),
+	SFX_PICKUP_SODACAN = list(
+		'sounds/effects/pickup/soda.ogg'
+		),
+	SFX_PICKUP_SWORD = list(
+		'sounds/effects/pickup/sword1.ogg',
+		'sounds/effects/pickup/sword2.ogg',
+		'sounds/effects/pickup/sword3.ogg'
+		),
+	SFX_PICKUP_TOOLBELT = list(
+		'sounds/effects/pickup/toolbelt.ogg'
+		),
+	SFX_PICKUP_TOOLBOX = list(
+		'sounds/effects/pickup/toolbox.ogg'
+		),
+	SFX_PICKUP_WELDINGTOOL = list(
+		'sounds/effects/pickup/weldingtool.ogg'
+		),
+	SFX_PICKUP_WIRECUTTER = list(
+		'sounds/effects/pickup/wirecutter.ogg'
+		),
+	SFX_PICKUP_WOODEN = list(
+		'sounds/effects/pickup/wooden.ogg'
+		),
+	SFX_PICKUP_WRAPPER = list(
+		'sounds/effects/pickup/wrapper.ogg'
+		),
+	SFX_PICKUP_WRENCH = list(
+		'sounds/effects/pickup/wrench.ogg'
+		),
+	//DROP
+	SFX_DROP_GENERIC = list(
+		'sounds/effects/drop/generic1.ogg',
+		'sounds/effects/drop/generic2.ogg'
+		),
+	SFX_DROP_ACCESSORY = list(
+		'sounds/effects/pickup/accessory.ogg'
+		),
+	SFX_DROP_AMMOBOX = list(
+		'sounds/effects/drop/ammobox.ogg'
+		),
+	SFX_DROP_AXE = list(
+		'sounds/effects/drop/axe.ogg'
+		),
+	SFX_DROP_BACKPACK = list(
+		'sounds/effects/drop/backpack.ogg'
+		),
+	SFX_DROP_BALL = list(
+		'sounds/effects/drop/ball.ogg'
+		),
+	SFX_DROP_BOTTLE = list(
+		'sounds/effects/using/bottles/pickup1.ogg',
+		'sounds/effects/using/bottles/pickup2.ogg'
+		),
+	SFX_DROP_GLASSBOTTLE = list(
+		'sounds/effects/using/bottles/pickup3.ogg',
+		'sounds/effects/drop/bottle.ogg'
+		),
+	SFX_DROP_BOOK = list(
+		'sounds/effects/drop/book.ogg'
+		),
+	SFX_DROP_BOOTS = list(
+		'sounds/effects/drop/boots.ogg'
+		),
+	SFX_DROP_CARD = list(
+		'sounds/effects/drop/card.ogg'
+		),
+	SFX_DROP_CARDBOARD = list(
+		'sounds/effects/drop/cardboardbox.ogg'
+		),
+	SFX_DROP_CLOTH = list(
+		'sounds/effects/drop/cloth.ogg'
+		),
+	SFX_DROP_COMPONENT = list(
+		'sounds/effects/drop/component.ogg'
+		),
+	SFX_DROP_CROWBAR = list(
+		'sounds/effects/drop/crowbar.ogg'
+		),
+	SFX_DROP_DEVICE = list(
+		'sounds/effects/drop/device.ogg'
+		),
+	SFX_DROP_DISK = list(
+		'sounds/effects/drop/disk.ogg'
+		),
+	SFX_DROP_DRINKGLASS = list(
+		'sounds/effects/drop/drinkglass.ogg'
+		),
+	SFX_DROP_FLESH = list(
+		'sounds/effects/drop/flesh.ogg'
+		),
+	SFX_DROP_FOOD = list(
+		'sounds/effects/drop/food.ogg'
+		),
+	SFX_DROP_GASCAN = list(
+		'sounds/effects/drop/gascan.ogg'
+		),
+	SFX_DROP_GLASS = list(
+		'sounds/effects/drop/glass.ogg'
+		),
+	SFX_DROP_GLASSSMALL = list(
+		'sounds/effects/drop/glass_small.ogg'
+		),
+	SFX_DROP_GLOVES = list(
+		'sounds/effects/drop/gloves.ogg'
+		),
+	SFX_DROP_GUN = list(
+		'sounds/effects/drop/gun.ogg'
+		),
+	SFX_DROP_HAT = list(
+		'sounds/effects/drop/hat.ogg'
+		),
+	SFX_DROP_HELMET = list(
+		'sounds/effects/drop/helm.ogg'
+		),
+	SFX_DROP_HERB = list(
+		'sounds/effects/drop/herb.ogg'
+		),
+	SFX_DROP_KNIFE = list(
+		'sounds/effects/drop/knife.ogg'
+		),
+	SFX_DROP_LEATHER = list(
+		'sounds/effects/drop/leather.ogg'
+		),
+	SFX_DROP_MATCHBOX = list(
+		'sounds/effects/drop/matchbox.ogg'
+		),
+	SFX_DROP_METALPOT = list(
+		'sounds/effects/drop/metal_pot.ogg'
+		),
+	SFX_DROP_METALWEAPON = list(
+		'sounds/effects/drop/metalweapon.ogg'
+		),
+	SFX_DROP_MULTITOOL = list(
+		'sounds/effects/drop/multitool.ogg'
+		),
+	SFX_DROP_PAPER = list(
+		'sounds/effects/drop/paper.ogg'
+		),
+	SFX_DROP_PAPERCUP = list(
+		'sounds/effects/drop/papercup.ogg'
+		),
+	SFX_DROP_PILLBOTTLE = list(
+		'sounds/effects/drop/pillbottle.ogg'
+		),
+	SFX_DROP_PLUSHIE = list(
+		'sounds/effects/drop/plushie.ogg'
+		),
+	SFX_DROP_RING = list(
+		'sounds/effects/drop/ring.ogg'
+		),
+	SFX_DROP_RUBBER = list(
+		'sounds/effects/drop/rubber.ogg'
+		),
+	SFX_DROP_SCREWDRIVER = list(
+		'sounds/effects/drop/screwdriver.ogg'
+		),
+	SFX_DROP_SHELL = list(
+		'sounds/effects/drop/shell_drop.ogg'
+		),
+	SFX_DROP_SHOES = list(
+		'sounds/effects/drop/shoes.ogg'
+		),
+	SFX_DROP_SHOVEL = list(
+		'sounds/effects/drop/shovel.ogg'
+		),
+	SFX_DROP_SODACAN = list(
+		'sounds/effects/drop/soda.ogg'
+		),
+	SFX_DROP_SWORD = list(
+		'sounds/effects/drop/sword.ogg'
+		),
+	SFX_DROP_TOOLBELT = list(
+		'sounds/effects/drop/toolbelt.ogg'
+		),
+	SFX_DROP_TOOLBOX = list(
+		'sounds/effects/drop/toolbox.ogg'
+		),
+	SFX_DROP_WELDINGTOOL = list(
+		'sounds/effects/drop/weldingtool.ogg'
+		),
+	SFX_DROP_WIRECUTTER = list(
+		'sounds/effects/drop/wirecutter.ogg'
+		),
+	SFX_DROP_WOODEN = list(
+		'sounds/effects/drop/wooden.ogg'
+		),
+	SFX_DROP_WRAPPER = list(
+		'sounds/effects/drop/wrapper.ogg'
+		),
+	SFX_DROP_WRENCH = list(
+		'sounds/effects/drop/wrench.ogg'
+	)
 ))

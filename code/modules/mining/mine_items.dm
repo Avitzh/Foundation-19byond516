@@ -157,6 +157,9 @@
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	edge = TRUE
 
+	drop_sound = SFX_DROP_SHOVEL
+	pickup_sound = SFX_PICKUP_SHOVEL
+
 /obj/item/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."

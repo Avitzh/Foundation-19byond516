@@ -12,6 +12,7 @@
 	var/list/grasp_limbs
 	var/step_count
 	var/dream_timer
+	var/darkness_view = 2
 
 /mob/living/carbon/human/Initialize(mapload, new_species)
 	grasp_limbs = list()

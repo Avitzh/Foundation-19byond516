@@ -14,6 +14,9 @@
 	center_of_mass = "x=17;y=16"
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
+	drop_sound = SFX_DROP_WRENCH
+	pickup_sound = SFX_PICKUP_WRENCH
+
 /obj/item/wrench/Initialize()
 	if(icon_state == "wrench")
 		icon_state = "wrench[pick("","_red","_black","_green","_blue")]"

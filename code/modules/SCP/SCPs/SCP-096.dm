@@ -83,6 +83,7 @@
 		"096", //Numerical Designation
 		SCP_MEMETIC
 	)
+	add_verb(src, /client/proc/scpooc)
 
 	SCP.memeticFlags = MINSPECT|MPHOTO|MCAMERA
 	SCP.memetic_proc = TYPE_PROC_REF(/mob/living/scp096, trigger)
@@ -458,14 +459,6 @@
 			to_chat(user, SPAN_DANGER("You catch [scp_to_trigger]"))
 		else
 			to_chat(user, SPAN_NOTICE("It is too far away."))
-
-/mob/living/scp096/verb/scp_say(message as text)
-	set category = "SCP-096"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))
 
 #undef STATE_096_IDLE
 #undef STATE_096_SCREAMING

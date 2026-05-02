@@ -1,7 +1,7 @@
 /obj/item/ammo_magazine/speedloader
 	name = "speed loader"
 	desc = "A speed loader for revolvers."
-	icon_state = "spdloader"
+	icon_state = "127"
 	caliber = CALIBER_REVOLVER
 	ammo_type = /obj/item/ammo_casing/revolver
 	matter = list(MATERIAL_STEEL = 1260)

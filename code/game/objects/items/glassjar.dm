@@ -13,6 +13,9 @@
 	)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
 
+	drop_sound = SFX_DROP_GLASS
+	pickup_sound = SFX_PICKUP_GLASS
+
 /obj/item/glass_jar/New()
 	..()
 	update_icon()

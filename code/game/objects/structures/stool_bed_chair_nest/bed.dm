@@ -310,6 +310,9 @@
 	w_class = ITEM_SIZE_LARGE
 	var/structure_form_type = /obj/structure/bed/roller	//The deployed form path.
 
+	drop_sound = SFX_DROP_AXE
+	pickup_sound = SFX_PICKUP_AXE
+
 /obj/item/roller/attack_self(mob/user)
 	var/obj/structure/bed/roller/R = new structure_form_type(user.loc)
 	R.add_fingerprint(user)

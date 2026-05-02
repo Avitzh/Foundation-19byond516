@@ -45,6 +45,7 @@
 		"066", //Numerical Designation
 		SCP_PLAYABLE|SCP_MEMETIC
 	)
+	add_verb(src, /client/proc/scpooc)
 
 	SCP.memeticFlags = MAUDIBLE
 	SCP.memetic_proc = TYPE_PROC_REF(/mob/living/simple_animal/friendly/retaliate/scp066, audibleEffect)
@@ -175,11 +176,3 @@
 	else
 		to_chat(usr, SPAN_WARNING("You are on cooldown!"))
 		return FALSE
-
-/mob/living/simple_animal/friendly/retaliate/scp066/verb/scp_say(message as text)
-	set category = "SCP-066"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))

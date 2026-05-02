@@ -131,3 +131,40 @@
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
 	persistent = TRUE
 	generic_filth = TRUE
+
+// scp 106 rot decals
+/obj/effect/decal/cleanable/floorrot106
+	name = "rot"
+	desc = "Gosh! What is it??"
+	gender = PLURAL
+	icon = 'icons/SCP/scp-106_floor_rot.dmi'
+	random_icon_states = list("106_rot_1", "106_rot_2", "106_rot_3", "106_rot_4", "106_rot_5")
+	persistent = TRUE
+	generic_filth = TRUE
+
+/obj/effect/decal/cleanable/floorrot106/New()
+	random_icon_states = icon_states(icon)
+	..()
+
+/obj/effect/decal/cleanable/floorrot106/on_update_icon()
+	. = ..()
+
+/obj/effect/decal/cleanable/wallrot106
+	name = "rot"
+	desc = "Gosh! What is it??"
+	gender = PLURAL
+	icon = 'icons/SCP/scp-106_floor_rot.dmi'
+	random_icon_states = list("106_rot_1", "106_rot_2", "106_rot_3", "106_rot_4", "106_rot_5")
+	persistent = TRUE
+	generic_filth = TRUE
+
+/obj/effect/decal/cleanable/wallrot106/New()
+	random_icon_states = icon_states(icon)
+	..()
+	var/matrix/M = matrix()
+	M.Turn(pick(90, 270))
+	transform = M
+
+/obj/effect/decal/cleanable/wallrot106/on_update_icon()
+	. = ..()
+

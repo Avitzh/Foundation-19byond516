@@ -1397,3 +1397,20 @@
 	name = "Pocket Dimension"
 	requires_power = 0
 	dynamic_lighting = 0
+
+
+/area/scp/dimension004
+    name = "SCP-004 Dimension - Site 62"
+    has_gravity = 1
+
+/area/scp/dimension004/scp093
+    name = "SCP-004 Dimension - SCP-093 Containment"
+    has_gravity = 1
+    luminosity = 1
+    dynamic_lighting = 0
+
+/area/site53/lhcz/scp004room
+	name = "\improper SCP-004 Containment Chamber"
+	icon_state = "research"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	requires_power = 1

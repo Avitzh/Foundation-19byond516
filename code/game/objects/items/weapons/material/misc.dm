@@ -14,6 +14,8 @@
 	var/spent
 	worth_multiplier = 15
 
+	drop_sound = SFX_DROP_SWORD
+	pickup_sound = SFX_PICKUP_SWORD
 
 /obj/item/material/harpoon/bomb
 	name = "explosive harpoon"
@@ -61,6 +63,9 @@
 	attack_verb = list("chopped", "torn", "cut")
 	applies_material_colour = 0
 	hitsound = SFX_CHOP
+
+	drop_sound = SFX_DROP_KNIFE
+	pickup_sound = SFX_PICKUP_KNIFE
 
 /obj/item/material/hatchet/unbreakable
 	unbreakable = TRUE
@@ -133,6 +138,8 @@
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
 	worth_multiplier = 20
 
+	drop_sound = SFX_DROP_SWORD
+	pickup_sound = SFX_PICKUP_SWORD
 
 /obj/item/material/cross
 	name = "cross"

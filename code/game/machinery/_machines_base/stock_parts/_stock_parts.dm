@@ -10,6 +10,9 @@
 	var/status = 0             // Flags using PART_STAT defines.
 	var/base_type              // Type representing parent of category for replacer usage.
 
+	drop_sound = SFX_DROP_COMPONENT
+	pickup_sound = SFX_PICKUP_COMPONENT
+
 /obj/item/stock_parts/attack_hand(mob/user)
 	if(istype(loc, /obj/machinery))
 		return FALSE // Can potentially add uninstall code here, but not currently supported.

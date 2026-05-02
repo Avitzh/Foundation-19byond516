@@ -11,6 +11,9 @@
 	var/state
 	var/datum/gas_mixture/air_contents = null
 
+	drop_sound = SFX_DROP_RUBBER
+	pickup_sound = SFX_PICKUP_RUBBER
+
 /obj/item/latexballon/proc/blow(obj/item/tank/tank)
 	if (icon_state == "latexballon_bursted")
 		return

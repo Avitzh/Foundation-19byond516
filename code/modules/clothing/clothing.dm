@@ -360,6 +360,9 @@ BLIND     // can't see anything
 	blood_overlay_type = "bloodyhands"
 	hidden_from_codex = TRUE
 
+	drop_sound = SFX_DROP_GLOVES
+	pickup_sound = SFX_PICKUP_GLOVES
+
 /obj/item/clothing/gloves/Initialize()
 	if(item_flags & ITEM_FLAG_PREMODIFIED)
 		cut_fingertops()
@@ -469,6 +472,9 @@ BLIND     // can't see anything
 	var/brightness_on
 	var/on = 0
 	hidden_from_codex = TRUE
+
+	drop_sound = SFX_DROP_HAT
+	pickup_sound = SFX_PICKUP_HAT
 
 /obj/item/clothing/head/equipped(mob/user, slot)
 	light_overlay_image = null
@@ -673,6 +679,9 @@ BLIND     // can't see anything
 	var/hidden_item_max_w_class = ITEM_SIZE_SMALL
 	var/obj/item/hidden_item = null
 
+	drop_sound = SFX_DROP_SHOES
+	pickup_sound = SFX_PICKUP_SHOES
+
 /obj/item/clothing/shoes/Destroy()
 	. = ..()
 	if (hidden_item)
@@ -825,6 +834,9 @@ BLIND     // can't see anything
 		SPECIES_MANTID_GYNE = 'icons/mob/species/mantid/onmob_suit_gyne.dmi'
 		)
 
+	drop_sound = SFX_DROP_CLOTH
+	pickup_sound = SFX_PICKUP_CLOTH
+
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -899,6 +911,9 @@ BLIND     // can't see anything
 	var/gender_icons = 0
 	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY,ACCESSORY_SLOT_HOLSTER,ACCESSORY_SLOT_ARMBAND,ACCESSORY_SLOT_RANK,ACCESSORY_SLOT_DEPT,ACCESSORY_SLOT_DECOR,ACCESSORY_SLOT_MEDAL,ACCESSORY_SLOT_INSIGNIA)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY,ACCESSORY_SLOT_HOLSTER,ACCESSORY_SLOT_ARMBAND,ACCESSORY_SLOT_RANK,ACCESSORY_SLOT_DEPT)
+
+	drop_sound = SFX_DROP_CLOTH
+	pickup_sound = SFX_PICKUP_CLOTH
 
 /obj/item/clothing/under/New()
 	..()
@@ -1144,6 +1159,8 @@ BLIND     // can't see anything
 	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_DIONA, SPECIES_MONARCH_QUEEN)
 	var/undergloves = 1
 
+	drop_sound = SFX_DROP_RING
+	pickup_sound = SFX_PICKUP_RING
 
 /obj/item/clothing/get_pressure_weakness(pressure,zone)
 	. = ..()

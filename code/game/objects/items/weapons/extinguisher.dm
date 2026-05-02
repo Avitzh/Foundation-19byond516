@@ -22,6 +22,9 @@
 	var/safety = 1
 	var/sprite_name = "fire_extinguisher"
 
+	drop_sound = SFX_DROP_GASCAN
+	pickup_sound = SFX_PICKUP_GASCAN
+
 /obj/item/extinguisher/mini
 	name = "mini fire extinguisher"
 	desc = "A light and compact fibreglass-framed model fire extinguisher."

@@ -88,4 +88,22 @@
 		visible_message(message, checkghosts = /datum/client_preference/ghost_sight)
 	else
 		audible_message(message, checkghosts = /datum/client_preference/ghost_sight)
+		var/list/seen_turfs = list()
+		for(var/mob/living/L in range(client.view, src))
+			var/turf/T = get_turf(L)
+			if(!T || L == src || L.stat == DEAD || is_below_sound_pressure(T))
+				continue
+			if(T in seen_turfs)
+				continue
+			seen_turfs += T
 
+			var/image/ping_image = image('icons/effects/effects.dmi', "sonar_ping", src)
+			ping_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			ping_image.layer = BEAM_PROJECTILE_LAYER
+			ping_image.pixel_x = (T.x - src.x) * WORLD_ICON_SIZE
+			ping_image.pixel_y = (T.y - src.y) * WORLD_ICON_SIZE
+			ping_image.alpha = 255
+			image_to(src, ping_image)
+
+			animate(ping_image, alpha = 0, time = 0.8 SECONDS)
+			qdel(ping_image)

@@ -58,7 +58,7 @@
 	name = OUTFIT_JOB_NAME("UNGOC PHYSICS Team Leader")
 	head = /obj/item/clothing/head/beret/goc/lead
 	suit = /obj/item/clothing/suit/armor/goc/heavy
-	r_hand = /obj/item/gun/projectile/automatic/scp/ak742
+	r_hand = /obj/item/gun/projectile/automatic/scp/ak74
 	l_hand = /obj/item/material/knife/combat
 	l_pocket = /obj/item/grenade/frag
 	r_pocket = /obj/item/card/emag

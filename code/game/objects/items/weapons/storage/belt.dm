@@ -9,10 +9,13 @@
 	item_state = "utility"
 	storage_slots = 7
 	item_flags = ITEM_FLAG_IS_BELT
-	max_w_class = ITEM_SIZE_NORMAL
+	max_w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BELT
 	var/overlay_flags
 	attack_verb = list("whipped", "lashed", "disciplined")
+
+	drop_sound = SFX_DROP_TOOLBELT
+	pickup_sound = SFX_PICKUP_TOOLBELT
 
 /obj/item/storage/belt/verb/toggle_layer()
 	set name = "Switch Belt Layer"

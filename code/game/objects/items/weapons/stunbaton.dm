@@ -114,6 +114,10 @@
 			change_status(newstatus)
 			to_chat(user, SPAN_NOTICE("[src] is now [status ? "on" : "off"]."))
 			playsound(loc, SFX_SPARK, 75, 1, -1)
+
+			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+			s.set_up(3, 1, src)
+			s.start()
 	else
 		change_status(0)
 		if(!bcell)

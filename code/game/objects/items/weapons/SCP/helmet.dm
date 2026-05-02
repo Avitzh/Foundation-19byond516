@@ -26,7 +26,7 @@
 	armor = list(melee = ARMOR_MELEE_VRESISTANT, bullet = ARMOR_BALLISTIC_MID, laser = ARMOR_LASER_HANDGUNS, energy = ARMOR_ENERGY_RESISTANT, bomb = ARMOR_BOMB_MINOR, bio = ARMOR_BIO_RESISTANT, rad = ARMOR_RAD_SMALL)
 	acid_resistance = 1.5
 	flags_inv = HIDEEARS|BLOCKHAIR|HIDEEYES
-	action_button_name = null
+	action_button_name = "Toggle Visor"
 
 /obj/item/clothing/head/helmet/scp/security/recontain
 	name = "\improper foundation security response helmet"
@@ -103,7 +103,10 @@
 
 
 /obj/item/clothing/head/helmet/scp/security/attack_self(mob/user)
-	body_parts_covered ^= EYES|FACE
+	if(initial(body_parts_covered) & FACE)
+		body_parts_covered ^= FACE
+	if(initial(body_parts_covered) & EYES)
+		body_parts_covered ^= EYES
 	icon_state = initial(icon_state)
 	var/action = "lowers"
 	if (~body_parts_covered & EYES)

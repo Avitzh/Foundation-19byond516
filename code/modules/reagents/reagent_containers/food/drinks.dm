@@ -229,6 +229,9 @@
 	volume = 10
 	center_of_mass = "x=16;y=12"
 
+	drop_sound = SFX_DROP_PAPER
+	pickup_sound = SFX_PICKUP_PAPER
+
 /obj/item/reagent_containers/food/drinks/sillycup/on_reagent_change()
 	if(reagents.total_volume)
 		icon_state = "water_cup"

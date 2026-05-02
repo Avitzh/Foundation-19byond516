@@ -17,6 +17,9 @@
 	var/material_flags = USE_MATERIAL_COLOR|USE_MATERIAL_SINGULAR_NAME|USE_MATERIAL_PLURAL_NAME
 	var/matter_multiplier = 1
 
+	drop_sound = SFX_DROP_AXE
+	pickup_sound = SFX_PICKUP_AXE
+
 /obj/item/stack/material/Initialize(mapload, amount, _material, _reinf_material)
 	. = ..()
 	if(_material)
@@ -377,6 +380,9 @@
 	max_icon_state = "sheet-wood-max"
 	default_type = MATERIAL_WOOD
 
+	drop_sound = SFX_DROP_WOODEN
+	pickup_sound = SFX_PICKUP_WOODEN
+
 /obj/item/stack/material/wood/ten
 	amount = 10
 
@@ -475,12 +481,19 @@
 	default_type = MATERIAL_LEATHER_GENERIC
 	material_flags = USE_MATERIAL_SINGULAR_NAME|USE_MATERIAL_PLURAL_NAME
 
+	drop_sound = SFX_DROP_LEATHER
+	pickup_sound = SFX_PICKUP_LEATHER
+
 /obj/item/stack/material/glass
 	name = "glass"
 	icon_state = "sheet-clear"
 	plural_icon_state = "sheet-clear-mult"
 	max_icon_state = "sheet-clear-max"
 	default_type = MATERIAL_GLASS
+
+
+	drop_sound = SFX_DROP_GLASS
+	pickup_sound = SFX_PICKUP_GLASS
 
 /obj/item/stack/material/glass/on_update_icon()
 	if(reinf_material)

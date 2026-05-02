@@ -20,6 +20,9 @@
 	matter = list(MATERIAL_STEEL = 5000)
 	open_icon = "redopen"
 
+	drop_sound = SFX_DROP_TOOLBOX
+	pickup_sound = SFX_PICKUP_TOOLBOX
+
 /obj/item/storage/toolbox/emergency
 	name = "emergency toolbox"
 	startswith = list(

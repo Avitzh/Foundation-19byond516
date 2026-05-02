@@ -61,6 +61,7 @@
 		"280", //Numerical Designation
 		SCP_PLAYABLE // [SCP 280 can be played by player]
 	)
+	add_verb(src, /client/proc/scpooc)
 
 	spawn_area = get_area(src)
 	start_turf = get_turf(src)
@@ -345,15 +346,6 @@
 	set name = "Check Health"
 
 	to_chat(src, SPAN_WARNING(SPAN_ITALIC("You feel like you have [health] density now.")))
-
-/mob/living/simple_animal/hostile/scp280/verb/scp_say(message as text)
-	set category = "SCP-280"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))
-
 
 
 

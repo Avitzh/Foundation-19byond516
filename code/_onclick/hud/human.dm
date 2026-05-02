@@ -291,7 +291,7 @@
 	if(hud_data.has_blink)
 		mymob.blink_icon = new /atom/movable/screen/blink()
 		mymob.blink_icon.icon = 'icons/mob/status_blink.dmi'
-		mymob.blink_icon.icon_state = "blink_off"
+		mymob.blink_icon.icon_state = "blink_0"
 		mymob.blink_icon.SetName("blink")
 		mymob.blink_icon.screen_loc = ui_blink
 		hud_elements |= mymob.blink_icon
@@ -486,20 +486,16 @@
 				to_chat(usr, SPAN_NOTICE("<i>I'm feeling buggy today. <b>I should notify a coder.</b></i>"))
 
 /atom/movable/screen/blink/Click(location, control, params)
-	if(istype(usr) && usr.blink_icon == src)
-		switch(icon_state)
-			if("blink_off")
-				to_chat(usr, SPAN_NOTICE("I dont feel like I need to blink anytime soon."))
-			if("blink_4")
-				to_chat(usr, SPAN_NOTICE("I'm gonna be able to avoid blinking for a bit."))
-			if("blink_3")
-				to_chat(usr, SPAN_NOTICE("I might blink in a bit."))
-			if("blink_2")
-				to_chat(usr, SPAN_NOTICE("Its getting harder to keep my eyes open."))
-			if("blink_1")
-				to_chat(usr, SPAN_WARNING("Im about to blink!"))
-			if("blink_1")
-				to_chat(usr, SPAN_NOTICE("I blinked."))
+	if(istype(usr, /mob/living/carbon/human) && usr.blink_icon == src)
+		var/mob/living/carbon/human/H = usr
+		if(H.blink_icon.icon_state == "blink_0")
+			// Currently closed, open eyes
+			H.blink_icon.icon_state = "blink_4"
+			H.open_eyes()
+		else
+			// Currently open, close eyes
+			H.blink_icon.icon_state = "blink_0"
+			H.close_eyes()
 
 /atom/movable/screen/facedir/Click(location, control, params)
 	usr?.face_direction()

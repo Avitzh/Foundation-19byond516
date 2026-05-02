@@ -10,6 +10,12 @@
 	var/burn_point = null
 	var/burning = null
 	var/hitsound = SFX_SWING_HIT
+
+	/// pick up sounds
+	var/pickup_sound = SFX_PICKUP_GENERIC
+	/// Played when the item is dropped or thrown
+	var/drop_sound = SFX_DROP_GENERIC
+
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = FALSE			//If it's an item we don't want to log attack_logs with, set this to 1
 	pass_flags = PASS_FLAG_TABLE
@@ -123,6 +129,9 @@
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
 	health_resistances = DAMAGE_RESIST_ELECTRICAL
+
+	pickup_sound = SFX_PICKUP_DEVICE
+	drop_sound = SFX_DROP_DEVICE
 
 //Checks if the item is being held by a mob, and if so, updates the held icons
 /obj/item/proc/update_twohanding()
@@ -293,7 +302,7 @@
 	return
 
 // apparently called whenever an item is removed from a slot, container, or anything else.
-/obj/item/proc/dropped(mob/user as mob)
+/obj/item/proc/dropped(mob/user as mob, changing_slots = FALSE)
 	if(randpixel)
 		pixel_z = randpixel //an idea borrowed from some of the older pixel_y randomizations. Intended to make items appear to drop at a character
 
@@ -303,6 +312,9 @@
 			user.l_hand.update_twohanding()
 		if(user.r_hand)
 			user.r_hand.update_twohanding()
+
+	if(!changing_slots && !istype(loc, /obj/item/clothing/accessory))
+		play_drop_sound()
 
 	SEND_SIGNAL(src, COMSIG_DROPPED_ITEM, user)
 	SEND_SIGNAL(user, COMSIG_MOB_DROPPED_ITEM, src)
@@ -332,6 +344,9 @@
 	hud_layerise()
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
+
+	// Play pickup/handling sound when item is equipped
+	play_handling_sound(slot)
 
 	//Update two-handing status
 	var/mob/M = loc
@@ -1071,3 +1086,19 @@ GLOBAL_LIST_INIT(items_conversion_blacklist, list(
 		rating += "edge "
 	rating += "item"
 	return rating
+
+/obj/item/proc/play_drop_sound()
+	if(!drop_sound)
+		return
+
+	var/volume = clamp(rand(12, 16) * w_class, DROP_SOUND_VOLUME_MIN, DROP_SOUND_VOLUME_MAX)
+
+	playsound(src, drop_sound, volume, TRUE, extrarange = -5)
+
+/obj/item/proc/play_handling_sound(slot)
+	if(!pickup_sound)
+		return
+
+	if(slot == slot_l_hand || slot == slot_r_hand)
+		var/volume = clamp(rand(5, 15) * w_class, PICKUP_SOUND_VOLUME_MIN, PICKUP_SOUND_VOLUME_MAX)
+		playsound(src, pickup_sound, volume, TRUE, extrarange = -5)

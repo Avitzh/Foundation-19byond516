@@ -167,6 +167,12 @@ var/list/_client_preferences_by_type
 	key = "CHAT_AOOC"
 	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
 
+
+/datum/client_preference/show_scpooc
+	description ="SCP OOC chat"
+	key = "CHAT_SCPOOC"
+	options = list(GLOB.PREF_SHOW, GLOB.PREF_HIDE)
+
 /datum/client_preference/show_looc
 	description ="LOOC chat"
 	key = "CHAT_LOOC"

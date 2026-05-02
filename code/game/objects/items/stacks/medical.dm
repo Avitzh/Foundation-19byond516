@@ -13,6 +13,9 @@
 	var/animal_heal = 3
 	var/apply_sounds
 
+	drop_sound = SFX_DROP_CARDBOARD
+	pickup_sound = SFX_PICKUP_CARDBOARD
+
 /obj/item/stack/medical/proc/check_limb_state(mob/user, obj/item/organ/external/limb)
 	. = FALSE
 	if(BP_IS_CRYSTAL(limb))
@@ -132,6 +135,9 @@
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 4
 	apply_sounds = list('sounds/effects/ointment.ogg')
+
+	drop_sound = SFX_DROP_HERB
+	pickup_sound = SFX_PICKUP_HERB
 
 /obj/item/stack/medical/ointment/attack(mob/living/carbon/M, mob/user)
 	if(..())

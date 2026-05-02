@@ -4,6 +4,9 @@
 	atom_flags = 0 //starts closed
 	matter = list(MATERIAL_ALUMINIUM = 30)
 
+	drop_sound = SFX_DROP_SODACAN
+	pickup_sound = SFX_PICKUP_SODACAN
+
 //DRINKS
 
 /obj/item/reagent_containers/food/drinks/cans/cola

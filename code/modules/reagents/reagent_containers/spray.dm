@@ -159,6 +159,9 @@
 	possible_transfer_amounts = null
 	volume = 10
 
+	drop_sound = SFX_DROP_HERB
+	pickup_sound = SFX_PICKUP_HERB
+
 /obj/item/reagent_containers/spray/waterflower/New()
 	..()
 	reagents.add_reagent(/datum/reagent/water, 10)

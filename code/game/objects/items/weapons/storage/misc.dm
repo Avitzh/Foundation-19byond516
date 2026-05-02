@@ -9,11 +9,17 @@
 	for(var/i = 1 to 7)
 		new /obj/item/dice( src )
 
+	drop_sound = SFX_DROP_HAT
+	pickup_sound = SFX_PICKUP_HAT
+
 /obj/item/storage/pill_bottle/dice_nerd	//DnD dice
 	name = "bag of gaming dice"
 	desc = "It's a small bag with gaming dice inside."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "magicdicebag"
+
+	drop_sound = SFX_DROP_HAT
+	pickup_sound = SFX_PICKUP_HAT
 
 /obj/item/storage/pill_bottle/dice_nerd/New()
 	..()

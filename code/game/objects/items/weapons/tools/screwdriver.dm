@@ -20,6 +20,9 @@
 	var/build_from_parts = TRUE
 	var/valid_colours = list(COLOR_RED, COLOR_CYAN_BLUE, COLOR_PURPLE, COLOR_CHESTNUT, COLOR_GREEN, COLOR_TEAL, COLOR_ASSEMBLY_YELLOW, COLOR_BOTTLE_GREEN, COLOR_VIOLET, COLOR_GRAY80, COLOR_GRAY20)
 
+	drop_sound = SFX_DROP_SCREWDRIVER
+	pickup_sound = SFX_PICKUP_SCREWDRIVER
+
 /obj/item/screwdriver/Initialize()
 	if(build_from_parts)
 		icon_state = "screwdriver_handle"

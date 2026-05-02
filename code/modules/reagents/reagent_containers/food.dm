@@ -12,6 +12,9 @@
 	/// An associative list of reagent types associated to the volume to add.
 	var/list/food_reagents
 
+	drop_sound = SFX_DROP_FOOD
+	pickup_sound = SFX_PICKUP_FOOD
+
 /obj/item/reagent_containers/food/Initialize()
 	. = ..()
 	if (reagents)

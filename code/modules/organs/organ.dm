@@ -32,6 +32,8 @@ var/list/organ_cache = list()
 	var/can_be_printed = TRUE
 	var/print_cost
 
+	drop_sound = SFX_DROP_FLESH
+	pickup_sound = SFX_PICKUP_FLESH
 
 /obj/item/organ/Destroy()
 	owner = null

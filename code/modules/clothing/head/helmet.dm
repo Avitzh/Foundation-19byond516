@@ -27,6 +27,9 @@
 	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_ADHERENT)
 	hidden_from_codex = FALSE
 
+	pickup_sound = SFX_PICKUP_HELMET
+	drop_sound = SFX_DROP_HELMET
+
 /obj/item/clothing/head/helmet/nt
 	name = "\improper corporate security helmet"
 	desc = "A helmet with 'CORPORATE SECURITY' printed on the back in red lettering."

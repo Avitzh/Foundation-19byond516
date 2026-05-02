@@ -162,6 +162,10 @@
 	sharp = TRUE
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
 
+
+	drop_sound = SFX_DROP_GLASSSMALL
+	pickup_sound = SFX_PICKUP_GLASSSMALL
+
 /obj/item/broken_bottle/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	playsound(loc, 'sounds/weapons/bladeslice.ogg', 50, 1, -1)
 	show_sound_effect(loc, M, soundicon = SFX_ICON_JAGGED)

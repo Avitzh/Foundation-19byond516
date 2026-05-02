@@ -108,3 +108,32 @@
 
 /turf/unsimulated/floor/steeldirty
 	icon_state = "steel_dirty"
+
+/turf/unsimulated/floor/invisible
+	icon_state = "invisible"
+
+/turf/unsimulated/floor/grey
+	icon_state = "grey"
+
+/turf/unsimulated/floor/black
+	icon_state = "black"
+
+/turf/unsimulated/floor/chasm
+	name = "void"
+	desc = "The endless void."
+	icon = 'icons/turf/flooring/chasms.dmi'
+	icon_state = "0-0"
+	var/d1 = 0
+	var/d2 = 1
+
+/turf/unsimulated/floor/chasm/Initialize()
+	. = ..()
+
+	var/dash = findtext(icon_state, "-")
+
+	d1 = text2num( copytext( icon_state, 1, dash ) )
+
+	d2 = text2num( copytext( icon_state, dash+1 ) )
+
+/turf/unsimulated/floor/chasm/on_update_icon()
+	icon_state = "[d1]-[d2]"

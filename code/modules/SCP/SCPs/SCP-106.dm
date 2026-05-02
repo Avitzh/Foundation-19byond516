@@ -58,6 +58,7 @@
 		"106", //Numerical Designation
 		SCP_PLAYABLE
 	)
+	add_verb(src, /client/proc/scpooc)
 
 	SCP.min_time = 40 MINUTES
 	SCP.min_playercount = 30
@@ -233,11 +234,17 @@
 	var/turf/T = pick_area_turf(pocket_dimension_area_type, list(GLOBAL_PROC_REF(not_turf_contains_dense_objects)))
 	if(!istype(T))
 		return FALSE
+
+	var/obj/effect/decal/cleanable/floorrot106/new_rot = new /obj/effect/decal/cleanable/floorrot106(loc)
+	new_rot.update_icon()
+	animate(new_rot, alpha = 0, time = 0, transform = matrix()*0)
+	animate(new_rot, alpha = 255, time = 5, transform = matrix()*1)
+
 	pocket_dimension_cooldown = world.time + pocket_dimension_cooldown_time
-	animate(src, alpha = 0, time = 5)
+	animate(src, alpha = 0, time = 5, pixel_y = -10)
 	set_last_xyz()
 	sleep(5) // Le cool visual effects
-	animate(src, alpha = 255, time = 5)
+	animate(src, alpha = 255, time = 5, pixel_y = 0)
 	forceMove(T)
 	remove_verb(src, /mob/living/carbon/human/scp106/verb/enter_pocket_dimension)
 	add_verb(src, /mob/living/carbon/human/scp106/proc/go_back)
@@ -343,6 +350,13 @@
 	alpha = 255
 	pixel_x = 0
 	pixel_y = 0
+
+	var/obj/effect/decal/cleanable/wallrot106/new_rot = new /obj/effect/decal/cleanable/wallrot106(loc)
+	new_rot.update_icon()
+	animate(new_rot, alpha = 0, time = 0, transform = matrix()*0)
+	var/matrix/M =  matrix()
+	animate(new_rot, alpha = 0, time = 0, transform = M.Turn(pick(90,270)))
+	animate(new_rot, alpha = 255, time = 5, transform = matrix()*1)
 
 /mob/living/carbon/human/scp106/proc/wall_phase()
 	set name = "Enter wall"
@@ -709,11 +723,3 @@ GLOBAL_LIST_EMPTY(femur_breakers)
 	for(var/source in sources)
 		for(var/turf/T in seen_turfs_in_range(get_turf(source), 16))
 			visible[T] = T
-
-/mob/living/carbon/human/scp106/verb/scp_say(message as text)
-	set category = "SCP-106"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))

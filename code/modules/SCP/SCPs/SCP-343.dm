@@ -86,6 +86,7 @@
 		"343", //Numerical Designation
 		SCP_PLAYABLE|SCP_ROLEPLAY
 	)
+	add_verb(src, /client/proc/scpooc)
 
 	add_language(LANGUAGE_ENGLISH)
 	add_language(LANGUAGE_HUMAN_FRENCH)
@@ -271,12 +272,3 @@
 
 /mob/living/carbon/human/scp343/movement_delay()
 	return move_delay
-
-
-/mob/living/carbon/human/scp343/verb/scp_say(message as text)
-	set category = "SCP-343"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))

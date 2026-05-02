@@ -14,6 +14,10 @@
 	see_in_dark = 7
 	universal_speak = 1	// 999 can understand and speak every language, although his text gets altered
 	speak_emote = list("blubbers", "glubs")
+	///sound cooldown track
+	var/sound_cooldown
+	///Sound cooldown
+	var/sound_cooldown_time = 5 SECONDS
 
 /mob/living/scp999/Initialize()
 	. = ..()
@@ -24,6 +28,7 @@
 		"999", //Numerical Designation
 		SCP_PLAYABLE|SCP_ROLEPLAY
 	)
+	add_verb(src, /client/proc/scpooc)
 
 	SCP.min_time = 5 MINUTES
 
@@ -38,7 +43,7 @@
 //Overrides
 
 /mob/living/scp999/handle_autohiss(message, datum/language/speaking)
-
+	playsound(get_turf(src), 'sounds/scp/999/999_murr.ogg', 65, TRUE)
 	var/regex/words = new(@"(\S+)", "ig")
 
 	var/end_char = copytext(message, length(message), length(message) + 1)
@@ -55,12 +60,23 @@
 	else
 		icon_state = "SCP-999"
 
+/mob/living/scp999/verb/murr()
+	set name = "\[Sound\] Murrs"
+	set category = "SCP"
+	set desc = "Murr."
+
+	if(world.time < sound_cooldown)
+		return
+	playsound(get_turf(src), 'sounds/scp/999/999_murr.ogg', 65, TRUE)
+	sound_cooldown = world.time + sound_cooldown_time
+
 /mob/living/scp999/UnarmedAttack(atom/a)
 	if(ishuman(a))
 		var/mob/living/carbon/human/H = a
 		switch(a_intent)
 			if(I_HELP)
 				H.visible_message(SPAN_NOTICE("[src] gives [a] a big hug!"), SPAN_NOTICE("[src] hugs you, filling you with happiness!"))
+				playsound(src.loc, 'sounds/weapons/thudswoosh.ogg', 50, 1, -1)
 				H.make_reagent(6, /datum/reagent/medicine/antidepressant/anomalous_happiness)
 				H.emote(pick("laugh","giggle"))
 			if(I_DISARM)
@@ -79,11 +95,3 @@
 				H.Weaken(6)
 	else
 		return ..()
-
-/mob/living/scp999/verb/scp_say(message as text)
-	set category = "SCP-999"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))

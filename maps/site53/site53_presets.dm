@@ -60,7 +60,7 @@
 	return get_shared_network_access(network) || ..()
 
 /datum/map/site53
-	// Networks that will show up as options in the camera monitor program
+	sealed_levels = list(8)
 	station_networks = list(
 		NETWORK_ENGINE,
 		NETWORK_ENTRANCE,
@@ -201,4 +201,3 @@
 // Override and implement to customize the SMES's loadout
 /obj/machinery/power/smes/buildable/preset/proc/configure_and_install_coils()
 	CRASH("configure_and_install_coils() not implemented for type [type]!")
-

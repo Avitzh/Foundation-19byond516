@@ -13,6 +13,9 @@ GLOBAL_LIST(hazard_overlays)
 
 	var/apply_tape = FALSE
 
+	drop_sound = SFX_DROP_CARDBOARD
+	pickup_sound = SFX_PICKUP_CARDBOARD
+
 /obj/item/taperoll/Initialize()
 	. = ..()
 	if(!GLOB.hazard_overlays)

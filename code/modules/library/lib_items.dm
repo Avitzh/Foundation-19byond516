@@ -149,6 +149,9 @@
 	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
 	var/obj/item/store	//What's in the book?
 
+	drop_sound = SFX_DROP_BOOK
+	pickup_sound = SFX_PICKUP_BOOK
+
 /obj/item/book/attack_self(mob/user as mob)
 	if(carved)
 		if(store)

@@ -1,4 +1,4 @@
-#define DEFAULT_GAME_YEAR_OFFSET 288
+#define DEFAULT_GAME_YEAR_OFFSET -1
 
 GLOBAL_DATUM_INIT(using_map, /datum/map, new using_map_DATUM)
 GLOBAL_LIST_EMPTY(all_maps)
@@ -109,7 +109,7 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/salary_modifier	= 1			//Multiplier to starting character money
 	var/station_departments = list()//Gets filled automatically depending on jobs allowed
 
-	var/supply_currency_name = "Funds"
+	var/supply_currency_name = "Dollars"
 	var/supply_currency_name_short = "$"
 	var/local_currency_name = "dollars"
 	var/local_currency_name_singular = "dollar"

@@ -16,6 +16,9 @@
 	edge = TRUE
 	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
+	drop_sound = SFX_DROP_KNIFE
+	pickup_sound = SFX_PICKUP_KNIFE
+
 /obj/item/material/knife/attack(mob/living/carbon/M, mob/living/carbon/user, target_zone)
 	if(!istype(M))
 		return ..()

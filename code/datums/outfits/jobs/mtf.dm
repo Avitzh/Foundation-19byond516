@@ -14,9 +14,8 @@
 	name = OUTFIT_JOB_NAME("MTF Epsilon-11 Agent")
 	uniform = /obj/item/clothing/under/mtf/epsilon11
 	suit = /obj/item/clothing/suit/armor/mtftactical
-	head = /obj/item/clothing/head/helmet/mtftactical
+	head = /obj/item/clothing/head/helmet/scp/security/mtftactical
 	mask = /obj/item/clothing/mask/gas/mtf
-	glasses = /obj/item/clothing/glasses/night
 	gloves = /obj/item/clothing/gloves/tactical/scp
 	shoes = /obj/item/clothing/shoes/swat
 	suit_store = /obj/item/gun/projectile/automatic/scp/m16
@@ -32,7 +31,6 @@
 	suit = /obj/item/clothing/suit/armor/mtfmedium
 	head = /obj/item/clothing/head/helmet/scp/security/mtftactical
 	mask = /obj/item/clothing/mask/gas/mtf
-	glasses = /obj/item/clothing/glasses/night
 	gloves = /obj/item/clothing/gloves/tactical/scp
 	shoes = /obj/item/clothing/shoes/swat
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat
@@ -63,9 +61,8 @@
 	name = OUTFIT_JOB_NAME("MTF Epsilon-11 Medic")
 	uniform = /obj/item/clothing/under/mtf/epsilon11
 	suit = /obj/item/clothing/suit/armor/mtfmedic
-	head = /obj/item/clothing/head/helmet/mtftactical
+	head = /obj/item/clothing/head/helmet/scp/security/mtftactical
 	mask = /obj/item/clothing/mask/gas/mtf
-	glasses = /obj/item/clothing/glasses/night
 	gloves = /obj/item/clothing/gloves/latex/nitrile/armored
 	shoes = /obj/item/clothing/shoes/swat
 	suit_store = /obj/item/gun/projectile/automatic/scp/p90
@@ -80,9 +77,8 @@
 	name = OUTFIT_JOB_NAME("MTF Epsilon-11 Pointman")
 	uniform = /obj/item/clothing/under/mtf/epsilon11
 	suit = /obj/item/clothing/suit/armor/mtfmedium
-	head = /obj/item/clothing/head/helmet/mtftactical
+	head = /obj/item/clothing/head/helmet/scp/security/mtftactical
 	mask = /obj/item/clothing/mask/gas/mtf
-	glasses = /obj/item/clothing/glasses/night
 	gloves = /obj/item/clothing/gloves/tactical/scp
 	shoes = /obj/item/clothing/shoes/swat
 	suit_store = null

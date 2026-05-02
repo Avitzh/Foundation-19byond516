@@ -14,6 +14,9 @@
 	species_restricted = list("exclude", SPECIES_DIONA)
 	hidden_from_codex = FALSE
 
+	drop_sound = SFX_DROP_GLOVES
+	pickup_sound = SFX_PICKUP_GLOVES
+
 /obj/item/clothing/glasses/blindfold/Initialize()
 	. = ..()
 	toggle_off_message = "You flip \the [src] up."

@@ -1,6 +1,10 @@
 /obj/structure/closet/coffin/scp895
 	name = "oak coffin"
 	desc = "an ornate oak coffin"
+	icon = 'icons/obj/closets/coffin_wood.dmi'
+	icon_state = "closed"
+	icon_opened = "open"
+	icon_closed = "closed"
 
 /obj/structure/closet/coffin/scp895/Initialize()
 	. = ..()

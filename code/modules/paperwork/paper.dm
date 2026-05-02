@@ -49,6 +49,9 @@
 
 	var/scan_file_type = /datum/computer_file/data/text
 
+	drop_sound = SFX_DROP_PAPER
+	pickup_sound = SFX_PICKUP_PAPER
+
 /obj/item/paper/New(loc, text, title, list/md = null, datum/language/L = null)
 	if (L)
 		language = L

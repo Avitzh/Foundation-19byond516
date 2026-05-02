@@ -99,6 +99,8 @@
 				line += " <font color='#3a7496'><b><s>(LOOC)</s></b></font>"
 			if(C.get_preference_value(/datum/client_preference/show_aooc) == GLOB.PREF_HIDE)
 				line += " <font color='#960018'><b><s>(AOOC)</s></b></font>"
+			if(C.get_preference_value(/datum/client_preference/show_scpooc) == GLOB.PREF_HIDE)
+				line += " <font color='#eaff00'><b><s>(SCPOOC)</s></b></font>"
 			if(C.get_preference_value(/datum/client_preference/show_dsay) == GLOB.PREF_HIDE)
 				line += " <font color='#530fad'><b><s>(DSAY)</s></b></font>"
 		line = jointext(line,null)

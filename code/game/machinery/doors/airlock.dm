@@ -50,12 +50,12 @@ var/list/airlock_overlays = list()
 	var/hasShocked = 0 //Prevents multiple shocks from happening
 	var/secured_wires = 0
 
-	var/open_sound_powered = 'sounds/machines/airlock_open.ogg'
-	var/open_sound_unpowered = 'sounds/machines/airlock_open_force.ogg'
-	var/open_failure_access_denied = 'sounds/machines/deniedboop.ogg'
+	var/open_sound_powered = 'sounds/scp/machinery/scp_door_opening.ogg' // 'sounds/machines/airlock_open.ogg'
+	var/open_sound_unpowered = 'sounds/scp/machinery/scp_door_destroyed.ogg' // 'sounds/machines/airlock_open_force.ogg'
+	var/open_failure_access_denied = 'sounds/scp/machinery/scp_door_button1.ogg' // 'sounds/machines/deniedboop.ogg'
 
-	var/close_sound_powered = 'sounds/machines/airlock_close.ogg'
-	var/close_sound_unpowered = 'sounds/machines/airlock_close_force.ogg'
+	var/close_sound_powered = 'sounds/scp/machinery/scp_door_close.ogg' // 'sounds/machines/airlock_close.ogg'
+	var/close_sound_unpowered = 'sounds/scp/machinery/scp_door_destroyed.ogg' // 'sounds/machines/airlock_close_force.ogg'
 	var/close_failure_blocked = 'sounds/machines/triple_beep.ogg'
 
 	var/bolts_rising = 'sounds/machines/bolts_up.ogg'

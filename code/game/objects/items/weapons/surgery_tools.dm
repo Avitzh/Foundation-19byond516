@@ -21,6 +21,9 @@
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 
+	drop_sound = SFX_DROP_SCREWDRIVER
+	pickup_sound = SFX_PICKUP_SCREWDRIVER
+
 /*
  * Hemostat
  */
@@ -35,6 +38,9 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
 
+	drop_sound = SFX_DROP_WELDINGTOOL
+	pickup_sound = SFX_PICKUP_WELDINGTOOL
+
 /*
  * Cautery
  */
@@ -48,6 +54,9 @@
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
+
+	drop_sound = SFX_DROP_SCREWDRIVER
+	pickup_sound = SFX_PICKUP_SCREWDRIVER
 
 /*
  * Surgical Drill
@@ -85,6 +94,9 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	matter = list(MATERIAL_STEEL = 10000, MATERIAL_GLASS = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+
+	drop_sound = SFX_DROP_KNIFE
+	pickup_sound = SFX_PICKUP_KNIFE
 
 /*
  * Researchable Scalpels
@@ -168,3 +180,6 @@
 	throw_range = 5
 	w_class = ITEM_SIZE_SMALL
 	attack_verb = list("attacked", "hit", "bludgeoned")
+
+	drop_sound = SFX_DROP_WELDINGTOOL
+	pickup_sound = SFX_PICKUP_WELDINGTOOL

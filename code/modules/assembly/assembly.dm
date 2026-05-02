@@ -23,6 +23,9 @@
 	var/cooldown = 0//To prevent spam
 	var/wires = WIRE_RECEIVE|WIRE_PULSE
 
+	drop_sound = SFX_DROP_COMPONENT
+	pickup_sound = SFX_PICKUP_COMPONENT
+
 /obj/item/device/assembly/tgui_state()
 	return GLOB.deep_inventory_tgui_state
 

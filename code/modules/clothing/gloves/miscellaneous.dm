@@ -21,6 +21,9 @@
 	permeability_coefficient = 0.05
 	hidden_from_codex = FALSE
 
+	drop_sound = SFX_DROP_RUBBER
+	pickup_sound = SFX_PICKUP_RUBBER
+
 /obj/item/clothing/gloves/insulated/cheap                             //Cheap Chinese Crap
 	desc = "These gloves are cheap copies of the coveted gloves, no way this can end badly."
 	name = "budget insulated gloves"

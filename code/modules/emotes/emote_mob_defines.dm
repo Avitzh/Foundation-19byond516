@@ -48,7 +48,6 @@
 		/datum/emote/shiver,
 		/datum/emote/collapse,
 		/datum/emote/airguitar,
-		/datum/emote/blink,
 		/datum/emote/blink_rapidly,
 		/datum/emote/bow,
 		/datum/emote/salute,

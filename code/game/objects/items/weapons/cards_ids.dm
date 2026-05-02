@@ -18,6 +18,9 @@
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
 
+	drop_sound = SFX_DROP_DISK
+	pickup_sound = SFX_PICKUP_DISK
+
 /obj/item/card/data
 	name = "data card"
 	desc = "A plastic magstripe card for simple and speedy data storage and transfer. This one has a stripe running down the middle."

@@ -21,6 +21,9 @@
 	var/welding_resource = "welding fuel"
 	var/obj/item/welder_tank/tank = /obj/item/welder_tank // where the fuel is stored
 
+	drop_sound = SFX_DROP_WELDINGTOOL
+	pickup_sound = SFX_PICKUP_WELDINGTOOL
+
 /obj/item/weldingtool/Initialize()
 	if(ispath(tank))
 		tank = new tank

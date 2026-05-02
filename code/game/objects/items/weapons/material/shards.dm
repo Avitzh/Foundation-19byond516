@@ -19,6 +19,9 @@
 	drops_debris = 0
 	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
+	drop_sound = SFX_DROP_GLASS
+	pickup_sound = SFX_PICKUP_GLASS
+
 /obj/item/material/shard/set_material(new_material)
 	..(new_material)
 	if(!istype(material))

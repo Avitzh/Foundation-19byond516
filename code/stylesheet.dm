@@ -25,6 +25,7 @@ em						{font-style: normal;font-weight: bold;}
 .ooc .developer			{color: #1b521f;}
 .ooc .admin				{color: #b82e00;}
 .ooc .aooc				{color: #960018;}
+.ooc .scpooc			{color: #ffff18;}
 
 .staffwarn				{color: #ff0000; font-weight:bold; font-size: 150%;}
 /* Admin: Private Messages */

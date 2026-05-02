@@ -163,6 +163,30 @@
 	name = "floor"
 	desc = "A solid, heavy set of flooring plates."
 	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "steel"
+	has_damage_range = 4
+	damage_temperature = T0C+1400
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
+	build_type = /obj/item/stack/tile/floor
+	can_paint = 1
+	footstep_type = /decl/footsteps/tiles
+
+/decl/flooring/tiling/steel_herringbone
+	name = "floor"
+	desc = "A solid, heavy set of flooring plates."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "steel_herringbone"
+	has_damage_range = 4
+	damage_temperature = T0C+1400
+	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
+	build_type = /obj/item/stack/tile/steel_herringbone
+	can_paint = 1
+	footstep_type = /decl/footsteps/tiles
+
+/decl/flooring/tiled_steel
+	name = "floor"
+	desc = "A solid, heavy set of flooring plates."
+	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "tiled"
 	has_damage_range = 4
 	damage_temperature = T0C+1400
@@ -460,3 +484,146 @@
 	wall_smooth = SMOOTH_NONE
 	space_smooth = SMOOTH_NONE
 	height = -FLUID_OVER_MOB_HEAD * 2
+
+// NEW FLOOR TILE DECLS
+/decl/flooring/plating_norn
+	name = "floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "plating_norn"
+	build_type = null
+
+/decl/flooring/tiling/steel_monofloor
+	icon_base = "steel_monofloor"
+	build_type = null
+
+/decl/flooring/tiling/new_tile/white_ridged
+	icon_base = "white_ridged"
+	build_type = null
+
+/decl/flooring/tiling/white_herringbone
+	icon_base = "white_herringbone"
+	build_type = null
+
+/decl/flooring/tiling/white_norn
+	icon_base = "white_norn"
+	build_type = null
+
+/decl/flooring/tiling/textured_white
+	icon_base = "textured_white"
+	build_type = null
+
+/decl/flooring/tiling/textured_white_edge
+	icon_base = "textured_white_edge"
+	build_type = null
+
+/decl/flooring/tiling/textured_white_half
+	icon_base = "textured_white_half"
+	build_type = null
+
+/decl/flooring/tiling/textured_white_corner
+	icon_base = "textured_white_corner"
+	build_type = null
+
+/decl/flooring/tiling/new_tile/white_grid
+	icon_base = "white_grid"
+	build_type = null
+
+/decl/flooring/tiling/textured_white_large
+	icon_base = "textured_white_large"
+	build_type = null
+
+/decl/flooring/tiling/darkfull
+	icon_base = "darkfull"
+	build_type = null
+
+/decl/flooring/tiling/dark_old
+	icon_base = "dark_old"
+	build_type = null
+
+/decl/flooring/tiling/dark_herringbone
+	icon_base = "dark_herringbone"
+	build_type = null
+
+/decl/flooring/tiling/new_tile/dark_ridged
+	icon_base = "dark_ridged"
+	build_type = null
+
+/decl/flooring/tiling/smooth_corner
+	icon_base = "smooth_corner"
+	build_type = null
+
+/decl/flooring/tiling/smooth_large
+	icon_base = "smooth_large"
+	build_type = null
+
+/decl/flooring/tiling/smooth
+	icon_base = "smooth"
+	build_type = null
+
+/decl/flooring/tiling/smooth_edge
+	icon_base = "smooth_edge"
+	build_type = null
+
+/decl/flooring/tiling/smooth_half
+	icon_base = "smooth_half"
+	build_type = null
+
+/decl/flooring/tiling/textured
+	icon_base = "textured"
+	build_type = null
+
+/decl/flooring/tiling/textured_edge
+	icon_base = "textured_edge"
+	build_type = null
+
+/decl/flooring/tiling/textured_half
+	icon_base = "textured_half"
+	build_type = null
+
+/decl/flooring/tiling/textured_corner
+	icon_base = "textured_corner"
+	build_type = null
+
+/decl/flooring/tiling/textured_large
+	icon_base = "textured_large"
+	build_type = null
+
+/decl/flooring/tiling/steel_old
+	icon_base = "steel_old"
+	build_type = null
+
+/decl/flooring/tiling/textured_dark
+	icon_base = "textured_dark"
+	build_type = null
+
+/decl/flooring/tiling/textured_dark_edge
+	icon_base = "textured_dark_edge"
+	build_type = null
+
+/decl/flooring/tiling/textured_dark_half
+	icon_base = "textured_dark_half"
+	build_type = null
+
+/decl/flooring/tiling/textured_dark_corner
+	icon_base = "textured_dark_corner"
+	build_type = null
+
+/decl/flooring/tiling/textured_dark_large
+	icon_base = "textured_dark_large"
+	build_type = null
+
+/decl/flooring/tiling/black_half
+	icon_base = "black_half"
+	build_type = null
+
+/decl/flooring/tiling/vault
+	icon_base = "vault"
+	build_type = null
+
+/decl/flooring/tiling/darkfull_norn
+	icon_base = "darkfull_norn"
+	build_type = null
+
+/decl/flooring/tiling/floor_norn
+	icon_base = "floor_norn"
+	build_type = null

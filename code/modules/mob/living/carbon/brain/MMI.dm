@@ -42,6 +42,9 @@
 	var/mob/living/carbon/brain/brainmob = null//The current occupant.
 	var/obj/item/organ/internal/brain/brainobj = null	//The current brain organ.
 
+	pickup_sound = SFX_PICKUP_DEVICE
+	drop_sound = SFX_DROP_DEVICE
+
 /obj/item/device/mmi/attackby(obj/item/O as obj, mob/user as mob)
 	if(istype(O,/obj/item/organ/internal/brain) && !brainmob) //Time to stick a brain in it --NEO
 

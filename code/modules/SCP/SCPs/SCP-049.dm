@@ -58,6 +58,8 @@
 		SCP_PLAYABLE|SCP_ROLEPLAY
 	)
 
+	add_verb(src, /client/proc/scpooc)
+
 	SCP.min_time = 10 MINUTES
 	SCP.min_playercount = 10 //mostly a RP scp, cant escape as soon as they spawn in
 
@@ -468,12 +470,3 @@
 	target.species.handle_post_spawn(target)
 
 	playsound(get_turf(target), 'sounds/hallucinations/wail.ogg', 25, 1)
-
-
-/mob/living/carbon/human/scp049/verb/scp_say(message as text)
-	set category = "SCP-049"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))

@@ -37,6 +37,9 @@ var/list/global/tank_gauge_cache = list()
 
 	var/list/starting_pressure //list in format 'xgm gas id' = 'desired pressure at start'
 
+	drop_sound = SFX_DROP_GASCAN
+	pickup_sound = SFX_PICKUP_GASCAN
+
 /obj/item/tank/Initialize()
 	. = ..()
 	proxyassembly = new /obj/item/device/tankassemblyproxy(src)

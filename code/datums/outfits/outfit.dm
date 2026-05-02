@@ -50,7 +50,7 @@ var/list/outfits_decls_by_type_
 	var/id_pda_assignment
 
 	var/list/backpack_overrides
-	var/flags = OUTFIT_RESET_EQUIPMENT
+	var/flags = OUTFIT_RESET_EQUIPMENT|OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR|OUTFIT_ADJUSTMENT_SKIP_ID_PDA|OUTFIT_ADJUSTMENT_SKIP_BACKPACK
 
 /decl/hierarchy/outfit/New()
 	..()
@@ -135,14 +135,14 @@ var/list/outfits_decls_by_type_
 		H.w_uniform.attackby(H, equip_holster)
 		if(equip_holster.loc != H.w_uniform)
 			qdel(equip_holster)
+	if(gloves)
+		H.equip_to_slot_or_store_or_drop(new gloves(H),slot_gloves)
 	if(suit)
 		H.equip_to_slot_or_store_or_drop(new suit(H),slot_wear_suit)
 	if(back)
 		H.equip_to_slot_or_store_or_drop(new back(H),slot_back)
 	if(belt)
 		H.equip_to_slot_or_store_or_drop(new belt(H),slot_belt)
-	if(gloves)
-		H.equip_to_slot_or_store_or_drop(new gloves(H),slot_gloves)
 	if(shoes)
 		H.equip_to_slot_or_store_or_drop(new shoes(H),slot_shoes)
 	if(id)
@@ -192,7 +192,7 @@ var/list/outfits_decls_by_type_
 			else
 				H.equip_to_slot_or_del(backpack, slot_back)
 
-	if(H.species && !(OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR & equip_adjustments))
+	if(H.species && !(OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR & (equip_adjustments | flags)))
 		H.species.equip_survival_gear(H, flags&OUTFIT_EXTENDED_SURVIVAL)
 	check_and_try_equip_xeno(H)
 

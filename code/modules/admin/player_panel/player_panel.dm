@@ -509,6 +509,7 @@ GLOBAL_LIST_INIT(mute_bits, list(
 	list(name = "Ahelp", bitflag = MUTE_ADMINHELP),
 	list(name = "Dsay", bitflag = MUTE_DEADCHAT),
 	list(name = "AOOC", bitflag = MUTE_AOOC),
+	list(name = "SCPOOC", bitflag = MUTE_SCPOOC),
 	list(name = "Mhelp", bitflag = MUTE_MENTOR)
 ))
 

@@ -13,6 +13,9 @@
 	slot_flags = SLOT_EARS
 	var/string_colour
 
+	drop_sound = SFX_DROP_RING
+	pickup_sound = SFX_PICKUP_RING
+
 /obj/item/material/coin/New()
 	icon_state = "coin[rand(1,10)]"
 	..()

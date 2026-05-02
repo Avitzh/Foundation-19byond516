@@ -81,6 +81,10 @@
 	//AI's current target
 	var/atom/movable/target
 
+	var/sound_cooldown_time = 20 SECONDS
+	///sound cooldown track
+	var/sound_cooldown
+
 /mob/living/scp173/Initialize()
 	SCP = new /datum/scp(
 		src, // Ref to actual SCP atom
@@ -89,7 +93,7 @@
 		"173", //Numerical Designation
 		SCP_PLAYABLE
 	)
-
+	add_verb(src, /client/proc/scpooc)
 	SCP.min_playercount = 15
 
 	defecation_cooldown = world.time + 10 MINUTES // Give everyone some time to prepare
@@ -115,7 +119,7 @@
 /mob/living/scp173/say(message)
 	return // lol you can't talk
 
-/mob/living/scp173/emote(act, m_type, message)
+/mob/living/scp173/emote(act, intentional, m_type, message)
 	if(IsBeingWatched())
 		return
 	return ..()
@@ -214,6 +218,11 @@
 	for(var/mob/living/carbon/human/H in our_view)
 		H.enable_blink(src)
 		next_blinks |= H
+/*		switch(rand(1,4))
+			if(1) playsound(H, 'sounds/scp/scare1.ogg', 70, TRUE)
+			if(2) playsound(H, 'sounds/scp/scare2.ogg', 70, TRUE)
+			if(3) playsound(H, 'sounds/scp/scare3.ogg', 70, TRUE)
+			if(4) playsound(H, 'sounds/scp/scare4.ogg', 70, TRUE)	*/
 	handle_regular_hud_updates()
 	process_blink_hud(src)
 	if(!isturf(loc)) // Inside of something
@@ -741,15 +750,6 @@
 			qdel(src)
 	acid_melted++
 
-/mob/living/scp173/verb/scp_say(message as text)
-	set category = "SCP-173"
-	set name = "SCP say"
-
-	for(var/mob/A in GLOB.SCP_list)
-		if(A.client)
-			to_chat(A, SPAN_DANGER("[icon2html(src, usr)] <B><strong>SCP-[SCP.designation] [src]:</strong></B> <span class='message linkify'>[message]</span>"))
-
-
 /mob/living/scp173/verb/flick_light()
 	set hidden = FALSE
 	set category = "SCP-173"
@@ -775,3 +775,14 @@
 
 	// Set cooldown
 	scpLocalFlickLightCooldown = world.time + cooldown_time
+
+/mob/living/scp173/verb/Scream()
+	set name = "\[Sound\] Scream!"
+	set category = "SCP-173"
+	set desc = "RUN!RUN!RUN!"
+	set hidden = 0
+
+	if(world.time < sound_cooldown)
+		return
+	playsound(get_turf(src), pick('sounds/scp/scare1.ogg','sounds/scp/scare2.ogg','sounds/scp/scare3.ogg','sounds/scp/scare4.ogg'), rand(35, 65), TRUE)
+	sound_cooldown = world.time + sound_cooldown_time

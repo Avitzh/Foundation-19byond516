@@ -1,8 +1,5 @@
-//STRIKE TEAMS
-//Thanks to Kilakk for the admin-button portion of this code.
-
-var/global/send_emergency_team = 0 // Used for automagic response teams
-								   // 'admin_emergency_team' for admin-spawned response teams
+// Глобальная переменная для текущего активного отряда (используется JoinResponseTeam)
+var/global/datum/antagonist/mtf/active_ert = null
 
 /client/proc/response_team()
 	set name = "Dispatch Mobile Task Force"
@@ -21,13 +18,29 @@ var/global/send_emergency_team = 0 // Used for automagic response teams
 	if(alert("Do you want to dispatch an MTF?",,"Yes","No") != "Yes")
 		return
 
+	var/list/available_mtfs = list(
+		"Epsilon-11 (Nine-Tailed Fox)" = GLOB.mtf_epsilon_11,
+		"Nu-7 (Hammer Down)" = GLOB.mtf_nu_7,
+		"Beta-7 (Maz Hatters)" = GLOB.mtf_beta_7,
+		"Eta-10 (See No Evil)" = GLOB.mtf_eta_10,
+		"Alpha-1 (Red Right Hand)" = GLOB.mtf_alpha_1,
+		"Omega-1 (Law's Left Hand)" = GLOB.mtf_omega_1,
+		"Epsilon-9 (Fire Eaters)" = GLOB.mtf_epsilon_9,
+		"ISD (Internal Security)" = GLOB.mtf_isd,
+		"O5 Representative" = GLOB.mtf_o5rep
+	)
+	var/chosen = input("Which Mobile Task Force would you like to dispatch?") as null|anything in available_mtfs
+	if(!chosen)
+		return
+	var/datum/antagonist/mtf/selected = available_mtfs[chosen]
+
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
-	if(security_state.current_security_level_is_lower_than(security_state.severe_security_level)) // Allow admins to reconsider if the alert level is below High
-		switch(alert("Current security level lower than [security_state.severe_security_level.name]. Do you still want to dispatch a response team?",,"Yes","No"))
+	if(security_state.current_security_level_is_lower_than(security_state.severe_security_level))
+		switch(alert("Current security level lower than [security_state.severe_security_level.name]. Do you still want to dispatch this team?",,"Yes","No"))
 			if("No")
 				return
 
-	var/reason = input("What is the reason for dispatching this MTF?", "Dispatching MTF")
+	var/reason = input("What is the reason for dispatching this MTF?", "Dispatching MTF") as text|null
 
 	if(!reason && alert("You did not input a reason. Continue anyway?",,"Yes", "No") != "Yes")
 		return
@@ -37,15 +50,32 @@ var/global/send_emergency_team = 0 // Used for automagic response teams
 		return
 
 	if(reason)
-		message_staff("[key_name_admin(usr)] is dispatching an MTF squad for the reason: [reason]", 1)
+		message_staff("[key_name_admin(usr)] is dispatching the [selected.role_text] for the reason: [reason]", 1)
 	else
-		message_staff("[key_name_admin(usr)] is dispatching an MTF squad.", 1)
+		message_staff("[key_name_admin(usr)] is dispatching the [selected.role_text].", 1)
 
-	log_admin("[key_name(usr)] used Dispatch MTF.")
-	trigger_armed_response_team(reason)
+	log_admin("[key_name(usr)] used Dispatch MTF for [selected.role_text].")
+	trigger_armed_response_team(selected, reason)
+
+/proc/trigger_armed_response_team(datum/antagonist/mtf/team, reason = "")
+	if(send_emergency_team)
+		return
+
+	// Принудительно заполняем точки спавна (если вдруг не инициализировано)
+	if(!team.starting_locations || !team.starting_locations.len)
+		team.get_starting_locations()
+
+	command_announcement.Announce("It would appear that a Mobile Task Force was requested for [station_name()]. We will prepare and send one as soon as possible.", "[GLOB.using_map.boss_name]", 'sounds/scp/mtf_dispatch.ogg')
+
+	team.reason = reason
+	active_ert = team
+
+	send_emergency_team = 1
+	sleep(600 * 5)
+	send_emergency_team = 0
+	active_ert = null
 
 /client/verb/JoinResponseTeam()
-
 	set name = "Join MTF Squad"
 	set category = "OOC"
 
@@ -54,28 +84,18 @@ var/global/send_emergency_team = 0 // Used for automagic response teams
 		return
 
 	if(isghost(usr) || isnewplayer(usr))
-		if(!send_emergency_team)
+		if(!send_emergency_team || !active_ert)
 			to_chat(usr, "No MTF is currently being sent.")
 			return
 		if(jobban_isbanned(usr, MODE_ERT) || jobban_isbanned(usr, "Security Officer"))
 			to_chat(usr, SPAN_DANGER("You are jobbanned from the MTF!"))
 			return
-		if(GLOB.ert.current_antagonists.len >= GLOB.ert.hard_cap)
+		if(active_ert.current_antagonists.len >= active_ert.hard_cap)
 			to_chat(usr, "The MTF is already full!")
 			return
-		GLOB.ert.create_default(usr)
+		// Гарантируем наличие точек спавна на момент присоединения
+		if(!active_ert.starting_locations || !active_ert.starting_locations.len)
+			active_ert.get_starting_locations()
+		active_ert.create_default(usr)
 	else
 		to_chat(usr, "You need to be an observer or new player to use this.")
-
-/proc/trigger_armed_response_team(reason = "")
-	if(send_emergency_team)
-		return
-
-	command_announcement.Announce("It would appear that an MTF was requested for [station_name()]. We will prepare and send one as soon as possible.", "[GLOB.using_map.boss_name]", 'sounds/scp/mtf_dispatch.ogg')
-
-	GLOB.ert.reason = reason //Set it even if it's blank to clear a reason from a previous ERT
-
-	send_emergency_team = 1
-
-	sleep(600 * 5)
-	send_emergency_team = 0 // Can no longer join the ERT.

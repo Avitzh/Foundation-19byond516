@@ -2,14 +2,14 @@
 @use 'sass:meta';
 
 @use '../colors.scss' with (
-  $primary: #FFFFFF,
-  $bad: #AD2727,
+  $primary: #ffffff,
+  $bad: #ad2727,
   $fg-map-keys: (),
-  $bg-map-keys: (),
+  $bg-map-keys: ()
 );
 @use '../base.scss' with (
   $color-bg: #092437,
-  $color-bg-grad-spread: 6%,
+  $color-bg-grad-spread: 6%
 );
 
 .theme-nanotrasen {
@@ -58,6 +58,6 @@
   );
 
   .Layout__content {
-    background-image: url('../../assets/bg-nanotrasen.svg');
+    background-image: url('../../assets/bg-scp.svg');
   }
 }

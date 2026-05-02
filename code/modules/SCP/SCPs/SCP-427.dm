@@ -1,5 +1,5 @@
 /obj/item/clothing/accessory/scp_427
-	name = "SCP 427"
+	name = "A beautiful amulet"
 	desc = "A small, ornately carved locket made out of polished silver material."
 	icon_state = "locket"
 	item_state = "locket"

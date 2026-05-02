@@ -9,6 +9,9 @@
 	armor_penetration = 50
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_BLOOD
 
+	drop_sound = SFX_DROP_WELDINGTOOL
+	pickup_sound = SFX_PICKUP_WELDINGTOOL
+
 /obj/item/melee/energy/can_embed()
 	return FALSE
 
@@ -136,6 +139,9 @@
 	active_attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sounds/weapons/blade1.ogg'
 	var/blade_color
+
+	pickup_sound = SFX_PICKUP_DEVICE
+	drop_sound = SFX_DROP_DEVICE
 
 /obj/item/melee/energy/sword/Initialize()
 	if(!blade_color)

@@ -1,21 +1,3 @@
-/datum/emote/blink
-	key = "blink"
-
-	message_1p = "You blink."
-	message_3p = "blinks."
-
-	message_type = VISIBLE_MESSAGE
-
-	state_checks = EMOTE_CHECK_CONSCIOUS
-
-	statpanel_proc = /mob/proc/blink_emote
-
-/mob/proc/blink_emote()
-	set name = "Blink"
-	set category = "Emotes"
-	emote("blink", intentional = TRUE)
-
-
 /datum/emote/blink_rapidly
 	key = "blink_r"
 

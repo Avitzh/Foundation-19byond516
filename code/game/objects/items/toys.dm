@@ -30,6 +30,9 @@
 	throw_range = 20
 	force = 0
 
+	drop_sound = SFX_DROP_GLOVES
+	pickup_sound = SFX_PICKUP_GLOVES
+
 /*
  * Balloons
  */

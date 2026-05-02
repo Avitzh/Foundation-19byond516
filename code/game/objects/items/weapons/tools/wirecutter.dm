@@ -42,6 +42,9 @@
 	else
 		..()
 
+	drop_sound = SFX_DROP_WIRECUTTER
+	pickup_sound = SFX_PICKUP_WIRECUTTER
+
 /obj/item/wirecutters/makeshift
 	name = "improvised wirecutters"
 	desc = "Tape a couple rods together and you have a pair of \"functioning\" wirecutters!"

@@ -34,6 +34,9 @@
 	tint = TINT_HEAVY
 	hidden_from_codex = FALSE
 
+	pickup_sound = SFX_PICKUP_HELMET
+	drop_sound = SFX_DROP_HELMET
+
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
 		base_state = icon_state

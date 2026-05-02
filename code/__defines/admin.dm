@@ -6,6 +6,7 @@
 #define MUTE_DEADCHAT   (1<<4)
 #define MUTE_AOOC       (1<<5)
 #define MUTE_MENTOR     (1<<6)
+#define MUTE_SCPOOC       (1<<7)
 #define MUTE_ALL        (~0)
 
 // Some constants for DB_Ban

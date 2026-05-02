@@ -17,6 +17,9 @@
 
 	var/mob/living/carbon/human/attached
 
+	drop_sound = SFX_DROP_FOOD
+	pickup_sound = SFX_PICKUP_FOOD
+
 /obj/item/reagent_containers/ivbag/Destroy()
 	STOP_PROCESSING(SSobj,src)
 	attached = null

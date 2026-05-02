@@ -16,6 +16,9 @@
 	slot_flags = SLOT_BELT
 	force = 10
 
+	drop_sound = SFX_DROP_CROWBAR
+	pickup_sound = SFX_PICKUP_CROWBAR
+
 /obj/item/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob)
 	if (((MUTATION_CLUMSY in user.mutations) || (HAS_TRAIT(user, TRAIT_CLUMSY))) && prob(50))
 		to_chat(user, SPAN_WARNING("You club yourself over the head."))
@@ -44,6 +47,9 @@
 	var/on = 0
 	var/integrity_hits = 12 //how many hits we can make before steel go "unusable"
 	var/breaked = 0 //for delayed attack_self realisation
+
+	drop_sound = SFX_DROP_CROWBAR
+	pickup_sound = SFX_PICKUP_CROWBAR
 
 /obj/item/melee/telebaton/examine(mob/user, distance)
 	. = ..()

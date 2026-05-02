@@ -624,7 +624,8 @@
 	var/sound_on
 	var/random_tone = TRUE
 	var/list/random_tone_options = list(
-		"#fdfaae"//, //try to make scp vibe
+		"#fdfaae", //try to make scp vibe
+		"#e3e09c"
 	//	"#c8ffff", // Celadon sucks
 	//	"#fefefe",
 	)

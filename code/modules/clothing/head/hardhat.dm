@@ -22,6 +22,9 @@
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
 	hidden_from_codex = FALSE
 
+	pickup_sound = SFX_PICKUP_HELMET
+	drop_sound = SFX_DROP_HELMET
+
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat0_orange"
 

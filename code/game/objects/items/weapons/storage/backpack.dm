@@ -23,6 +23,9 @@
 	max_storage_space = DEFAULT_BACKPACK_STORAGE
 	open_sound = 'sounds/effects/storage/unzip.ogg'
 
+	drop_sound = SFX_DROP_BACKPACK
+	pickup_sound = SFX_PICKUP_BACKPACK
+
 /obj/item/storage/backpack/equipped()
 	if(!has_extension(src, /datum/extension/appearance))
 		set_extension(src, /datum/extension/appearance/cardborg)

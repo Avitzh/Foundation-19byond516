@@ -132,6 +132,9 @@
 	var/nameset = 0
 	var/tag_x
 
+	drop_sound = SFX_DROP_CARDBOARD
+	pickup_sound = SFX_PICKUP_CARDBOARD
+
 /obj/item/smallDelivery/proc/unwrap(mob/user)
 	if (!contents.len || !Adjacent(user))
 		return
@@ -239,6 +242,9 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "deliveryPaper"
 	w_class = ITEM_SIZE_NORMAL
+
+	drop_sound = SFX_DROP_WRAPPER
+	pickup_sound = SFX_PICKUP_WRAPPER
 
 /obj/item/stack/package_wrap/twenty_five
 	amount = 25

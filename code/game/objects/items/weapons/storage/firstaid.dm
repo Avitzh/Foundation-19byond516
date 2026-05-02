@@ -16,6 +16,7 @@
 	throw_speed = 2
 	throw_range = 8
 	max_w_class = ITEM_SIZE_LARGE
+	w_class = ITEM_SIZE_LARGE
 	max_storage_space = DEFAULT_BOX_STORAGE
 	use_sound = 'sounds/effects/storage/box.ogg'
 
@@ -166,6 +167,9 @@
 		/obj/item/FixOVein,
 		/obj/item/stack/medical/advanced/bruise_pack,
 		)
+
+	drop_sound = SFX_DROP_TOOLBOX
+	pickup_sound = SFX_PICKUP_TOOLBOX
 
 /*
  * Pill Bottles

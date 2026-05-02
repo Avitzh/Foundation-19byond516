@@ -20,6 +20,8 @@
 	siemens_coefficient = 0.5
 	permeability_coefficient = 0
 
+
+// НАЧАЛО КОДА С ПНВ. Часть кода хранится в helmet.dm, я просто ПИЗДЕЦ КАК трахался с тем чтобы понять че значит Тоггл Визор - часть логики лежит там, однако же здесь лежит логика включения
 /obj/item/clothing/head/helmet/scp/security/mtftactical
 	name = "tactical helmet"
 	desc = "An armored helmet usually worn by Mobile Task Forces, dawned with SCP logos, and insignia."
@@ -30,6 +32,24 @@
 	cold_protection = HEAD
 	flags_inv = HIDEEARS|BLOCKHAIR
 	action_button_name = "Toggle Visor"
+
+/obj/item/clothing/head/helmet/scp/security/mtftactical/attack_self(mob/user)
+	var/was_closed = (body_parts_covered & EYES)   // проверяем, был ли визор опущен ДО переключения
+	. = ..()
+
+	if(ishuman(loc))
+		var/mob/living/carbon/human/H = loc
+
+		// Звук включения (если визор только что опустили)
+		if(!was_closed && (body_parts_covered & EYES))
+			playsound(H, 'sounds/items/goggles_charge.ogg', 70, TRUE)
+
+		// Звук выключения (если визор только что подняли)
+		else if(was_closed && !(body_parts_covered & EYES))
+			playsound(H, 'sounds/items/PNV-googles-off.ogg', 70, TRUE)
+
+		H.handle_vision()
+// КОНЕЦ КОДА
 
 /obj/item/clothing/head/helmet/mtftactical
 	name = "tactical helmet"

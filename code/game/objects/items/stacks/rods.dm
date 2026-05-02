@@ -19,6 +19,9 @@
 	stacktype = /obj/item/stack/material/rods
 	default_type = MATERIAL_STEEL
 
+	drop_sound = SFX_DROP_METALWEAPON
+	pickup_sound = SFX_PICKUP_METALWEAPON
+
 /obj/item/stack/material/rods/ten
 	amount = 10
 

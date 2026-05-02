@@ -307,6 +307,9 @@
 	if(!item || !isturf(item.loc))
 		return
 
+	var/sfx_loudness = min(100, 5 + (itemsize * 5))
+	playsound(src, SFX_THROWING, sfx_loudness, 1)
+
 	var/message = "\The [src] has thrown \the [item]."
 	var/skill_mod = 0.2
 	if(!skill_check(SKILL_HAULING, min(round(itemsize - ITEM_SIZE_HUGE) + 2, SKILL_MAX)))
