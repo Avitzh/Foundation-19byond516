@@ -21,9 +21,7 @@
 		)
 	matter = list(MATERIAL_STEEL = 3000, MATERIAL_GLASS = 1000)
 	var/up = 0
-	armor = list(
-		melee = ARMOR_MELEE_SMALL
-		)
+		armor = list(melee = 10, bullet = 10, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	body_parts_covered = HEAD|FACE|EYES
 	action_button_name = "Flip Welding Mask"
@@ -166,6 +164,7 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
 	if(icon_state == initial(icon_state))
@@ -180,6 +179,7 @@
 	desc = "Perfect for keeping ears warm during your court-martial."
 	icon_state = "tccushankadown"
 	icon_state_up = "tccushankaup"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /*
  * Pumpkin head
@@ -194,6 +194,7 @@
 	light_overlay = "helmet_light"
 	w_class = ITEM_SIZE_NORMAL
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /*
  * Kitty ears
@@ -206,6 +207,7 @@
 	siemens_coefficient = 1.5
 	item_icons = list()
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/kitty/update_icon(mob/living/carbon/human/user)
 	if(!istype(user)) return
@@ -222,3 +224,4 @@
 	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHAIR
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)

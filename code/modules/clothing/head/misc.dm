@@ -9,6 +9,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = 0
 	hidden_from_codex = TRUE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/hairflower
 	name = "hair flower pin"
@@ -17,20 +18,25 @@
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/hairflower/blue
 	icon_state = "hairflower_blue"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/hairflower/pink
 	icon_state = "hairflower_pink"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/hairflower/yellow
 	icon_state = "hairflower_yellow"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/hairflower/bow
 	icon_state = "bow"
 	name = "hair bow"
 	desc = "A ribbon tied into a bow with a clip on the back to attach to hair."
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"
@@ -38,6 +44,7 @@
 	icon_state = "pwig"
 	item_state = "pwig"
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/that
 	name = "top-hat"
@@ -47,6 +54,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/redcoat
 	name = "redcoat's hat"
@@ -54,6 +62,7 @@
 	desc = "<i>'I guess it's a redhead.'</i>"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/mailman
 	name = "mail cap"
@@ -61,6 +70,7 @@
 	desc = "<i>Choo-choo</i>!"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/plaguedoctorhat
 	name = "plague doctor's hat"
@@ -70,6 +80,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/hasturhood
 	name = "hastur's hood"
@@ -78,6 +89,7 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/nursehat
 	name = "nurse's hat"
@@ -86,6 +98,7 @@
 	siemens_coefficient = 0.9
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/syndicatefake
 	name = "red space-helmet replica"
@@ -99,6 +112,7 @@
 	siemens_coefficient = 2.0
 	body_parts_covered = HEAD|FACE|EYES
 	hidden_from_codex = TRUE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/cueball
 	name = "cueball helmet"
@@ -108,6 +122,7 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
@@ -117,10 +132,12 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|FACE|EYES
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/cardborg/Initialize()
 	. = ..()
 	set_extension(src, /datum/extension/appearance/cardborg)
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/justice
 	name = "justice hat"
@@ -129,18 +146,23 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|EYES
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/justice/blue
 	icon_state = "justiceblue"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/justice/yellow
 	icon_state = "justiceyellow"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/justice/green
 	icon_state = "justicegreen"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/justice/pink
 	icon_state = "justicepink"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/rabbitears
 	name = "rabbit ears"
@@ -148,6 +170,7 @@
 	icon_state = "bunny"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
@@ -159,6 +182,7 @@
 		)
 	siemens_coefficient = 0.9
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/pirate
 	name = "pirate hat"
@@ -166,6 +190,7 @@
 	icon_state = "pirate"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/hgpiratecap
 	name = "pirate hat"
@@ -173,6 +198,7 @@
 	icon_state = "hgpiratecap"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/bandana
 	name = "pirate bandana"
@@ -180,17 +206,20 @@
 	icon_state = "bandana"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/bandana/green
 	name = "green bandana"
 	desc = "It's a green bandana with some fine nanotech lining."
 	icon_state = "greenbandana"
 	item_state = "greenbandana"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/bandana/orange //themij: Taryn Kifer
 	name = "orange bandana"
 	desc = "An orange piece of cloth, worn on the head."
 	icon_state = "orange_bandana"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -198,6 +227,7 @@
 	icon_state = "bowler"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 //stylish bs12 hats
 
@@ -207,36 +237,42 @@
 	desc = "For the gentleman of distinction."
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/beaverhat
 	name = "beaver hat"
 	icon_state = "beaver_hat"
 	desc = "Soft felt makes this hat both comfortable and elegant."
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/boaterhat
 	name = "boater hat"
 	icon_state = "boater_hat"
 	desc = "The ultimate in summer fashion."
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/fedora
 	name = "fedora"
 	icon_state = "fedora"
 	desc = "A sharp, stylish hat."
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
 	icon_state = "feather_trilby"
 	desc = "A sharp, stylish hat with a feather."
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/fez
 	name = "fez"
 	icon_state = "fez"
 	desc = "You should wear a fez. Fezzes are cool."
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 //end bs12 hats
 
@@ -247,6 +283,7 @@
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/chicken
 	name = "chicken suit head"
@@ -260,6 +297,7 @@
 	siemens_coefficient = 0.7
 	body_parts_covered = HEAD|FACE|EYES
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/bearpelt
 	name = "bear pelt hat"
@@ -268,6 +306,7 @@
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 0.7
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/xenos
 	name = "xenos helmet"
@@ -282,6 +321,7 @@
 	siemens_coefficient = 2.0
 	body_parts_covered = HEAD|FACE|EYES
 	hidden_from_codex = TRUE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/philosopher_wig
 	name = "natural philosopher's wig"
@@ -294,6 +334,7 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/hijab
 	name = "hijab"
@@ -302,6 +343,7 @@
 	body_parts_covered = 0
 	flags_inv = BLOCKHAIR
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/kippa
 	name = "kippa"
@@ -309,6 +351,7 @@
 	icon_state = "kippa"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/turban
 	name = "turban"
@@ -317,6 +360,7 @@
 	body_parts_covered = 0
 	flags_inv = BLOCKHEADHAIR //Shows beards!
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/cowboy_hat
 	name = "cowboy hat"
@@ -325,6 +369,7 @@
 	item_state = "cowboy_hat"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/taqiyah
 	name = "taqiyah"
@@ -333,6 +378,7 @@
 	item_state = "taqiyah"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/rastacap
 	name = "rastacap"
@@ -342,6 +388,7 @@
 	body_parts_covered = 0
 	flags_inv = BLOCKHEADHAIR
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/tank
 	name = "padded cap"
@@ -368,6 +415,7 @@
 	item_state = "beanie"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/helmet/facecover
 	name = "face cover"
@@ -384,13 +432,14 @@
 	name = "\improper PCRC beret"
 	desc = "A navy beret with the emblem of Proxima Centauri Risk Control, a private security firm. For agents that are more inclined towards style than safety."
 	icon_state = "beret_corporate_pcrc"
-
+	armor = list(melee = 15, bullet = 30, laser = 10,energy = 10, bomb = 5, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/saare
 	name = "\improper SAARE beret"
 	desc = "A gray beret with the emblem of Strategic Assault and Asset Retention Enterprises, a private military corporation. For mercenaries that are more inclined towards style than safety."
 	icon_state = "beret_corporate_saare"
-
+	armor = list(melee = 20, bullet = 40, laser = 15,energy = 15, bomb = 10, bio = 15, rad = 15)
 /obj/item/clothing/head/police
 	name = "police cap"
 	desc = "An outdated police cap, usually worn by law enforcement. It still smells of gunpowder, it has an Anchorage Police Department badge on it."
 	icon_state = "policehat"
+	armor = list(melee = 15, bullet = 30, laser = 10,energy = 10, bomb = 5, bio = 15, rad = 15)

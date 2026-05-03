@@ -100,71 +100,72 @@
 	icon_state = "beret"
 	body_parts_covered = 0
 	hidden_from_codex = FALSE
-
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec
 	name = "Security Officer Beret"
 	desc = "Usually worn by superior officers of Foundation SD."
 	icon_state = "beret_corporate_red"
-
+	armor = list(melee = 30, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/navy/officer
 	name = "corporate security officer beret"
 	desc = "A navy blue beret with an officer's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "beret_corporate_navy_officer"
-
+	armor = list(melee = 30, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/navy/hos
 	name = "Security Officer Beret"
 	desc = "SD issue beret distributed to the officer corps of the Security Department."
 	icon_state = "beret_corporate_navy_hos"
-
+	armor = list(melee = 40, bullet = 45, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/navy/warden
 	name = "Security Senior Beret"
 	desc = "SD issue beret distributed to senior agents and guards."
 	icon_state = "beret_corporate_navy_warden"
-
+	armor = list(melee = 35, bullet = 35, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/corporate/officer
 	name = "Security Beret"
 	desc = "SD issue beret distributed to agents and guards."
 	icon_state = "beret_corporate_officer"
-
+	armor = list(melee = 30, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/corporate/hos
 	name = "Security Officer Beret"
 	desc = "Issued to SD ranking officers."
 	icon_state = "beret_corporate_hos"
-
+	armor = list(melee = 40, bullet = 45, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/corporate/warden
 	name = "Security Senior Beret"
 	desc = "Issued to SD senior guards, agents and NCO's"
 	icon_state = "beret_corporate_warden"
-
+	armor = list(melee = 35, bullet = 35, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 // STARTING NEW SECURITY BERETS //
 
 /obj/item/clothing/head/beret/sec/guard
 	name = "Guard Beret"
 	desc = "A black beret with a red badge, in the shape of two chevrons, it feels durable due to the materials it's been made from."
 	icon_state = "beret_guard"
-
+	armor = list(melee = 30, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/sergeant
 	name = "Non-Commissioned Officer Beret"
 	desc = "A black beret with a silver badge, in the shape of three chevrons, it feels durable due to the materials it's been made from."
 	icon_state = "beret_sergeant"
-
+	armor = list(melee = 35, bullet = 35, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/commander
 	name = "Zone Officer Beret"
 	desc = "A black beret with a golden badge in the shape of a shield, it feels durable due to the materials it's been made from."
 	icon_state = "beret_commander"
-
+	armor = list(melee = 40, bullet = 45, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/sec/guardcom
 	name = "Guard Commander Beret"
 	desc = "A white beret with a golden badge in the shape of a shield, it feels durable due to the materials it's been made from."
 	icon_state = "beret_guardcom"
-
+	armor = list(melee = 50, bullet = 70, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
+	
 // ENDING NEW SECURITY BERETS //
 
 /obj/item/clothing/head/beret/goc
 	name = "Global Occult Coalition Beret"
 	desc = "A cyan beret with a golden Global Occult Coalition badge on the front, smells of lead."
 	icon_state = "goc-beret"
-
+	armor = list(melee = 40, bullet = 55, laser = 20,energy = 20, bomb = 30, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/goc/lead
 	name = "Global Occult Coalition Leader Beret"
 	desc = "A dark blue beret with a white United Nations badge on the front, smells of bad decisions."
@@ -175,14 +176,14 @@
 	name = "Internal Security field cap"
 	desc = "A dull black cap. It has ISD in white printed on it on the front. Used by the Internal Security Department. It's padded with some extreme armor."
 	icon_state = "isd_cap"
-	armor = list(melee = 50, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 50, rad = 60)
+	armor = list(melee = 20, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 0, rad = 0)
 	body_parts_covered = HEAD
 
 /obj/item/clothing/head/beret/isd/fedora
 	name = "Internal Security fedora"
 	desc = "A fancy black fedora with a red strap along it. Used by the Internal Security Department. It's padded with some extreme armor."
 	icon_state = "isd_fedora"
-
+	armor = list(melee = 20, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 0, rad = 0)
 /obj/item/clothing/head/beret/mtf
 	name = "'Nine Tailed Fox' tactical beret"
 	desc = "A heavy padded beret used by MTF Epsilon-11, it's quite armored, more than traditional helmets."
@@ -248,8 +249,9 @@
 	name = "corporate security beret"
 	desc = "A white beret adorned with a corporate logo. For security guards that are more inclined towards style than safety."
 	icon_state = "corpsec_beret"
-
+	armor = list(melee = 35, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
 /obj/item/clothing/head/beret/plaincolor
 	name = "beret"
 	desc = "A simple, solid color beret. This one has no emblems or insignia on it."
 	icon_state = "beret_white"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)

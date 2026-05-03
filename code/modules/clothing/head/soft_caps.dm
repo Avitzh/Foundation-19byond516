@@ -11,6 +11,7 @@
 	body_parts_covered = 0
 	species_restricted = list("exclude", SPECIES_MONARCH_QUEEN, SPECIES_MANTID_GYNE, SPECIES_MANTID_ALATE)
 	hidden_from_codex = FALSE
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/New()
 	..()
@@ -37,78 +38,94 @@
 		to_chat(user, "You flip the hat back in normal position.")
 	update_icon()
 	update_clothing_icon()	//so our mob-overlays update
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/red
 	name = "red cap"
 	desc = "It's a peaked hat in a tasteless red color."
 	icon_state = "redsoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/blue
 	name = "blue cap"
 	desc = "It's a peaked cap in a tasteless blue color."
 	icon_state = "bluesoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/green
 	name = "green cap"
 	desc = "It's a peaked cap in a tasteless green color."
 	icon_state = "greensoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/yellow
 	name = "yellow cap"
 	desc = "It's a peaked cap in a tasteless yellow color."
 	icon_state = "yellowsoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/grey
 	name = "grey cap"
 	desc = "It's a peaked cap in a tasteful grey color."
 	icon_state = "greysoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/orange
 	name = "orange cap"
 	desc = "It's a peaked cap in a tasteless orange color."
 	icon_state = "orangesoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/mime
 	name = "white cap"
 	desc = "It's a peaked cap in a tasteless white color."
 	icon_state = "mimesoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/purple
 	name = "purple cap"
 	desc = "It's a peaked cap in a tasteless purple color."
 	icon_state = "purplesoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/rainbow
 	name = "rainbow cap"
 	desc = "It's a peaked cap in a bright rainbow of colors."
 	icon_state = "rainbowsoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/sec
 	name = "security cap"
 	desc = "It's a field cap in tasteful red color."
 	icon_state = "secsoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/sec/corp
 	name = "corporate security cap"
 	desc = "It's field cap in corporate colors."
 	icon_state = "corpsoft"
+	armor = list(melee = 10, bullet = 15, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/mbill
 	name = "shipping cap"
 	desc = "It's a ballcap bearing the colors of Major Bill's Shipping."
 	icon_state = "mbillsoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/black
 	name = "black cap"
 	desc = "It's a peaked cap in a tasteful black color."
 	icon_state = "blacksoft"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/sec/corp/guard
 	name = "corporate security cap"
 	desc = "It's field cap in corporate colors."
 	icon_state = "corpsec_soft"
+	armor = list(melee = 15, bullet = 15, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 
 /obj/item/clothing/head/soft/dclass
 	name = "D-Class cap"
+	armor = list(melee = 5, bullet = 5, laser = 5,energy = 5, bomb = 5, bio = 15, rad = 15)
 	desc = "It's a peaked cap in a bland Class-D orange color, with the SCP logo on the front."
 	icon_state = "dclasssoft"
