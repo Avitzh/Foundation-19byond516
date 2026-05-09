@@ -9,7 +9,7 @@
 	var/sensors_locked
 
 /datum/category_item/player_setup_item/physical/equipment
-	name = "Clothing"
+	name = "Одежда"
 	sort_order = 3
 
 	var/static/list/backpacks_by_name
@@ -97,9 +97,9 @@
 
 /datum/category_item/player_setup_item/physical/equipment/content()
 	. = list()
-	. += "<b>Equipment:</b><br>"
+	. += "<b>Снаряжение:</b><br>"
 	for(var/datum/category_group/underwear/UWC in GLOB.underwear.categories)
-		var/item_name = (pref.all_underwear && pref.all_underwear[UWC.name]) ? pref.all_underwear[UWC.name] : "None"
+		var/item_name = (pref.all_underwear && pref.all_underwear[UWC.name]) ? pref.all_underwear[UWC.name] : "Нет"
 		. += "[UWC.name]: <a href='byond://?src=\ref[src];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
 
 		var/datum/category_item/underwear/UWI = UWC.items_by_name[item_name]
@@ -108,12 +108,12 @@
 				. += " <a href='byond://?src=\ref[src];underwear=[UWC.name];tweak=\ref[gt]'>[gt.get_contents(get_underwear_metadata(UWC.name, gt))]</a>"
 
 		. += "<br>"
-	. += "Backpack Type: <a href='byond://?src=\ref[src];change_backpack=1'><b>[pref.backpack.name]</b></a>"
+	. += "Тип рюкзака: <a href='byond://?src=\ref[src];change_backpack=1'><b>[pref.backpack.name]</b></a>"
 	for(var/datum/backpack_tweak/bt in pref.backpack.tweaks)
 		. += " <a href='byond://?src=\ref[src];backpack=[pref.backpack.name];tweak=\ref[bt]'>[bt.get_ui_content(get_backpack_metadata(pref.backpack, bt))]</a>"
 	. += "<br>"
-	. += "Default Suit Sensor Setting: <a href='byond://?src=\ref[src];change_sensor_setting=1'>[pref.sensor_setting]</a><br />"
-	. += "Suit Sensors Locked: <a href='byond://?src=\ref[src];toggle_sensors_locked=1'>[pref.sensors_locked ? "Locked" : "Unlocked"]</a><br />"
+	. += "Режим сенсоров костюма по умолчанию: <a href='byond://?src=\ref[src];change_sensor_setting=1'>[pref.sensor_setting]</a><br />"
+	. += "Блокировка сенсоров: <a href='byond://?src=\ref[src];toggle_sensors_locked=1'>[pref.sensors_locked ? "Заблокированы" : "Разблокированы"]</a><br />"
 	return jointext(.,null)
 
 /datum/category_item/player_setup_item/physical/equipment/proc/get_underwear_metadata(underwear_category, datum/gear_tweak/gt)
@@ -153,7 +153,7 @@
 		var/datum/category_group/underwear/UWC = GLOB.underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
 			return TOPIC_NOACTION
-		var/datum/category_item/underwear/selected_underwear = tgui_input_list(user,"Choose underwear:", CHARACTER_PREFERENCE_INPUT_TITLE, UWC.items, pref.all_underwear[UWC.name])
+		var/datum/category_item/underwear/selected_underwear = tgui_input_list(user, "Выберите бельё:", CHARACTER_PREFERENCE_INPUT_TITLE, UWC.items, pref.all_underwear[UWC.name])
 		if(selected_underwear && CanUseTopic(user))
 			pref.all_underwear[UWC.name] = selected_underwear.name
 		return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -169,7 +169,7 @@
 			set_underwear_metadata(underwear, gt, new_metadata)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["change_backpack"])
-		var/new_backpack = tgui_input_list(user, "Choose backpack style:", CHARACTER_PREFERENCE_INPUT_TITLE, backpacks_by_name, pref.backpack)
+		var/new_backpack = tgui_input_list(user, "Выберите стиль рюкзака:", CHARACTER_PREFERENCE_INPUT_TITLE, backpacks_by_name, pref.backpack)
 		if(!isnull(new_backpack) && CanUseTopic(user))
 			pref.backpack = backpacks_by_name[new_backpack]
 			return TOPIC_REFRESH_UPDATE_PREVIEW
@@ -186,7 +186,7 @@
 			set_backpack_metadata(bo, bt, new_metadata)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["change_sensor_setting"])
-		var/switchMode = tgui_input_list(user, "Select a sensor mode:", "Suit Sensor Mode", SUIT_SENSOR_MODES, pref.sensor_setting)
+		var/switchMode = tgui_input_list(user, "Выберите режим сенсоров:", "Режим сенсоров костюма", SUIT_SENSOR_MODES, pref.sensor_setting)
 		if(!switchMode || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		pref.sensor_setting = switchMode

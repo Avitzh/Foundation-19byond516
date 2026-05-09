@@ -13,13 +13,13 @@
 
 /datum/announcement/priority/New(do_log = 1, new_sound = 'sounds/misc/notice3.ogg', do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
-	title = "Priority Announcement"
-	announcement_type = "Priority Announcement"
+	title = "Приоритетное объявление"
+	announcement_type = "Приоритетное объявление"
 
 /datum/announcement/priority/security/New(do_log = 1, new_sound = 'sounds/misc/notice3.ogg', do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
-	title = "Security Announcement"
-	announcement_type = "Security Announcement"
+	title = "Объявление безопасности"
+	announcement_type = "Объявление безопасности"
 
 /datum/announcement/New(do_log = 0, new_sound = null, do_newscast = 0)
 	sound = new_sound
@@ -28,8 +28,8 @@
 
 /datum/announcement/priority/command/New(do_log = 1, new_sound = 'sounds/misc/notice2.ogg', do_newscast = 0)
 	..(do_log, new_sound, do_newscast)
-	title = "[GLOB.using_map.boss_name] Update"
-	announcement_type = "[GLOB.using_map.boss_name] Update"
+	title = "[GLOB.using_map.boss_name]: Обновление"
+	announcement_type = "[GLOB.using_map.boss_name]: Обновление"
 
 /datum/announcement/proc/Announce(message as text, new_title = "", new_sound = null, do_newscast = newscast, msg_sanitized = 0, zlevels = GLOB.using_map.contact_levels)
 	if(!message)
@@ -52,8 +52,8 @@
 		NewsCast(message, message_title, zlevels)
 
 	if(log)
-		log_say("[key_name(usr)] has made \a [announcement_type]: [message_title] - [message] - [announcer]")
-		message_staff("[key_name_admin(usr)] has made \a [announcement_type].", 1)
+		log_say("[key_name(usr)] сделал объявление типа [announcement_type]: [message_title] - [message] - [announcer]")
+		message_staff("[key_name_admin(usr)] сделал объявление типа [announcement_type].", 1)
 
 /datum/announcement/proc/FormMessage(message as text, message_title as text)
 	. = "<h2 class='alert'>[message_title]</h2>"
@@ -72,7 +72,7 @@
 	. += "<br>"
 
 /datum/announcement/priority/command/FormMessage(message as text, message_title as text)
-	. = "<h1 class='alert'>[GLOB.using_map.boss_name] Update</h1>"
+	. = "<h1 class='alert'>[GLOB.using_map.boss_name]: Обновление</h1>"
 	if (message_title)
 		. += "<br><h2 class='alert'>[message_title]</h2>"
 
@@ -96,11 +96,11 @@
 	announce_newscaster_news(news, zlevels)
 
 /proc/GetNameAndAssignmentFromId(obj/item/card/id/I)
-	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
+	// Формат совпадает с лентой новостей: Зарегистрированное имя (Должность)
 	return I.assignment ? "[I.registered_name] ([I.assignment])" : I.registered_name
 
 /proc/ion_storm_announcement(list/affecting_z)
-	command_announcement.Announce("A period of anomalous activity has been detected near [station_name()].  Please monitor all electronic equipment for malfunctions.", "[station_name()] Sensor Array", zlevels = affecting_z)
+	command_announcement.Announce("Рядом с [station_name()] зафиксирован период аномальной активности. Пожалуйста, следите за работой электронного оборудования на предмет сбоев.", "[station_name()]: Сенсорная сеть", zlevels = affecting_z)
 
 /proc/AnnounceArrival(mob/living/carbon/human/character, datum/job/job, join_message)
 	if(!istype(job) || !job.announced)
@@ -111,14 +111,14 @@
 	if(character.mind.role_alt_title)
 		rank = character.mind.role_alt_title
 
-	// TODO: broadcast emails as well
+	// TODO: также рассылать уведомления по email
 	AnnounceArrivalSimple(character.real_name, rank, join_message, get_announcement_frequency(job))
 
-/proc/AnnounceArrivalSimple(name, rank = "visitor", join_message = "has arrived on the [station_name()]", frequency)
-	GLOB.global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcement Computer", frequency)
+/proc/AnnounceArrivalSimple(name, rank = "посетитель", join_message = "прибыл(а) на станцию [station_name()]", frequency)
+	GLOB.global_announcer.autosay("[name], [rank], [join_message].", "Автоматическая система оповещения о прибытии", frequency)
 
 /proc/get_announcement_frequency(datum/job/job)
-	// During a containment breach all jobs are announced on main frequency.
+	// При угрозе нарушения условий содержания все должности объявляются на общем канале.
 	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 	if (security_state.current_security_level_is_same_or_higher_than(security_state.high_security_level))
 		return "Common"

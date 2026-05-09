@@ -503,3 +503,168 @@
 	H.bodytemperature -= temp_adj
 	active_power_cost = round((temp_adj/max_cooling)*charge_consumption)
 	return active_power_cost
+/*
+ * G.R.I.P Kinesis Module
+ * Адаптирован с DS13 для Foundation 19
+ */
+/obj/item/rig_module/kinesis
+	name = "G.R.I.P kinesis module"
+	interface_name = "Kinesis"
+	desc = "An engineering tool that uses microgravity fields to manipulate objects."
+	interface_desc = "An engineering tool that uses microgravity fields to manipulate objects."
+	icon = 'icons/obj/rig_modules.dmi'
+	icon_state = "teleporter"
+
+	module_cooldown = 0
+	active = FALSE
+	toggleable = TRUE
+	usable = 1
+	selectable = 1
+	disruptive = 0
+
+	use_power_cost = 60
+	active_power_cost = 4
+	passive_power_cost = 0
+
+	engage_string = "Grab/Throw Object"
+	activate_string = "Activate Kinesis Mode"
+	deactivate_string = "Deactivate Kinesis Mode"
+
+	var/atom/movable/subject = null
+	var/datum/beam/tether = null
+	var/max_range = 5
+	var/max_force = 5
+	var/kinesis_throw_speed = 3
+
+/obj/item/rig_module/kinesis/Process()
+	if(!active || !subject)
+		return passive_power_cost
+
+	if(!safety_checks())
+		release_subject()
+		return passive_power_cost
+
+	update_tether()
+	return active_power_cost
+
+/obj/item/rig_module/kinesis/proc/safety_checks()
+	if(QDELETED(subject))
+		return FALSE
+	if(!holder?.wearer)
+		return FALSE
+	if(!isturf(subject.loc))
+		return FALSE
+	if(get_dist(holder.wearer, subject) > max_range)
+		return FALSE
+	return TRUE
+
+/obj/item/rig_module/kinesis/proc/check_line_of_sight(atom/source, atom/target)
+	var/turf/T1 = get_turf(source)
+	var/turf/T2 = get_turf(target)
+	if(!T1 || !T2)
+		return FALSE
+
+	var/list/line = getline(T1, T2)
+	for(var/turf/T in line)
+		if(T.density)
+			return FALSE
+		for(var/obj/structure/S in T)
+			if(S.opacity)
+				return FALSE
+
+	return TRUE
+
+/obj/item/rig_module/kinesis/proc/update_tether()
+	if(!subject || QDELETED(subject))
+		release_subject()
+		return
+	if(tether)
+		qdel(tether)
+	tether = holder.wearer.Beam(subject, icon_state = "kinesis", time = INFINITY, maxdistance = max_range)
+
+/obj/item/rig_module/kinesis/engage(atom/target)
+	if(!..())
+		return 0
+
+	if(subject)
+		throw_at_target(target)
+		return 1
+
+	if(!istype(target, /atom/movable))
+		return 0
+	if(get_dist(holder.wearer, target) > max_range)
+		playsound(src, 'sounds/effects/rig_modules/kinesis_grabfail.ogg', 50, 1)
+		to_chat(holder.wearer, SPAN_WARNING("Target is too far away!"))
+		return 0
+	var/atom/movable/AM = target
+	if(AM.anchored)
+		playsound(src, 'sounds/effects/rig_modules/kinesis_grabfail.ogg', 50, 1)
+		to_chat(holder.wearer, SPAN_WARNING("Cannot grip anchored object!"))
+		return 0
+	if(!check_line_of_sight(holder.wearer, target))
+		playsound(src, 'sounds/effects/rig_modules/kinesis_grabfail.ogg', 50, 1)
+		to_chat(holder.wearer, SPAN_WARNING("No clear line of sight to target!"))
+		return 0
+
+	grab_subject(AM)
+	return 1
+
+/obj/item/rig_module/kinesis/proc/grab_subject(atom/movable/AM)
+	if(subject)
+		release_subject()
+
+	subject = AM
+	subject.forceMove(get_turf(holder.wearer))
+	RegisterSignal(subject, COMSIG_PARENT_QDELETING, .proc/release_subject)
+
+	playsound(src, 'sounds/effects/rig_modules/kinesis_grab.ogg', 50, 1)
+	to_chat(holder.wearer, SPAN_NOTICE("You grip \the [subject] with kinesis."))
+
+	update_tether()
+
+/obj/item/rig_module/kinesis/proc/release_subject(play_sound = FALSE)
+	var/atom/movable/old_subject = subject
+
+	subject = null
+
+	if(tether)
+		qdel(tether)
+		tether = null
+
+	if(old_subject && !QDELETED(old_subject))
+		UnregisterSignal(old_subject, COMSIG_PARENT_QDELETING)
+		old_subject.forceMove(get_turf(old_subject))
+		if(play_sound)
+			playsound(src, 'sounds/effects/rig_modules/kinesis_powerloss.ogg', 50, 0)
+
+/obj/item/rig_module/kinesis/proc/throw_at_target(atom/target)
+	if(!subject || QDELETED(subject))
+		return
+
+	var/atom/movable/AM = subject
+
+	subject = null
+
+	if(tether)
+		qdel(tether)
+		tether = null
+
+	UnregisterSignal(AM, COMSIG_PARENT_QDELETING)
+
+	playsound(src, 'sounds/effects/rig_modules/kinesis_launch.ogg', 50, 1)
+	AM.throw_at(target, max_range, kinesis_throw_speed, holder.wearer)
+
+	if(isliving(target))
+		var/mob/living/L = target
+		L.apply_damage(max_force, BRUTE)
+		playsound(target, 'sounds/effects/rig_modules/kinesis_grabfail.ogg', 50, 1)
+
+/obj/item/rig_module/kinesis/deactivate()
+	if(subject)
+		release_subject(play_sound = TRUE)
+	. = ..()
+
+/obj/item/rig_module/kinesis/Destroy()
+	if(subject)
+		release_subject(play_sound = TRUE)
+	return ..()

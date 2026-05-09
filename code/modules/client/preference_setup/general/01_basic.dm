@@ -44,21 +44,21 @@
 
 /datum/category_item/player_setup_item/physical/basic/content()
 	. = list()
-	. += "<b>Name:</b> "
+	. += "<b>Имя:</b> "
 	. += "<a href='byond://?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
 	. += "<a href='byond://?src=\ref[src];random_name=1'>Randomize Name</A><br>"
 	. += "<a href='byond://?src=\ref[src];always_random_name=1'>Always Random Name: [pref.be_random_name ? "Yes" : "No"]</a>"
 	. += "<hr>"
-	. += "<b>Gender:</b> <a href='byond://?src=\ref[src];gender=1'><b>[gender2text(pref.gender)]</b></a><br>"
-	. += "<b>Age:</b> <a href='byond://?src=\ref[src];age=1'>[pref.age]</a><br>"
-	. += "<b>Spawn Point</b>: <a href='byond://?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a>"
+	. += "<b>Гендер:</b> <a href='byond://?src=\ref[src];gender=1'><b>[gender2text(pref.gender)]</b></a><br>"
+	. += "<b>Возраст:</b> <a href='byond://?src=\ref[src];age=1'>[pref.age]</a><br>"
+	. += "<b>Место спавна</b>: <a href='byond://?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/physical/basic/OnTopic(href,list/href_list, mob/user)
 	var/datum/species/S = all_species[pref.species]
 
 	if(href_list["rename"])
-		var/raw_name = tgui_input_text(user, "Choose your character's name:", "Character Name", pref.real_name, MAX_NAME_LEN)
+		var/raw_name = tgui_input_text(user, "Выберите имя вашего персонажа:", "Имя персонажа", pref.real_name, MAX_NAME_LEN)
 		if (!isnull(raw_name) && CanUseTopic(user))
 
 			var/decl/cultural_info/check = SSculture.get_culture(pref.cultural_info[TAG_CULTURE])
@@ -79,7 +79,7 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["gender"])
-		var/new_gender = tgui_input_list(user, "Select your character's gender.", CHARACTER_PREFERENCE_INPUT_TITLE, S.genders, pref.gender)
+		var/new_gender = tgui_input_list(user, "Выберите пол персонажа.", CHARACTER_PREFERENCE_INPUT_TITLE, S.genders, pref.gender)
 		S = all_species[pref.species]
 		if(new_gender && CanUseTopic(user) && (new_gender in S.genders))
 			pref.gender = new_gender
@@ -88,7 +88,7 @@
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["age"])
-		var/new_age = tgui_input_number(user, "Choose your character's age:\n([S.min_age]-[S.max_age])", CHARACTER_PREFERENCE_INPUT_TITLE, pref.age, S.max_age, S.min_age)
+		var/new_age = tgui_input_number(user, "Выберите возраст персонажа:\n([S.min_age]-[S.max_age])", CHARACTER_PREFERENCE_INPUT_TITLE, pref.age, S.max_age, S.min_age)
 		if(new_age && CanUseTopic(user))
 			pref.age = max(min(round(text2num(new_age)), S.max_age), S.min_age)
 			pref.skills_allocated = pref.sanitize_skills(pref.skills_allocated)		// The age may invalidate skill loadouts

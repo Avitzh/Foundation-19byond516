@@ -163,3 +163,83 @@
 	set name = "Come On Out, You're Gonna Die"
 	set category = "MTF Commands"
 	emote("come_out_die", intentional = TRUE)
+
+// ---------- Target lost, reverting back to the original objective. ----------
+/datum/emote/mtf/target_lost
+	key = "target_lost"
+	message_1p = "You report, \"Target lost, reverting back to the original objective.\""
+	message_3p = "reports, \"Target lost, reverting back to the original objective.\""
+	message_impaired_production = "shakes head and taps earpiece."
+	message_miming = "acts out losing sight of a target."
+	message_muzzled = "makes a frustrated noise!"
+	sound = 'sounds/voice/mtf/TargetLost1.ogg'
+	statpanel_proc = /mob/proc/mtf_target_lost_emote
+
+/mob/proc/mtf_target_lost_emote()
+	set name = "Target Lost"
+	set category = "MTF Commands"
+	emote("target_lost", intentional = TRUE)
+
+// ---------- Stop right there! ----------
+/datum/emote/mtf/stop_right_there
+	key = "stop_right_there"
+	message_1p = "You shout, \"Stop right there!\""
+	message_3p = "shouts, \"Stop right there!\""
+	message_impaired_production = "holds out a hand in a 'stop' gesture."
+	message_miming = "acts out stopping someone in their tracks."
+	message_muzzled = "makes a loud noise!"
+	sound = 'sounds/voice/mtf/Stop1.ogg'
+	statpanel_proc = /mob/proc/mtf_stop_right_there_emote
+
+/mob/proc/mtf_stop_right_there_emote()
+	set name = "Stop Right There!"
+	set category = "MTF Commands"
+	emote("stop_right_there", intentional = TRUE)
+
+// ---------- Blinking. (SCP-173) ----------
+/datum/emote/mtf/blinking
+	key = "blinking"
+	message_1p = "You announce, \"Blinking.\""
+	message_3p = "announces, \"Blinking.\""
+	message_impaired_production = "makes a deliberate eye gesture."
+	message_miming = "acts out blinking rhythmically."
+	message_muzzled = "makes a brief noise!"
+	sound = 'sounds/voice/mtf/173blinking.ogg'
+	statpanel_proc = /mob/proc/mtf_blinking_emote
+
+/mob/proc/mtf_blinking_emote()
+	set name = "Blinking"
+	set category = "MTF Commands"
+	emote("blinking", intentional = TRUE)
+
+// ---------- SCP-106 has been spotted, running! ----------
+/datum/emote/mtf/recontainment_spotted
+	key = "recontainment_spotted"
+	message_1p = "You yell, \"SCP-106 has been spotted, running!\""
+	message_3p = "yells, \"SCP-106 has been spotted, running!\""
+	message_impaired_production = "points behind and starts moving quickly."
+	message_miming = "acts out spotting an old man and fleeing."
+	message_muzzled = "makes a panicked noise!"
+	sound = 'sounds/voice/mtf/106spotted1.ogg'
+	statpanel_proc = /mob/proc/mtf_recontainment_spotted_emote
+
+/mob/proc/mtf_recontainment_spotted_emote()
+	set name = "SCP-106 Spotted, Running!"
+	set category = "MTF Commands"
+	emote("recontainment_spotted", intentional = TRUE)
+
+// ---------- SCP-096 has been spotted. Starting SCRAMBLE gear. ----------
+/datum/emote/mtf/scrambler_activated
+	key = "scrambler_activated"
+	message_1p = "You alert, \"SCP-096 has been spotted. Starting SCRAMBLE gear.\""
+	message_3p = "alerts, \"SCP-096 has been spotted. Starting SCRAMBLE gear.\""
+	message_impaired_production = "taps headgear urgently."
+	message_miming = "acts out activating headgear."
+	message_muzzled = "makes a muffled but urgent noise!"
+	sound = 'sounds/voice/mtf/096spotted1.ogg'
+	statpanel_proc = /mob/proc/mtf_scrambler_activated_emote
+
+/mob/proc/mtf_scrambler_activated_emote()
+	set name = "SCP-096 Spotted, Scramble"
+	set category = "MTF Commands"
+	emote("scrambler_activated", intentional = TRUE)

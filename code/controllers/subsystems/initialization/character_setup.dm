@@ -1,5 +1,5 @@
 SUBSYSTEM_DEF(character_setup)
-	name = "Character Setup"
+	name = "Настройка персонажа"
 	init_order = SS_INIT_CHAR_SETUP
 	priority = SS_PRIORITY_CHAR_SETUP
 	flags = SS_BACKGROUND

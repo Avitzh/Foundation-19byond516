@@ -11,6 +11,7 @@
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CHECKS_BORDER | ATOM_FLAG_CLIMBABLE | ATOM_FLAG_CAN_BE_PAINTED
 	obj_flags = OBJ_FLAG_ROTATABLE
 	health_max = 70
+	anchored = TRUE
 
 	var/broken =    FALSE
 	var/neighbor_status = 0
@@ -20,7 +21,6 @@
 
 /obj/structure/railing/mapped
 	color = COLOR_GUNMETAL
-	anchored = TRUE
 
 /obj/structure/railing/mapped/Initialize()
 	. = ..()

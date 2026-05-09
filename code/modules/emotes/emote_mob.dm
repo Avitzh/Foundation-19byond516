@@ -97,13 +97,5 @@
 				continue
 			seen_turfs += T
 
-			var/image/ping_image = image('icons/effects/effects.dmi', "sonar_ping", src)
-			ping_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-			ping_image.layer = BEAM_PROJECTILE_LAYER
-			ping_image.pixel_x = (T.x - src.x) * WORLD_ICON_SIZE
-			ping_image.pixel_y = (T.y - src.y) * WORLD_ICON_SIZE
-			ping_image.alpha = 255
-			image_to(src, ping_image)
+			show_sound_effect(get_turf(src), L, SFX_ICON_SMALL)
 
-			animate(ping_image, alpha = 0, time = 0.8 SECONDS)
-			qdel(ping_image)

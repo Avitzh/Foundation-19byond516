@@ -32,7 +32,8 @@ Pipelines + Other Objects -> Pipe network
 	var/obj/machinery/atmospherics/node1
 	var/obj/machinery/atmospherics/node2
 
-	var/atmos_initalized = FALSE
+	var/atmos_initialized = FALSE
+	var/atmos_initalized // Backward compatibility alias - DO NOT USE - legacy misspelling
 	var/build_icon = 'icons/obj/pipe-item.dmi'
 	var/build_icon_state = "buildpipe"
 	var/colorable = FALSE
@@ -55,13 +56,11 @@ Pipelines + Other Objects -> Pipe network
 	. = ..()
 
 /obj/machinery/atmospherics/proc/atmos_init()
-	atmos_initalized = TRUE
+	atmos_initialized = TRUE
+	atmos_initalized = TRUE // Update legacy alias
 
 /obj/machinery/atmospherics/hide(do_hide)
-	if(do_hide && level == 1)
-		layer = PIPE_LAYER
-	else
-		reset_plane_and_layer()
+	layer = (do_hide && level == 1) ? PIPE_LAYER : EXPOSED_PIPE_LAYER
 
 /obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
 	if(istype(A, /obj/item/device/scanner/gas))
@@ -69,19 +68,19 @@ Pipelines + Other Objects -> Pipe network
 	..()
 
 /obj/machinery/atmospherics/proc/add_underlay(turf/T, obj/machinery/atmospherics/node, direction, icon_connect_type)
+	var/icon_name
 	if(node)
 		if(!T.is_plating() && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
-			underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "down" + icon_connect_type)
+			icon_name = "down"
 		else
-			underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "intact" + icon_connect_type)
+			icon_name = "intact"
 	else
-		underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "exposed" + icon_connect_type)
+		icon_name = "exposed"
+
+	underlays += icon_manager.get_atmos_icon("underlay", direction, color_cache_name(node), "[icon_name][icon_connect_type]")
 
 /obj/machinery/atmospherics/proc/update_underlays()
-	if(check_icon_cache())
-		return 1
-	else
-		return 0
+	return check_icon_cache()
 
 /obj/machinery/atmospherics/proc/check_connect_types(obj/machinery/atmospherics/atmos1, obj/machinery/atmospherics/atmos2)
 	return (atmos1.connect_types & atmos2.connect_types)
@@ -90,13 +89,14 @@ Pipelines + Other Objects -> Pipe network
 	return (atmos1.connect_types & pipe2.connect_types)
 
 /obj/machinery/atmospherics/proc/check_icon_cache(safety = 0)
-	if(!istype(icon_manager))
-		if(!safety) //to prevent infinite loops
-			icon_manager = new()
-			check_icon_cache(1)
-		return 0
+	if(istype(icon_manager))
+		return 1
 
-	return 1
+	if(!safety)
+		icon_manager = new()
+		return istype(icon_manager)
+
+	return 0
 
 /obj/machinery/atmospherics/proc/color_cache_name(obj/machinery/atmospherics/node)
 	//Don't use this for standard pipes
@@ -106,10 +106,9 @@ Pipelines + Other Objects -> Pipe network
 	return node.pipe_color
 
 /obj/machinery/atmospherics/Process()
+	// Base implementation - override in child types
 	last_flow_rate = 0
 	last_power_draw = 0
-
-	build_network()
 
 /obj/machinery/atmospherics/proc/network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 	// Check to see if should be added to network. Add self if so and adjust variables appropriately.
@@ -143,7 +142,7 @@ Pipelines + Other Objects -> Pipe network
 	return null
 
 // returns all pipe's endpoints. You can override, but you may then need to use a custom /item/pipe constructor.
-/obj/machinery/atmospherics/proc/get_initialze_directions()
+/obj/machinery/atmospherics/proc/get_initialize_directions()
 	return base_pipe_initialize_directions(dir, connect_dir_type)
 
 /proc/base_pipe_initialize_directions(dir, connect_dir_type)
@@ -151,23 +150,21 @@ Pipelines + Other Objects -> Pipe network
 		return 0
 	if(!(dir in GLOB.cardinal))
 		return dir // You're on your own. Used for bent pipes.
-	. = 0
 
-	if(connect_dir_type & SOUTH)
-		. |= dir
-	if(connect_dir_type & NORTH)
-		. |= turn(dir, 180)
-	if(connect_dir_type & WEST)
-		. |= turn(dir, -90)
-	if(connect_dir_type & EAST)
-		. |= turn(dir, 90)
+	// Optimized bitwise calculation with no redundant checks
+	var/output = 0
+	if(connect_dir_type & SOUTH)	output |= dir
+	if(connect_dir_type & NORTH)	output |= turn(dir, 180)
+	if(connect_dir_type & WEST)	output |= turn(dir, -90)
+	if(connect_dir_type & EAST)	output |= turn(dir, 90)
+
+	return output
 
 /obj/machinery/atmospherics/setDir(new_dir)
 	. = ..()
-	initialize_directions = get_initialze_directions()
+	initialize_directions = get_initialize_directions()
 
 // Used by constructors. Shouldn't generally be called from elsewhere.
 /obj/machinery/proc/set_initial_level()
 	var/turf/T = get_turf(src)
-	if(T)
-		level = (!T.is_plating() ? 2 : 1)
+	level = T ? (!T.is_plating() ? 2 : 1) : 1

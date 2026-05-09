@@ -4,17 +4,16 @@
 
 //jobtime tracking
 
-//Departments
-#define EXP_TYPE_CREW "Staff"
-#define EXP_TYPE_COMMAND "Command"
-#define EXP_TYPE_ENGINEERING "Engineering"
-#define EXP_TYPE_MEDICAL "Medical"
-#define EXP_TYPE_SCIENCE "Science"
-#define EXP_TYPE_SUPPLY "Supply"
-#define EXP_TYPE_SECURITY "Security"
-#define EXP_TYPE_SILICON "Silicon"
-#define EXP_TYPE_SERVICE "Service"
-
+// Отделы
+#define EXP_TYPE_CREW "Персонал"
+#define EXP_TYPE_COMMAND "Командование"
+#define EXP_TYPE_ENGINEERING "Инженерный отдел"
+#define EXP_TYPE_MEDICAL "Медицинский отдел"
+#define EXP_TYPE_SCIENCE "Научный отдел"
+#define EXP_TYPE_SUPPLY "Снабжение"
+#define EXP_TYPE_SECURITY "Охрана"
+#define EXP_TYPE_SILICON "Синтетики"
+#define EXP_TYPE_SERVICE "Обслуживание"
 //Categories
 #define EXP_TYPE_LIVING "Living"
 #define EXP_TYPE_GHOST "Ghost"
@@ -23,12 +22,11 @@
 #define EXP_TYPE_SCP "SCP"
 
 //Sub Categories
-#define EXP_TYPE_LCZ "LCZ"
-#define EXP_TYPE_ECZ "EZ"
-#define EXP_TYPE_HCZ "HCZ"
-#define EXP_TYPE_BUR "Bureaucrat"
-#define EXP_TYPE_REP "Representative"
-
+#define EXP_TYPE_LCZ "ЛЗС"
+#define EXP_TYPE_ECZ "ВЗ"
+#define EXP_TYPE_HCZ "ТЗС"
+#define EXP_TYPE_BUR "Бюрократ"
+#define EXP_TYPE_REP "Представитель"
 //Categories are stored on DB along with seperate jobs and sub-categories and departments are calculated in game to avoid cluttering DB.
 
 //Bit Flag Defines
@@ -51,9 +49,9 @@
 #define REP			(1<<16)
 
 // Class rank defines
-#define CLASS_A "Class-A"
-#define CLASS_B "Class-B"
-#define CLASS_C "Class-C"
-#define CLASS_D "Class-D"
-#define CLASS_E "Class-E"
-#define CLASS_CI "Class-CI" // Funnee CI edit.
+#define CLASS_A "Класс-А"
+#define CLASS_B "Класс-B"
+#define CLASS_C "Класс-C"
+#define CLASS_D "Класс-D"
+#define CLASS_E "Класс-E"
+#define CLASS_CI "Класс-CI" // Funnee CI edit.

@@ -30,7 +30,6 @@
 	desc = "A light and compact fibreglass-framed model fire extinguisher."
 	icon_state = "miniFE0"
 	item_state = "miniFE"
-	hitsound = null	//it is much lighter, after all.
 	throwforce = 2
 	w_class = ITEM_SIZE_SMALL
 	force = 3.0
@@ -39,6 +38,22 @@
 	max_water = 1000
 	sprite_name = "miniFE"
 	matter = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 30)
+
+/obj/item/extinguisher/big
+	name = "big fire extinguisher"
+	desc = "A big orange fire extinguisher."
+	icon_state = "big_fire_extinguisher0"
+	item_state = "big_fire_extinguisher"
+	throwforce = 15
+	force = 10.0
+	spray_amount = 150
+	starting_water = 4500
+	max_water = 4500
+	sprite_name = "big_fire_extinguisher"
+	matter = list(MATERIAL_STEEL = 200)
+
+/obj/item/extinguisher/big/empty
+	starting_water = 0
 
 /obj/item/extinguisher/Initialize()
 	. = ..()

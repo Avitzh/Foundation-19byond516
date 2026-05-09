@@ -3,9 +3,7 @@
 	name_plural = "Humans"
 	primitive_form = "Monkey"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch, /datum/unarmed_attack/bite)
-	description = "Humanity holds a wide range of forms and creeds.	While the \
-	SCP Foundation maintains control from the dark, powerful corporate interests \
-	and other secretive factions make life tumultous at best."
+	description = "Человечество представлено во множестве форм и убеждений. Пока Фонд SCP удерживает контроль из тени, могущественные корпоративные интересы и другие тайные фракции делают жизнь в лучшем случае бурной."
 	assisted_langs = list(LANGUAGE_NABBER)
 	min_age = 18
 	max_age = 100

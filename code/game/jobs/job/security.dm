@@ -1,16 +1,16 @@
 /datum/job/hos
-	title = "Guard Commander"
+	title = "Командир Охраны"
 	head_position = TRUE
-	department = "Command"
+	department = "Командование"
 	selection_color = "#8e2929"
 	department_flag = SEC|COM
-	supervisors = "the Site Director"
+	supervisors = "Директор Зоны"
 	req_admin_notify = 1
 	economic_power = 10
-	requirements = list("LCZ Zone Junior Lieutenant" = 240, "HCZ Zone Senior Lieutenant" = 240, "EZ Zone Supervisor" = 240)
+	requirements = list("Младший лейтенант ЛЗС" = 240, "Старший лейтенант ТЗС" = 240, "Супервайзер ВЗ" = 240)
 	total_positions = 1
 	spawn_positions = 1
-	alt_titles = list("Security Chief", "Head of Security")
+	alt_titles = list("Глава Службы Безопасности", "Начальник Охраны")
 	minimal_player_age = 15
 	ideal_character_age = 35
 	outfit_type = /decl/hierarchy/outfit/job/command/cos
@@ -29,6 +29,7 @@
 		ACCESS_ADMIN_LVL2,
 		ACCESS_ADMIN_LVL3,
 		ACCESS_ADMIN_LVL4,
+		ACCESS_ADMIN_LVL5,
 		ACCESS_MEDICAL_LVL1,
 		ACCESS_MEDICAL_LVL2,
 		ACCESS_MEDICAL_LVL3,
@@ -68,22 +69,22 @@
 	software_on_spawn = list(/datum/computer_file/program/digitalwarrant,
 							 /datum/computer_file/program/camera_monitor)
 
-	roleplay_difficulty = "Hard"
-	mechanical_difficulty = "Easy - Medium"
-	duties = "Manage all three Security branches. Keep track of potential and on-going threats (such as containment breaches). Work with other departments to respond to said threats."
+	roleplay_difficulty = "Тяжёлая"
+	mechanical_difficulty = "Лёгкая - Средняя"
+	duties = "Управляйте всеми тремя ветвями Службы Безопасности. Отслеживайте потенциальные и текущие угрозы (такие как нарушения содержания). Взаимодействуйте с другими отделами для реагирования на эти угрозы."
 
 //##
 //ZONE COMMANDERS
 //##
 
 /datum/job/ltofficerlcz
-	title = "LCZ Zone Junior Lieutenant"
-	department = "Light Containment Personnel"
+	title = "Младший лейтенант ЛЗС"
+	department = "Лёгкая Зона Содержания"
 	selection_color = "#8e2929"
 	department_flag = SEC|LCZ
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Guard Commander"
+	supervisors = "Командир Охраны"
 	economic_power = 4
 	requirements = list(EXP_TYPE_LCZ = 720)
 	minimal_player_age = 10
@@ -126,18 +127,18 @@
 	)
 	skill_points = 25
 
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Medium"
-	duties = "Manage the Light Containment Zone. Keep track of potential and on-going riots and containment breaches."
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя"
+	duties = "Управляйте Лёгкой Зоной Содержания. Отслеживайте потенциальные и текущие бунты и нарушения содержания."
 
 /datum/job/ltofficerhcz
-	title = "HCZ Zone Senior Lieutenant"
-	department = "Heavy Containment Personnel"
+	title = "Старший лейтенант ТЗС"
+	department = "Тяжёлая Зона Содержания"
 	selection_color = "#8e2929"
 	department_flag = SEC|HCZ
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Guard Commander"
+	supervisors = "Командир Охраны"
 	economic_power = 4
 	requirements = list(EXP_TYPE_HCZ = 720)
 	minimal_player_age = 10
@@ -181,19 +182,18 @@
 	)
 	skill_points = 25
 
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Medium"
-	duties = "Manage the Heavy Containment Zone. Keep track of potential and on-going containment breaches."
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя"
+	duties = "Управляйте Тяжёлой Зоной Содержания. Отслеживайте потенциальные и текущие нарушения содержания."
 
 /datum/job/ltofficerez
-	title = "EZ Zone Supervisor"
-	department = "Entrance Personnel"
+	title = "Супервайзер ВЗ"
+	department = "Входная Зона"
 	selection_color = "#8e2929"
 	department_flag = SEC|ECZ
 	total_positions = 1
 	spawn_positions = 1
-	//duties = "<big><b>As the Entrance Zone Senior Agent, you and your team work independently from the guard commander and regular security structure. In this zone, you are tasked with the protection of administrative personnel, together with the agents stationed here. You should not leave your zone under usual SoP, or allow administration to go without protection detail into the facility.</b></big>"
-	supervisors = "the Guard Commander"
+	supervisors = "Командир Охраны"
 	economic_power = 4
 	requirements = list(EXP_TYPE_ECZ = 720)
 	minimal_player_age = 10
@@ -245,22 +245,22 @@
 	)
 	skill_points = 25
 
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Medium"
-	duties = "Manage the Entrance Zone. Ensure safety of all administrative staff, especially during containment breaches."
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя"
+	duties = "Управляйте Входной Зоной. Обеспечивайте безопасность всего административного персонала, особенно во время нарушений содержания."
 
 //##
 // OFFICERS
 //##
 
 /datum/job/raisa
-	title = "RAISA Agent"
-	department = "Entrance Personnel"
+	title = "Агент АПАИБ"
+	department = "Входная Зона"
 	selection_color = "#601c1c"
 	department_flag = SEC|ECZ|BUR
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the EZ Supervisor"
+	supervisors = "Супервайзер ВЗ"
 	economic_power = 5
 	requirements = list(EXP_TYPE_COMMAND = 120, EXP_TYPE_SECURITY = 180, EXP_TYPE_ENGINEERING = 90, EXP_TYPE_BUR = 60)
 	alt_titles = list()
@@ -304,23 +304,22 @@
 	)
 	skill_points = 17
 
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Medium"
-	duties = "Track and prevent potential espionage. Control access to classified information. Protect SCP databases from threats, both mundane and anomalous."
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя"
+	duties = "Отслеживайте и предотвращайте потенциальный шпионаж. Контролируйте доступ к секретной информации. Защищайте базы данных SCP от угроз, как обычных, так и аномальных."
 
 /datum/job/ncoofficerlcz
-	title = "LCZ Sergeant"
-	department = "Light Containment Personnel"
+	title = "Сержант ЛЗС"
+	department = "Лёгкая Зона Содержания"
 	selection_color = "#601c1c"
 	department_flag = SEC|LCZ
 	total_positions = 2
 	spawn_positions = 2
 	balance_limited = TRUE
-	//duties = "<big><b>As the Guard you have more access than a Junior Guard, but do not control them. You are to guard tests and SCP's in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You also have the duty of guarding the D-Class Cell Blocks. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the LCZ Zone Lieutenant"
+	supervisors = "Лейтенант зоны ЛЗС"
 	economic_power = 4
 	requirements = list(EXP_TYPE_LCZ = 480)
-	alt_titles = list("LCZ Senior Combat Medic" = /decl/hierarchy/outfit/job/security/lcz_medic, "LCZ Senior Riot Control Unit" = /decl/hierarchy/outfit/job/security/lcz_riot)
+	alt_titles = list("Старший боевой медик ЛЗС" = /decl/hierarchy/outfit/job/security/lcz_medic, "Старший боец отряда подавления беспорядков ЛЗС" = /decl/hierarchy/outfit/job/security/lcz_riot)
 	minimal_player_age = 5
 	ideal_character_age = 25
 	outfit_type = /decl/hierarchy/outfit/job/security/lcz_sergeant
@@ -359,17 +358,16 @@
 	skill_points = 21
 
 /datum/job/ncoofficerhcz
-	title = "HCZ Sergeant"
-	department = "Heavy Containment Personnel"
+	title = "Сержант ТЗС"
+	department = "Тяжёлая Зона Содержания"
 	selection_color = "#601c1c"
 	department_flag = SEC|HCZ
 	total_positions = 2
 	spawn_positions = 2
-	//duties = "<big><b>As the Guard you have more access than a Junior Guard, but do not control them. You are to guard tests and SCP's in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You also have the duty of guarding the D-Class Cell Blocks. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the HCZ Zone Lieutenant"
+	supervisors = "Лейтенант зоны ТЗС"
 	economic_power = 4
 	requirements = list(EXP_TYPE_HCZ = 480)
-	alt_titles = list("HCZ Senior Containment Response Agent", "HCZ Containment Response Sergeant", "HCZ Senior Combat Medic", "HCZ Senior Agent")
+	alt_titles = list("Старший агент реагирования на нарушения ТЗС", "Сержант реагирования на нарушения ТЗС", "Старший боевой медик ТЗС", "Старший агент ТЗС")
 	minimal_player_age = 5
 	ideal_character_age = 25
 	outfit_type = /decl/hierarchy/outfit/job/security/hcz_sergeant
@@ -403,17 +401,16 @@
 	skill_points = 21
 
 /datum/job/ncoofficerez
-	title = "EZ Senior Agent"
-	department = "Entrance Personnel"
+	title = "Старший агент ВЗ"
+	department = "Входная Зона"
 	selection_color = "#601c1c"
 	department_flag = SEC|ECZ
 	total_positions = 2
 	spawn_positions = 2
-	//duties = "<big><b>As the Agent you have more access than a Junior Agent, but do not control them. You are to guard tests and SCP's in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You also have the duty of guarding the D-Class Cell Blocks. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the EZ Zone Supervisor"
+	supervisors = "Супервайзер зоны ВЗ"
 	economic_power = 4
 	requirements = list(EXP_TYPE_ECZ = 480)
-	alt_titles = list("Investigation Officer" = /decl/hierarchy/outfit/job/security/ez_sergeant_investigative, "EZ Senior Combat Medic" = /decl/hierarchy/outfit/job/security/ez_medic)
+	alt_titles = list("Офицер расследований" = /decl/hierarchy/outfit/job/security/ez_sergeant_investigative, "Старший боевой медик ВЗ" = /decl/hierarchy/outfit/job/security/ez_medic)
 	minimal_player_age = 5
 	ideal_character_age = 25
 	outfit_type = /decl/hierarchy/outfit/job/security/ez_sergeant
@@ -456,17 +453,16 @@
 
 /datum/job/enlistedofficerlcz
 
-	title = "LCZ Guard"
-	department = "Light Containment Personnel"
+	title = "Охранник ЛЗС"
+	department = "Лёгкая Зона Содержания"
 	selection_color = "#601c1c"
 	department_flag = SEC|LCZ
 	total_positions = 8
 	spawn_positions = 8
-	//duties = "<big><b>As the Junior Guard you have minimal access. You are to guard tests, SCP's and provide support in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You also have the duty of guarding the D-Class Cell Blocks. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the LCZ Sergeants and Zone Lieutenant"
+	supervisors = "Сержанты ЛЗС и Лейтенант зоны"
 	economic_power = 4
 	requirements = list(EXP_TYPE_LCZ = 220)
-	alt_titles = list("LCZ Combat Medic" = /decl/hierarchy/outfit/job/security/lcz_medic, "LCZ Riot Control Unit" = /decl/hierarchy/outfit/job/security/lcz_riot)
+	alt_titles = list("Боевой медик ЛЗС" = /decl/hierarchy/outfit/job/security/lcz_medic, "Боец отряда подавления беспорядков ЛЗС" = /decl/hierarchy/outfit/job/security/lcz_riot)
 	minimal_player_age = 0
 	ideal_character_age = 25
 	balance_limited = TRUE
@@ -505,18 +501,17 @@
 	skill_points = 17
 
 /datum/job/enlistedofficerhcz
-	title = "HCZ Guard"
-	department = "Heavy Containment Personnel"
+	title = "Охранник ТЗС"
+	department = "Тяжёлая Зона Содержания"
 	selection_color = "#601c1c"
 	department_flag = SEC|HCZ
 	total_positions = 6
 	spawn_positions = 6
-	//duties = "<big><b>As the Junior Guard you have minimal access. You are to guard tests, SCP's and provide support in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the HCZ Sergeants and Zone Lieutenant"
+	supervisors = "Сержанты ТЗС и Лейтенант зоны"
 	economic_power = 4
 	requirements = list(EXP_TYPE_HCZ = 220)
-	alt_titles = list("HCZ Containment Response Agent", "HCZ Containment Response Guard", "HCZ Combat Medic", "HCZ Agent")
-//	minimal_player_age = 0
+	alt_titles = list("Агент реагирования на нарушения ТЗС", "Охранник реагирования на нарушения ТЗС", "Боевой медик ТЗС", "Агент ТЗС")
+	minimal_player_age = 0
 	ideal_character_age = 25
 	outfit_type = /decl/hierarchy/outfit/job/security/hcz_guard
 	class = CLASS_C
@@ -550,17 +545,16 @@
 
 /datum/job/enlistedofficerez
 
-	title = "EZ Agent"
-	department = "Entrance Personnel"
+	title = "Агент ВЗ"
+	department = "Входная Зона"
 	selection_color = "#601c1c"
 	department_flag = SEC|ECZ
 	total_positions = 6
 	spawn_positions = 6
-	//duties = "<big><b>As the Junior Agent you have minimal access. You are to guard tests, SCP's and provide support in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the EZ Senior Agents and Zone Supervisor"
+	supervisors = "Старшие агенты ВЗ и Супервайзер зоны"
 	economic_power = 4
 	requirements = list(EXP_TYPE_ECZ = 220)
-	alt_titles = list("Investigation Agent" = /decl/hierarchy/outfit/job/security/ez_guard_investigative, "EZ Combat Medic" = /decl/hierarchy/outfit/job/security/ez_medic)
+	alt_titles = list("Агент расследований" = /decl/hierarchy/outfit/job/security/ez_guard_investigative, "Боевой медик ВЗ" = /decl/hierarchy/outfit/job/security/ez_medic)
 	minimal_player_age = 0
 	ideal_character_age = 25
 	outfit_type = /decl/hierarchy/outfit/job/security/ez_guard
@@ -598,14 +592,13 @@
 	skill_points = 17
 
 /datum/job/guardlcz
-	title = "LCZ Cadet"
-	department = "Light Containment Personnel"
+	title = "Кадет ЛЗС"
+	department = "Лёгкая Зона Содержания"
 	selection_color = "#601c1c"
 	department_flag = SEC|LCZ
 	total_positions = 6
 	spawn_positions = 6
-	//duties = "<big><b>As the Junior Guard you have minimal access. You are to guard tests, SCP's and provide support in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You also have the duty of guarding the D-Class Cell Blocks. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the LCZ Security and Zone Lieutenant"
+	supervisors = "Охрана ЛЗС и Лейтенант зоны"
 	economic_power = 4
 	minimal_player_age = 0
 	ideal_character_age = 25
@@ -644,16 +637,14 @@
 	skill_points = 15
 
 /datum/job/guardhcz
-	title = "HCZ Private"
-	department = "Heavy Containment Personnel"
+	title = "Рядовой ТЗС"
+	department = "Тяжёлая Зона Содержания"
 	selection_color = "#601c1c"
 	department_flag = SEC|HCZ
 	total_positions = 6
 	spawn_positions = 6
-	//duties = "<big><b>As the Junior Guard you have minimal access. You are to guard tests, SCP's and provide support in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the HCZ Security and Zone Lieutenant"
+	supervisors = "Охрана ТЗС и Лейтенант зоны"
 	economic_power = 4
-//	minimal_player_age = 0
 	ideal_character_age = 25
 	outfit_type = /decl/hierarchy/outfit/job/security/hcz_cadet
 	class = CLASS_C
@@ -685,14 +676,13 @@
 	skill_points = 15
 
 /datum/job/guardez
-	title = "EZ Probationary Agent"
-	department = "Entrance Personnel"
+	title = "Стажёр-агент ВЗ"
+	department = "Входная Зона"
 	selection_color = "#601c1c"
 	department_flag = SEC|ECZ
 	total_positions = 6
 	spawn_positions = 6
-	//duties = "<big><b>As the Junior Agent you have minimal access. You are to guard tests, SCP's and provide support in the zone you spawned in. If in doubt, ask your Zone or Guard Commander. You should not leave your zone under usual SoP.</b></big>"
-	supervisors = "the EZ Security and Zone Supervisor"
+	supervisors = "Охрана ВЗ и Супервайзер зоны"
 	economic_power = 4
 	minimal_player_age = 0
 	ideal_character_age = 25
@@ -728,4 +718,3 @@
 	    SKILL_FORENSICS   = SKILL_EXPERIENCED
 	)
 	skill_points = 15
-

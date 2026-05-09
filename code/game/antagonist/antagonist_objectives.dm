@@ -63,3 +63,6 @@
 		src << "<span class='notice'>You've set your goal to be '[new_ambitions]'.</span>"
 	else
 		src << "<span class='notice'>You leave your ambitions behind.</span>"
+
+/datum/objective/custom
+	explanation_text = ""

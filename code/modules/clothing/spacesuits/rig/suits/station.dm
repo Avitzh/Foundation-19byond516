@@ -415,3 +415,46 @@
 	if(user.gender == FEMALE && !findtext(chest.icon_state,"_f", -2))
 		chest.icon_state = "[chest.icon_state]_f"
 	chest.update_icon(1)
+
+/obj/item/rig/mining
+	name = "mining hardsuit control module"
+	desc = "A standard issued mining hardsuit, commonly used during hazardous mining operations."
+	icon_state = "ds_mining_rig"
+	suit_type = "mining hardsuit"
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+	)
+	online_slowdown = 2
+	offline_slowdown = 4
+	offline_vision_restriction = TINT_HEAVY
+
+	chest_type = /obj/item/clothing/suit/space/rig/mining
+	helm_type = /obj/item/clothing/head/helmet/space/rig/mining
+	boot_type = /obj/item/clothing/shoes/magboots/rig/mining
+	glove_type = /obj/item/clothing/gloves/rig/mining
+
+	initial_modules = list(
+		/obj/item/rig_module/kinesis,
+		/obj/item/rig_module/device/orescanner,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/vision/meson,
+	)
+
+/obj/item/clothing/head/helmet/space/rig/mining
+	light_overlay = "helmet_light_dual"
+	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_IPC)
+
+/obj/item/clothing/suit/space/rig/mining
+	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_IPC)
+
+/obj/item/clothing/gloves/rig/mining
+	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_IPC)
+
+/obj/item/clothing/shoes/magboots/rig/mining
+	species_restricted = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_IPC)

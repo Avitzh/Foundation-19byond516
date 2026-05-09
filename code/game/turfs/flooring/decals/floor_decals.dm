@@ -1404,3 +1404,7 @@
 
 /obj/effect/floor_decal/stoneborder/corner
 	icon_state = "stoneborder_c"
+
+/obj/effect/floor_decal/scplogo
+	icon = 'icons/FoundationSymbol.dmi'
+	icon_state = "32"

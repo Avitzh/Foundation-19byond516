@@ -67,13 +67,15 @@
 	return
 
 /obj/item/material/clipboard/attack_self(mob/user as mob)
-	var/dat = "<title>Clipboard</title>"
+	var/dat = ""
+	dat += "<html><head><meta charset=\"UTF-8\"><title>Clipboard</title></head><body>"
+
 	if(haspen)
 		dat += "<A href='byond://?src=\ref[src];pen=1'>Remove Pen</A><BR><HR>"
 	else
 		dat += "<A href='byond://?src=\ref[src];addpen=1'>Add Pen</A><BR><HR>"
 
-	//The topmost paper. I don't think there's any way to organise contents in byond, so this is what we're stuck with.	-Pete
+	//The topmost paper.
 	if(toppaper)
 		var/obj/item/paper/P = toppaper
 		dat += "<A href='byond://?src=\ref[src];write=\ref[P]'>Write</A> <A href='byond://?src=\ref[src];remove=\ref[P]'>Remove</A> <A href='byond://?src=\ref[src];rename=\ref[P]'>Rename</A> - <A href='byond://?src=\ref[src];read=\ref[P]'>[P.name]</A><BR><HR>"
@@ -84,6 +86,8 @@
 		dat += "<A href='byond://?src=\ref[src];remove=\ref[P]'>Remove</A> <A href='byond://?src=\ref[src];rename=\ref[P]'>Rename</A> - <A href='byond://?src=\ref[src];read=\ref[P]'>[P.name]</A><BR>"
 	for(var/obj/item/photo/Ph in src)
 		dat += "<A href='byond://?src=\ref[src];remove=\ref[Ph]'>Remove</A> <A href='byond://?src=\ref[src];rename=\ref[Ph]'>Rename</A> - <A href='byond://?src=\ref[src];look=\ref[Ph]'>[Ph.name]</A><BR>"
+
+	dat += "</body></html>"
 
 	show_browser(user, dat, "window=clipboard")
 	onclose(user, "clipboard")
@@ -151,12 +155,11 @@
 			var/obj/item/paper/P = locate(href_list["read"])
 
 			if(P && (P.loc == src) && istype(P, /obj/item/paper) )
-
 				if(!(istype(usr, /mob/living/carbon/human) || isghost(usr) || istype(usr, /mob/living/silicon)))
-					show_browser(usr, "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>", "window=[P.name]")
+					show_browser(usr, "<html><head><meta charset=\"UTF-8\"><title>[P.name]</title></head><body>[stars(P.info)][P.stamps]</body></html>", "window=[P.name]")
 					onclose(usr, "[P.name]")
 				else
-					show_browser(usr, "<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>", "window=[P.name]")
+					show_browser(usr, "<html><head><meta charset=\"UTF-8\"><title>[P.name]</title></head><body>[P.info][P.stamps]</body></html>", "window=[P.name]")
 					onclose(usr, "[P.name]")
 
 		else if(href_list["look"])

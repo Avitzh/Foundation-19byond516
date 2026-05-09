@@ -3,7 +3,7 @@
     name = "bone spear"
     desc = "A razor-sharp bone shard flying at incredible speed."
     icon = 'icons/SCP/scp-154.dmi'
-    icon_state = "bone_spear"
+    icon_state = "154bone_spear"
     damage = 100
     damage_type = BRUTE
     armor_penetration = 50
@@ -14,8 +14,8 @@
     name = "phantom bow"
     desc = "A large, blurry, incorporeal bow. There is no bowstring, but the gesture of drawing it produces the same effect."
     icon = 'icons/SCP/scp-154.dmi'
-    icon_state = "bow"
-    item_state = "bow_held"
+    icon_state = "154bow"
+    item_state = "154bow"
     w_class = 5
     slot_flags = 0
     var/obj/item/clothing/gloves/scp154/parent_bracelets
@@ -34,13 +34,12 @@
     return ..()
 
 /obj/item/gun/projectile/scp154_bow/update_icon()
-    if(bow_drawn)
-        icon_state = "bow_drawn"
-    else
-        icon_state = "bow"
+    icon_state = "154bow"
+    item_state = "154bow"
     var/mob/M = loc
     if(istype(M))
-        M.regenerate_icons()
+        M.update_inv_l_hand()
+        M.update_inv_r_hand()
 
 // Z on bow — draw or fire
 /obj/item/gun/projectile/scp154_bow/attack_self(mob/user)
@@ -163,8 +162,11 @@
     name = "pair of bronze bracelets"
     desc = "A pair of simple bronze bracelets. They appear harmless, but a strange warmth emanates from them."
     icon = 'icons/SCP/scp-154.dmi'
-    icon_state = "bracelets"
-    item_state = "bracelets"
+    icon_state = "154bracelets"
+    item_state = "154bracelets"
+    sprite_sheets = list(
+        SPECIES_HUMAN = 'icons/mob/onmob/onmob_hands.dmi'
+    )
     var/heal_timer_id
     var/mob/living/carbon/human/current_wearer
     var/active_bow = null
@@ -174,7 +176,6 @@
     if(slot == slot_gloves)
         current_wearer = user
         to_chat(user, SPAN_NOTICE("The bracelets tighten around your wrists. You feel power flowing through your arms."))
-        user.regenerate_icons()
     else
         stop_healing()
         current_wearer = null
@@ -184,8 +185,6 @@
     if(current_wearer)
         stop_healing()
         current_wearer = null
-    if(user)
-        user.regenerate_icons()
 
 /obj/item/clothing/gloves/scp154/proc/stop_healing()
     if(heal_timer_id)

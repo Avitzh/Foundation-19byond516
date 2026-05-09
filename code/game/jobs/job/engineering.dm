@@ -1,7 +1,7 @@
 /datum/job/chief_engineer
-	title = "Engineering Director"
-	department = "Engineering"
-	supervisors = "the Site Director"
+	title = "Директор Инженерного Отдела"
+	department = "Инженерный отдел"
+	supervisors = "Директор Зоны"
 	department_flag = ENG|COM
 	selection_color = "#b69a3f"
 	head_position = 1
@@ -53,15 +53,15 @@
 	    SKILL_ENGINES      = SKILL_MASTER
 	)
 
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Hard"
-	duties = "Manage the Engineering department. Delegate construction and repair work. Facilitate larger projects."
-	codex_guides = list("<l>Hacking Wires</l>")
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Тяжёлая"
+	duties = "Управляйте Инженерным отделом. Делегируйте строительные и ремонтные работы. Содействуйте крупным проектам."
+	codex_guides = list("<l>Взлом проводов</l>")
 
 /*/datum/job/achief_engineer
-	title = "Assistant Engineering Director"
-	department = "Engineering"
-	supervisors = "the Site Director and Engineering Director"
+	title = "Помощник Директора Инженерного Отдела"
+	department = "Инженерный отдел"
+	supervisors = "Директор Зоны и Директор Инженерного Отдела"
 	department_flag = ENG|COM
 	selection_color = "#b69a3f"
 	total_positions = 1
@@ -111,20 +111,20 @@
 	    SKILL_ENGINES      = SKILL_MASTER
 	)
 
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Medium - Hard"
-	duties = "Perform constructions and repairs. Manage lower engineers."
-	codex_guides = list("<l>Hacking Wires</l>")
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Выполняйте строительные и ремонтные работы. Управляйте младшими инженерами."
+	codex_guides = list("<l>Взлом проводов</l>")
 */
 /*/datum/job/conteng
-	title = "Containment Engineer"
-	department = "Engineering"
+	title = "Инженер по Содержанию"
+	department = "Инженерный отдел"
 	total_positions = 2
 	spawn_positions = 2
-	department = "Engineering"
+	department = "Инженерный отдел"
 	department_flag = ENG
 	selection_color = "#5b4d20"
-	supervisors = "the Engineering Director and Assistant Engineering Director"
+	supervisors = "Директор Инженерного Отдела и Помощник Директора Инженерного Отдела"
 	economic_power = 5
 	minimal_player_age = 10
 	ideal_character_age = 30
@@ -200,19 +200,19 @@
 	    SKILL_ATMOS        = SKILL_MASTER,
 	    SKILL_ENGINES      = SKILL_MASTER
 	)
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Medium - Hard"
-	duties = "Perform constructions and repairs on SCP containment chambers."
-	codex_guides = list("<l>Hacking Wires</l>")*/
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Выполняйте строительные и ремонтные работы в камерах содержания SCP."
+	codex_guides = list("<l>Взлом проводов</l>")*/
 
 /datum/job/it_tech
-	title = "IT Technician"
-	department = "Engineering"
+	title = "IT-Техник"
+	department = "Инженерный отдел"
 	selection_color = "#5b4d20"
 	department_flag = ENG
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Engineering Director and Assistant Engineering Director"
+	supervisors = "Директор Инженерного Отдела и Помощник Директора Инженерного Отдела"
 	economic_power = 4
 	minimal_player_age = 3
 	ideal_character_age = 30
@@ -242,28 +242,28 @@
 		SKILL_COMPUTER     = SKILL_MASTER
 	)
 
-	roleplay_difficulty = "Easy - Medium"
-	mechanical_difficulty = "Medium"
-	duties = "Maintain and expand the advanced technology behind the site's server infrastructure. Resolve technical problems. Prepare and protect against cybersecurity attacks."
+	roleplay_difficulty = "Лёгкая - Средняя"
+	mechanical_difficulty = "Средняя"
+	duties = "Поддерживайте и расширяйте передовые технологии серверной инфраструктуры Зоны. Решайте технические проблемы. Готовьте и защищайте от кибератак."
 
 /datum/job/seneng
-	title = "Senior Engineer"
-	department = "Engineering"
+	title = "Старший Инженер"
+	department = "Инженерный отдел"
 	total_positions = 2
 	spawn_positions = 2
-	department = "Engineering"
+	department = "Инженерный отдел"
 	department_flag = ENG
 	selection_color = "#5b4d20"
-	supervisors = "the Engineering Director"
+	supervisors = "Директор Инженерного Отдела"
 	economic_power = 5
 	minimal_player_age = 7
 	ideal_character_age = 30
 	requirements = list(EXP_TYPE_ENGINEERING = 480)
 	alt_titles = list(
-		"Senior Maintenance Technician",
-		"Senior Engine Technician",
-		"Senior Damage Control Technician",
-		"Senior Electrician"
+		"Старший Техник по Обслуживанию",
+		"Старший Техник по Двигателям",
+		"Старший Техник по Устранению Повреждений",
+		"Старший Электрик"
 		)
 	outfit_type = /decl/hierarchy/outfit/job/engineering/seneng
 	class = CLASS_C
@@ -292,74 +292,28 @@
 	    SKILL_ATMOS        = SKILL_MASTER,
 	    SKILL_ENGINES      = SKILL_MASTER
 	)
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Medium - Hard"
-	duties = "Manage the Engineering department. Delegate construction and repair work. Facilitate larger projects."
-	codex_guides = list("<l>Hacking Wires</l>")
-
-/datum/job/it_tech
-	title = "IT Technician"
-	department = "Engineering"
-	selection_color = "#5b4d20"
-	department_flag = ENG
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the Engineering Director and Assistant Engineering Director"
-	economic_power = 4
-	minimal_player_age = 3
-	ideal_character_age = 30
-	requirements = list(EXP_TYPE_ENGINEERING = 120)
-	outfit_type = /decl/hierarchy/outfit/job/engineering/it_tech
-	class = CLASS_B
-	hud_icon = "hudittech"
-
-	access = list(
-		ACCESS_ENG_COMMS,
-		ACCESS_ENGINEERING_LVL1,
-		ACCESS_ENGINEERING_LVL2,
-		ACCESS_ENGINEERING_LVL3,
-		ACCESS_ADMIN_LVL1,
-		ACCESS_SCIENCE_LVL1,
-		ACCESS_NETWORK
-	)
-	minimal_access = list()
-
-	min_skill = list(
-		SKILL_COMPUTER     = SKILL_EXPERIENCED,
-	    SKILL_CONSTRUCTION = SKILL_BASIC,
-	    SKILL_ELECTRICAL   = SKILL_BASIC
-	)
-
-	max_skill = list(
-		SKILL_COMPUTER     = SKILL_MASTER
-	)
-
-	roleplay_difficulty = "Easy - Medium"
-	mechanical_difficulty = "Medium"
-	duties = "Maintain and expand the advanced technology behind the site's server infrastructure. Resolve technical problems. Prepare and protect against cybersecurity attacks."
-
-	roleplay_difficulty = "Easy - Medium"
-	mechanical_difficulty = "Medium - Hard"
-	duties = "Perform constructions and repairs. Manage lower engineers."
-	codex_guides = list("<l>Hacking Wires</l>")
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Управляйте Инженерным отделом. Делегируйте строительные и ремонтные работы. Содействуйте крупным проектам."
+	codex_guides = list("<l>Взлом проводов</l>")
 
 /datum/job/eng
-	title = "Engineer"
-	department = "Engineering"
+	title = "Инженер"
+	department = "Инженерный отдел"
 	total_positions = 4
 	spawn_positions = 4
 	selection_color = "#5b4d20"
 	department_flag = ENG
-	supervisors = "the Engineering Director and Assistant Engineering Director"
+	supervisors = "Директор Инженерного Отдела и Помощник Директора Инженерного Отдела"
 	economic_power = 4
 	minimal_player_age = 3
 	ideal_character_age = 25
 	requirements = list(EXP_TYPE_ENGINEERING = 60)
 	alt_titles = list(
-		"Maintenance Technician",
-		"Engine Technician",
-		"Damage Control Technician",
-		"Electrician"
+		"Техник по Обслуживанию",
+		"Техник по Двигателям",
+		"Техник по Устранению Повреждений",
+		"Электрик"
 		)
 	outfit_type = /decl/hierarchy/outfit/job/engineering/eng
 	class = CLASS_C
@@ -387,28 +341,28 @@
 	    SKILL_ENGINES      = SKILL_MASTER
 	)
 
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Medium"
-	duties = "Help with constructions and repairs."
-	codex_guides = list("<l>Hacking Wires</l>")
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Средняя"
+	duties = "Помогайте со строительством и ремонтом."
+	codex_guides = list("<l>Взлом проводов</l>")
 
 /datum/job/juneng
-	title = "Junior Engineer"
-	department = "Engineering"
+	title = "Младший Инженер"
+	department = "Инженерный отдел"
 	total_positions = 6
 	spawn_positions = 6
-	department = "Engineering"
+	department = "Инженерный отдел"
 	department_flag = ENG
 	selection_color = "#5b4d20"
-	supervisors = "the Senior Engineers and Chief Engineer"
+	supervisors = "Старшие Инженеры и Главный Инженер"
 	economic_power = 3
 	minimal_player_age = 0
 	ideal_character_age = 20
 	alt_titles = list(
-		"Junior Maintenance Technician",
-		"Junior Engine Technician",
-		"Junior Damage Control Technician",
-		"Junior Electrician"
+		"Младший Техник по Обслуживанию",
+		"Младший Техник по Двигателям",
+		"Младший Техник по Устранению Повреждений",
+		"Младший Электрик"
 		)
 	outfit_type = /decl/hierarchy/outfit/job/engineering/juneng
 	class = CLASS_C
@@ -438,7 +392,7 @@
 	    SKILL_ENGINES      = SKILL_MASTER
 	)
 
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Easy - Medium"
-	duties = "Help with constructions and repairs."
-	codex_guides = list("<l>Hacking Wires</l>")
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Лёгкая - Средняя"
+	duties = "Помогайте со строительством и ремонтом."
+	codex_guides = list("<l>Взлом проводов</l>")

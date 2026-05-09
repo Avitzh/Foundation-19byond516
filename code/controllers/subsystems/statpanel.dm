@@ -26,9 +26,9 @@ SUBSYSTEM_DEF(statpanels)
 		global_data = list(
 			"Map: [GLOB.using_map?.station_name || "Loading..."]",
 			"Game ID: [game_id ? game_id : "NULL"]",
-			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Round Time: [ROUND_TIME()]",
-			"Station Time: [station_time_timestamp()]",
+			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm")]",
+			"Round Time: [station_time_timestamp("hh:mm", ROUND_TIME())]",
+			"Station Time: [station_time_timestamp("hh:mm")]",
 		)
 
 		if(evacuation_controller)

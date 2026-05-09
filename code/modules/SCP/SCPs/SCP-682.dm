@@ -30,6 +30,9 @@
 	movement_cooldown = 5
 	attack_delay = 2
 
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	see_in_dark = 7
+
 	faction = "scp"
 	response_help = "hesitantly reaches toward"
 	response_disarm = "shoves against"

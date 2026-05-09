@@ -144,7 +144,7 @@
 
 	var/nutrition = 500 //How it handles hunger
 	var/nutrition_max = 650 //Maximum nutrition storage
-	var/hunting_threshold = 300 //When 939 gets hungry enough that its AI will actively attack players
+	var/hunting_threshold = 150 //When 939 gets hungry enough that its AI will actively attack players
 	var/nutriloss = 0.12 //Slow by default. Ramps hard when injured.
 
 	var/spawn_area
@@ -192,7 +192,7 @@
 	)
 	add_verb(src, /client/proc/scpooc)
 
-	SCP.min_time = 30 MINUTES //These things become VERY dangerous when multiple of them spawn
+	SCP.min_time = 40 MINUTES //These things become VERY dangerous when multiple of them spawn
 	SCP.min_playercount = 20
 	SCP.memeticFlags = MVISUAL|MAUDIBLE|MSYNCED //Needs to be synced to not indefinitely add this. Also uses VISUAL and AUDIBLE as if you're in range to see or hear 939, you're usually breathing the same air as it.
 	SCP.memetic_proc = TYPE_PROC_REF(/mob/living/simple_animal/hostile/scp939, memetic_effect) //re-used SCP-012 code, works for our purposes
@@ -251,6 +251,7 @@
 		return MOVEMENT_ON_COOLDOWN
 	return ..()
 
+
 /mob/living/simple_animal/hostile/scp939/get_status_tab_items()
 	. = ..()
 	if(stat == DEAD)
@@ -287,19 +288,16 @@
 	if(nutrition >= 1)
 		AdjustNutrition(-nutriloss)
 
-	if(stat == DEAD)
-		icon_state = icon_dead
-		update_icons()
-	else if(!is_sleeping)
-		icon_state = icon_living
-		update_icons()
-
 	if(!is_sleeping)
 		icon_state = resting ? icon_rest : icon_living
 		update_icons()
 	..()
 
-
+/mob/living/simple_animal/hostile/scp939/update_icons()
+	if(stat == DEAD)
+		icon_state = icon_dead
+	else
+		icon_state = icon_living
 
 /mob/living/simple_animal/hostile/scp939/proc/memetic_effect(mob/living/carbon/human/H)
 	var/obj/item/organ/internal/stomach/stomach_organ = H.internal_organs_by_name[BP_STOMACH]
@@ -394,7 +392,7 @@
 		if(AR.locked)
 			open_time += 4 SECONDS
 		if(AR.welded)
-			open_time += 4 SECONDS
+			open_time += 9 SECONDS
 		if(AR.secured_wires)
 			open_time += 5 SECONDS
 

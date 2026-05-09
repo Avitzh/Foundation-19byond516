@@ -82,6 +82,40 @@
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/space
 
+/datum/shuttle/autodock/ferry/uiu_heli
+	name = "Unusual Incidents Unit Helicopter"
+	sound_takeoff = 'sounds/effects/helicopter.ogg'
+	warmup_time = 14
+	shuttle_area = list(/area/site53/tram/uiu1)
+	waypoint_station = "nav_uiu_start"
+	landmark_transition = "nav_uiu_transition"
+	waypoint_offsite = "nav_uiu_out"
+	move_time = 15
+
+/obj/effect/shuttle_landmark/uiu_heli/start
+	name = "Unusual Incidents Unit Base"
+	landmark_tag = "nav_uiu_start"
+	base_turf = /turf/simulated/floor/reinforced
+	base_area = /area/site53/surface/surface/west // Where the helicopter goes, not where it starts - Terrytehtryhard
+
+/obj/effect/shuttle_landmark/uiu_heli/out
+	name = "Site 53"
+	landmark_tag = "nav_uiu_out"
+	base_turf = /turf/simulated/floor/reinforced
+	base_area = /area/site53/surface/surface/west
+
+/obj/effect/shuttle_landmark/transit/uiutransit
+	name = "In transit"
+	landmark_tag = "nav_uiu_transition"
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/transit/helitransit
+	name = "In transit"
+	landmark_tag = "nav_mtf_transition"
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/space
+
 /datum/shuttle/autodock/ferry/emergency/train //The transfer/escape train
 	name = "Foundation Main Train"
 	sound_takeoff = 'sounds/effects/TrainLeavingSite.ogg'

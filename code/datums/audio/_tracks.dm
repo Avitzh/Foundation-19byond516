@@ -480,3 +480,10 @@
 	author = "Joonas Rikkonen"
 	license = /decl/license/cc_by_sa_3_0
 	url = "https://www.youtube.com/watch?v=octyAY4SWE0"
+
+/decl/audio/track/severedreality
+	source = 'sounds/music/severedreality.ogg'
+	title = "Severed Reality"
+	author = "Camelidea"
+	license = /decl/license/cc_by_sa_3_0
+	url = "https://www.youtube.com/watch?v=CV66tO2Soys"

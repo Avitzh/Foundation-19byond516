@@ -18,7 +18,7 @@
 	var/alternate_option = 2
 
 /datum/category_item/player_setup_item/occupation
-	name = "Occupation"
+	name = "Профессия"  // Перевод
 	sort_order = 1
 	var/datum/browser/panel
 
@@ -86,7 +86,7 @@
 	. += "<style>.Points,a.Points{background: #cc5555;}</style>"
 	. += "<style>a.Points:hover{background: #55cc55;}</style>"
 	. += "<tt><center>"
-	. += "<font size=3><b>Select and configure your occupation preferences. Unavailable occupations are crossed out.</b></font>"
+	. += "<font size=3><b>Выберите и настройте свои предпочтения по профессии. Недоступные профессии перечеркнуты.</b></font>"
 	. += "<br>"
 
 	// Display everything.
@@ -125,22 +125,22 @@
 				var/bodytype = S.get_bodytype()
 				var/bad_message = ""
 				if(job.total_positions == 0 && job.spawn_positions == 0)
-					bad_message = "<b>\[UNAVAILABLE]</b>"
+					bad_message = "<b>\[НЕДОСТУПНО]</b>"
 				else if(!job.meets_req(user.client))
-					bad_message = "<b>\[TIMELOCKED]</b>"
+					bad_message = "<b>\[ТАЙМЛОК]</b>"
 				else if(jobban_isbanned(user, title))
-					bad_message = "<b>\[BANNED]</b>"
+					bad_message = "<b>\[БАН]</b>"
 				else if(!job.player_old_enough(user.client))
 					var/available_in_days = job.available_in_days(user.client)
-					bad_message = "\[IN [(available_in_days)] DAYS]"
+					bad_message = "\[ЕЩЁ [available_in_days] ДН.]"
 				else if(LAZYACCESS(job.minimum_character_age, bodytype) && user.client && (user.client.prefs.age < job.minimum_character_age[bodytype]))
-					bad_message = "\[MIN CHAR AGE: [job.minimum_character_age[bodytype]]]"
+					bad_message = "\[МИН. ВОЗРАСТ: [job.minimum_character_age[bodytype]]]"
 /* fix this
 				else if (job.is_job_whitelisted(user.client))
 					bad_message = "<b>\[WHITELISTED]</b>"
 */
 				else if(!S.check_background(job, user.client.prefs))
-					bad_message = "<b>\[BACKGROUND RESTRICTED]</b>"
+					bad_message = "<b>\[ОГРАНИЧЕНО ПРЕДЫСТОРИЕЙ]</b>"
 
 				var/current_level = JOB_LEVEL_NEVER
 				if(pref.job_high == job.title)
@@ -152,9 +152,9 @@
 
 				var/skill_link
 				if(pref.points_by_job[job] && (!job.available_by_default || current_level != JOB_LEVEL_NEVER))
-					skill_link = "<a class = 'Points' href='byond://?src=\ref[src];set_skills=[title]'>Set Skills</a>"
+					skill_link = "<a class = 'Points' href='byond://?src=\ref[src];set_skills=[title]'>Выставьте навыки</a>"
 				else
-					skill_link = "<a href='byond://?src=\ref[src];set_skills=[title]'>View Skills</a>"
+					skill_link = "<a href='byond://?src=\ref[src];set_skills=[title]'>Навыки</a>"
 				skill_link = "<td>[skill_link]</td>"
 
 				// Begin assembling the actual HTML.
@@ -174,12 +174,12 @@
 
 				if(bad_message)
 					. += "<del>[title_link]</del>[help_link][skill_link]<td>[bad_message]</td></tr>"
-					if(bad_message == "<b>\[TIMELOCKED]</b>")
+					if(bad_message == "<b>\[ТАЙМЛОК]</b>")
 						var/list/req_list = job.get_req(user.client)
 						for(var/jreq in req_list)
 							if(req_list[jreq])
 								. += "<tr bgcolor='[job.selection_color]'>" //HTML for timelock indicators in occupations
-								. += "<td width='30%' align='left'></td><td width='10%' align='left'></td><td>[jreq]</td></td><td></td><td width = '10%' align = 'center'></td><td width='40%' align='left'>[req_list[jreq]] Minutes</td></tr>"
+								. += "<td width='30%' align='left'></td><td width='10%' align='left'></td><td>[jreq]</td></td><td></td><td width = '10%' align = 'center'></td><td width='40%' align='left'>[req_list[jreq]] мин.</td></tr>"
 					continue
 				else if((GLOB.using_map.default_assistant_title in pref.job_low) && (title != GLOB.using_map.default_assistant_title))
 					. += "<font color=grey>[title_link]</font>[help_link][skill_link]<td></td></tr>"
@@ -189,8 +189,8 @@
 
 				. += "<td>"
 				if(title == GLOB.using_map.default_assistant_title)//Assistant is special
-					var/yes_link = "Yes"
-					var/no_link = "No"
+					var/yes_link = "Да"
+					var/no_link = "Нет"
 					if(title in pref.job_low)
 						yes_link = FONT_COLORED("#55cc55","[yes_link]")
 						no_link = FONT_COLORED("black","[no_link]")
@@ -199,18 +199,18 @@
 						no_link = FONT_COLORED("#55cc55","[no_link]")
 					. += "<a href='byond://?src=\ref[src];set_job=[title];set_level=[JOB_LEVEL_LOW]'>[yes_link]</a><a href='byond://?src=\ref[src];set_job=[title];set_level=[JOB_LEVEL_NEVER]'>[no_link]</a>"
 				else if(!job.available_by_default)
-					. += "<font color = '#cccccc'>Not available at roundstart.</font>"
+					. += "<font color = '#cccccc'>Недоступно на старте</font>"
 				else
 					var/level_link
 					switch(current_level)
 						if(JOB_LEVEL_LOW)
-							level_link = FONT_COLORED("#cc5555","Low")
+							level_link = FONT_COLORED("#cc5555","Низкий")
 						if(JOB_LEVEL_MEDIUM)
-							level_link = FONT_COLORED("#eecc22","Medium")
+							level_link = FONT_COLORED("#eecc22","Средний")
 						if(JOB_LEVEL_HIGH)
-							level_link = FONT_COLORED("#55cc55","High")
+							level_link = FONT_COLORED("#55cc55","Высокий")
 						else
-							level_link = "<font color=black>Never</font>"
+							level_link = "<font color=black>Никогда</font>"
 					. += {"<a href='byond://?src=\ref[src];set_job=[title];inc_level=-1' oncontextmenu='window.location.href="byond://?src=\ref[src];set_job=[title];inc_level=1"; return false'>[level_link]</a>"}
 				. += "</td></tr>"
 			. += "</td></tr></table>"
@@ -218,12 +218,12 @@
 	. += "<hr/>"
 	switch(pref.alternate_option)
 		if(GET_RANDOM_JOB)
-			. += "<u><a href='byond://?src=\ref[src];job_alternative=1'>Get random job if preferences unavailable</a></u>"
+			. += "<u><a href='byond://?src=\ref[src];job_alternative=1'>Случайная профессия, если предпочтения недоступны</a></u>"
 		if(BE_CLASS_D)
-			. += "<u><a href='byond://?src=\ref[src];job_alternative=1'>Be a <font color='#E55700'>Class-D</font> if preference unavailable</a></u>"
+			. += "<u><a href='byond://?src=\ref[src];job_alternative=1'>Стать <font color='#E55700'>Классом D</font>, если предпочтения недоступны</a></u>"
 		if(RETURN_TO_LOBBY)
-			. += "<u><a href='byond://?src=\ref[src];job_alternative=1'>Return to lobby if preference unavailable</a></u>"
-	. += "<a href='byond://?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
+			. += "<u><a href='byond://?src=\ref[src];job_alternative=1'>Вернуться в лобби, если предпочтения недоступны</a></u>"
+	. += "<a href='byond://?src=\ref[src];reset_jobs=1'>\[Сброс\]</a></center>"
 	. += "</tt><br>"
 	. = jointext(.,null)
 
@@ -248,7 +248,7 @@
 		var/datum/job/job = locate(href_list["select_alt_title"])
 		if (job)
 			var/choices = list(job.title) + job.alt_titles
-			var/choice = tgui_input_list(user, "Choose a title for [job.title].", "Choose Title", choices, pref.GetPlayerAltTitle(job))
+			var/choice = tgui_input_list(user, "Выберите название для [job.title].", "Выбор названия", choices, pref.GetPlayerAltTitle(job))
 			if(choice && CanUseTopic(user))
 				SetPlayerAltTitle(job, choice)
 				return (pref.equip_preview_mob ? TOPIC_REFRESH_UPDATE_PREVIEW : TOPIC_REFRESH)
@@ -310,7 +310,7 @@
 		if(c_e && istype(c_e))
 			SScodex.present_codex_entry(user, c_e,)
 		else
-			tgui_alert(user, "Could not find codex entry!", timeout = 5 SECONDS)
+			tgui_alert(user, "Не удалось найти статью кодекса!", timeout = 5 SECONDS)
 
 	else if(href_list["job_wiki"])
 		var/rank = href_list["job_wiki"]

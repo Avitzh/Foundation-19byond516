@@ -3,7 +3,7 @@
 	var/list/flavour_texts_robot = list()
 
 /datum/category_item/player_setup_item/physical/flavor
-	name = "Flavor"
+	name = "Описание"
 	sort_order = 4
 
 /datum/category_item/player_setup_item/physical/flavor/load_character(datum/pref_record_reader/R)
@@ -42,20 +42,34 @@
 	if(!istype(pref.flavour_texts_robot)) pref.flavour_texts_robot = list()
 
 /datum/category_item/player_setup_item/physical/flavor/content(mob/user)
-	. += "<b>Flavor:</b><br>"
-	. += "<a href='byond://?src=\ref[src];flavor_text=open'>Set Flavor Text</a><br/>"
-	. += "<a href='byond://?src=\ref[src];flavour_text_robot=open'>Set Robot Flavor Text</a><br/>"
+	. += "<b>Описание:</b><br>"
+	. += "<a href='byond://?src=\ref[src];flavor_text=open'>Задать описание персонажа</a><br/>"
+	. += "<a href='byond://?src=\ref[src];flavour_text_robot=open'>Задать описание робота</a><br/>"
 
 /datum/category_item/player_setup_item/physical/flavor/OnTopic(href,list/href_list, mob/user)
+	// Словарь для перевода ключей частей тела
+	var/static/list/part_translations = list(
+		"general" = "общее",
+		"head" = "голова",
+		"face" = "лицо",
+		"eyes" = "глаза",
+		"torso" = "туловище",
+		"arms" = "руки",
+		"hands" = "кисти",
+		"legs" = "ноги",
+		"feet" = "ступни"
+	)
+
 	if(href_list["flavor_text"])
 		switch(href_list["flavor_text"])
 			if("open")
 			if("general")
-				var/msg = sanitize(input(usr,"Give a general description of your character. This will be shown regardless of clothing. Do not include OOC information here.","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
+				var/msg = sanitize(input(usr, "Дайте общее описание вашего персонажа. Оно будет видно независимо от одежды. Не включайте сюда ООС информацию.", "Описание персонажа", html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
 				if(CanUseTopic(user))
 					pref.flavor_texts[href_list["flavor_text"]] = msg
 			else
-				var/msg = sanitize(input(usr,"Set the flavor text for your [href_list["flavor_text"]].","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
+				var/part_name = part_translations[href_list["flavor_text"]] || href_list["flavor_text"]
+				var/msg = sanitize(input(usr, "Укажите описание для области: [part_name].", "Описание персонажа", html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
 				if(CanUseTopic(user))
 					pref.flavor_texts[href_list["flavor_text"]] = msg
 		SetFlavorText(user)
@@ -65,11 +79,11 @@
 		switch(href_list["flavour_text_robot"])
 			if("open")
 			if("Default")
-				var/msg = sanitize(input(usr,"Set the default flavour text for your robot. It will be used for any module without individual setting.","Flavour Text",html_decode(pref.flavour_texts_robot["Default"])) as message, extra = 0)
+				var/msg = sanitize(input(usr, "Задайте описание робота по умолчанию. Оно будет использоваться, если для конкретного модуля описание не задано.", "Описание робота", html_decode(pref.flavour_texts_robot["Default"])) as message, extra = 0)
 				if(CanUseTopic(user))
 					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
 			else
-				var/msg = sanitize(input(usr,"Set the flavour text for your robot with [href_list["flavour_text_robot"]] module. If you leave this empty, default flavour text will be used for this module.","Flavour Text",html_decode(pref.flavour_texts_robot[href_list["flavour_text_robot"]])) as message, extra = 0)
+				var/msg = sanitize(input(usr, "Задайте описание робота для модуля [href_list["flavour_text_robot"]]. Если оставить поле пустым, будет использоваться описание по умолчанию.", "Описание робота", html_decode(pref.flavour_texts_robot[href_list["flavour_text_robot"]])) as message, extra = 0)
 				if(CanUseTopic(user))
 					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
 		SetFlavourTextRobot(user)
@@ -80,33 +94,33 @@
 /datum/category_item/player_setup_item/physical/flavor/proc/SetFlavorText(mob/user)
 	var/HTML = "<meta http-equiv='X-UA-Compatible' content='IE=edge' charset='UTF-8'/><body>"
 	HTML += "<tt><center>"
-	HTML += "<b>Set Flavour Text</b> <hr />"
+	HTML += "<b>Задать описание персонажа</b> <hr />"
 	HTML += "<br></center>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=general'>General:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=general'>Общее:</a> "
 	HTML += TextPreview(pref.flavor_texts["general"])
 	HTML += "<br>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=head'>Head:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=head'>Голова:</a> "
 	HTML += TextPreview(pref.flavor_texts["head"])
 	HTML += "<br>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=face'>Face:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=face'>Лицо:</a> "
 	HTML += TextPreview(pref.flavor_texts["face"])
 	HTML += "<br>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=eyes'>Eyes:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=eyes'>Глаза:</a> "
 	HTML += TextPreview(pref.flavor_texts["eyes"])
 	HTML += "<br>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=torso'>Body:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=torso'>Туловище:</a> "
 	HTML += TextPreview(pref.flavor_texts["torso"])
 	HTML += "<br>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=arms'>Arms:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=arms'>Руки:</a> "
 	HTML += TextPreview(pref.flavor_texts["arms"])
 	HTML += "<br>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=hands'>Hands:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=hands'>Кисти:</a> "
 	HTML += TextPreview(pref.flavor_texts["hands"])
 	HTML += "<br>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=legs'>Legs:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=legs'>Ноги:</a> "
 	HTML += TextPreview(pref.flavor_texts["legs"])
 	HTML += "<br>"
-	HTML += "<a href='byond://?src=\ref[src];flavor_text=feet'>Feet:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavor_text=feet'>Ступни:</a> "
 	HTML += TextPreview(pref.flavor_texts["feet"])
 	HTML += "<br>"
 	HTML += "<hr />"
@@ -117,9 +131,9 @@
 /datum/category_item/player_setup_item/physical/flavor/proc/SetFlavourTextRobot(mob/user)
 	var/HTML = "<meta http-equiv='X-UA-Compatible' content='IE=edge' charset='UTF-8'/><body>"
 	HTML += "<tt><center>"
-	HTML += "<b>Set Robot Flavour Text</b> <hr />"
+	HTML += "<b>Задать описание робота</b> <hr />"
 	HTML += "<br></center>"
-	HTML += "<a href='byond://?src=\ref[src];flavour_text_robot=Default'>Default:</a> "
+	HTML += "<a href='byond://?src=\ref[src];flavour_text_robot=Default'>По умолчанию:</a> "
 	HTML += TextPreview(pref.flavour_texts_robot["Default"])
 	HTML += "<hr />"
 	for(var/module in SSrobots.all_module_names)

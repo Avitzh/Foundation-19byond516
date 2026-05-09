@@ -1,6 +1,6 @@
 /datum/job/cmo
-	title = "Medical Director"
-	supervisors = "the Site Director"
+	title = "Директор Медицинского Отдела"
+	supervisors = "Директор Зоны"
 	economic_power = 10
 	req_admin_notify = 1
 	minimal_player_age = 15
@@ -8,7 +8,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/command/cmo
 	class = CLASS_A
 	hud_icon = "hudchiefmedicalofficer"
-	department = "Medical"
+	department = "Медицинский отдел"
 	department_flag = MED|COM
 	selection_color = "#026865"
 	requirements = list(EXP_TYPE_MEDICAL = 720)
@@ -52,13 +52,13 @@
 	    SKILL_CHEMISTRY   = SKILL_MASTER
 	)
 	skill_points = 28
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Medium - Hard"
-	duties = "Manage the Medical department. Delegate treatment and surgeries. Facilitate responses to emergencies."
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Управляйте Медицинским отделом. Делегируйте лечение и операции. Организуйте реагирование на чрезвычайные ситуации."
 
 /*/datum/job/acmo
-	title = "Assistant Medical Director"
-	supervisors = "the Site Director and Medical Director"
+	title = "Помощник Директора Медицинского Отдела"
+	supervisors = "Директор Зоны и Директор Медицинского Отдела"
 	economic_power = 10
 	req_admin_notify = 1
 	minimal_player_age = 15
@@ -66,7 +66,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/command/acmo
 	class = CLASS_A
 	hud_icon = "hudassistantmedicalofficer"
-	department = "Medical"
+	department = "Медицинский отдел"
 	department_flag = MED|COM
 	selection_color = "#026865"
 	requirements = list(EXP_TYPE_MEDICAL = 560)
@@ -104,11 +104,14 @@
 	    SKILL_ANATOMY     = SKILL_MASTER,
 	    SKILL_CHEMISTRY   = SKILL_MASTER
 	)
-	skill_points = 26*/
+	skill_points = 26
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Помогайте Директору Медицинского Отдела управлять отделом. Участвуйте в лечении и операциях. Контролируйте младший медицинский персонал."*/
 
 /datum/job/surgeon
-	title = "Surgeon"
-	department = "Medical"
+	title = "Хирург"
+	department = "Медицинский отдел"
 	department_flag = MED
 	selection_color = "#013d3b"
 	total_positions = 3
@@ -116,7 +119,7 @@
 	ideal_character_age = 30
 	economic_power = 5
 	requirements = list(EXP_TYPE_MEDICAL = 360)
-	supervisors = "the Medical Director and Assistant Medical Director"
+	supervisors = "Директор Медицинского Отдела и Помощник Директора Медицинского Отдела"
 	minimal_player_age = 3
 	outfit_type = /decl/hierarchy/outfit/job/medical/surgeon
 	class = CLASS_B
@@ -146,19 +149,22 @@
 	    SKILL_CHEMISTRY   = SKILL_MASTER
 	)
 	skill_points = 27
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Проводите хирургические операции пациентам, как плановые, так и в экстренных случаях."
 
 /datum/job/chemist
-	title = "Chemist"
-	department = "Medical"
+	title = "Химик"
+	department = "Медицинский отдел"
 	department_flag = MED
 	minimal_player_age = 3
 	total_positions = 2
 	spawn_positions = 2
 	requirements = list(EXP_TYPE_MEDICAL = 120)
-	supervisors = "the Medical Director, Assistant Medical Director and Senior Doctor"
+	supervisors = "Директор Медицинского Отдела, Помощник Директора Медицинского Отдела и Старший Врач"
 	selection_color = "#013d3b"
 	economic_power = 4
-	alt_titles = list("Pharmacist")
+	alt_titles = list("Фармацевт")
 	ideal_character_age = 30
 	outfit_type = /decl/hierarchy/outfit/job/medical/chemist
 	class = CLASS_C
@@ -186,13 +192,13 @@
 	)
 	skill_points = 24
 
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Medium - Hard"
-	duties = "Mix up medicines for your department. Experiment with chemistry-based anomalies."
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Приготовляйте лекарства для своего отдела. Экспериментируйте с аномалиями на основе химии."
 
 /datum/job/psychiatrist
-	title = "Psychiatrist"
-	department = "Medical"
+	title = "Психиатр"
+	department = "Медицинский отдел"
 	department_flag = MED
 	selection_color = "#013d3b"
 	total_positions = 1
@@ -200,8 +206,8 @@
 	minimal_player_age = 3
 	ideal_character_age = 40
 	economic_power = 5
-	supervisors = "the Medical Director, Assistant Medical Director and Senior Doctor"
-	alt_titles = list("Counselor")
+	supervisors = "Директор Медицинского Отдела, Помощник Директора Медицинского Отдела и Старший Врач"
+	alt_titles = list("Консультант")
 	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
 	class = CLASS_C
 	hud_icon = "hudcounselor"
@@ -227,23 +233,23 @@
 	)
 	skill_points = 24
 
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Easy"
-	duties = "Administer therapy and drugs to maintain mental health, in personnel and SCPs alike."
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Лёгкая"
+	duties = "Проводите терапию и выдавайте препараты для поддержания психического здоровья как персонала, так и SCP."
 
 /datum/job/medicaldoctor
-	title = "Medical Doctor"
-	department = "Medical"
+	title = "Врач"
+	department = "Медицинский отдел"
 	department_flag = MED
 	selection_color = "#013d3b"
 	total_positions = 5
 	spawn_positions = 5
 	requirements = list(EXP_TYPE_MEDICAL = 120)
-	supervisors = "the Medical Director, Assistant Medical Director and Senior Doctor"
+	supervisors = "Директор Медицинского Отдела, Помощник Директора Медицинского Отдела и Старший Врач"
 	ideal_character_age = 26
 	minimal_player_age = 3
 	economic_power = 5
-	alt_titles = list("Coroner")
+	alt_titles = list("Коронер")
 	outfit_type = /decl/hierarchy/outfit/job/medical/medicaldoctor
 	class = CLASS_C
 	hud_icon = "hudphysician"
@@ -271,16 +277,16 @@
 	    SKILL_CHEMISTRY   = SKILL_MASTER
 	)
 	skill_points = 24
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Medium"
-	duties = "Diagnose and administer treatment to incoming patients. Triage the wounded in times of duress."
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Средняя"
+	duties = "Диагностируйте и назначайте лечение поступившим пациентам. Сортируйте раненых в критических ситуациях."
 
 /datum/job/surgeon
-	title = "Surgeon"
+	title = "Хирург"
 
 /datum/job/emt
-	title = "Emergency Medical Technician"
-	department = "Medical"
+	title = "Парамедик"
+	department = "Медицинский отдел"
 	department_flag = MED
 	selection_color = "#013d3b"
 	total_positions = 4
@@ -288,11 +294,11 @@
 	ideal_character_age = 40
 	economic_power = 5
 	requirements = list(EXP_TYPE_MEDICAL = 240)
-	//duties = "<big><b>As the EMT it is your job to man the medical post near the Class D cell block, and treat any injuries there of the guards or Class D's. You only have limited supplies, so it's best to make them count.</b></big>"
-	supervisors = "the Medical Director and Assistant Medical Director"
+	supervisors = "Директор Медицинского Отдела и Помощник Директора Медицинского Отдела"
 	outfit_type = /decl/hierarchy/outfit/job/medical/emt
 	class = CLASS_C
 	hud_icon = "hudemt"
+	alt_titles = list("Фельдшер") // Это моя отсебятина, ну а с другой стороны чебы нет?
 
 	access = list(
 		ACCESS_MED_COMMS,
@@ -319,24 +325,24 @@
 	    SKILL_CHEMISTRY   = SKILL_MASTER
 	)
 	skill_points = 20
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Hard"
-	duties = "Perform surgery on patients, both routine and during emergencies."
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Тяжёлая"
+	duties = "Быстро реагируйте на чрезвычайные ситуации. Сортируйте раненых. Стабилизируйте пациентов и по возможности доставляйте их в медицинский пост."
 
 /datum/job/emt
-	title = "Emergency Medical Technician"
+	title = "Техник Скорой Медицинской Помощи"
 
 /datum/job/medicalintern
-	title = "Medical Intern"
-	department = "Medical"
+	title = "Медицинский Интерн"
+	department = "Медицинский отдел"
 	department_flag = MED
 	selection_color = "#013d3b"
 	total_positions = 4
 	spawn_positions = 4
 	ideal_character_age = 40
 	economic_power = 5
-	supervisors = "the Medical Director and Assistant Medical Director"
-	alt_titles = list("Resident", "Medical Attendant")
+	supervisors = "Директор Медицинского Отдела и Помощник Директора Медицинского Отдела"
+	alt_titles = list("Резидент", "Медицинский Аттендант")
 	outfit_type = /decl/hierarchy/outfit/job/medical/medicalintern
 	class = CLASS_C
 	hud_icon = "hudtraineemedicaltechnician"
@@ -364,6 +370,6 @@
 	)
 	skill_points = 20
 
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Medium - Hard"
-	duties = "Quickly respond to emergencies. Triage the wounded. Stabilize patients and bring them to a Medical post if possible."
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Помогайте опытным врачам, учитесь проводить диагностику и лечить пациентов."

@@ -1,6 +1,6 @@
 /datum/job/captain
-	title = "Site Director"
-	department = "Command"
+	title = "Директор Зоны"
+	department = "Командование"
 	head_position = TRUE
 	department_flag = COM
 	selection_color = "#1d1d4f"
@@ -33,17 +33,17 @@
 
 	requirements = list(EXP_TYPE_COMMAND = 1200)
 
-	roleplay_difficulty = "Hard"
-	mechanical_difficulty = "Easy"
-	duties = "Communicate with your site's department heads. Delegate high-level responsibilities. Manage the site during on-going threats."
+	roleplay_difficulty = "Тяжёлая"
+	mechanical_difficulty = "Лёгкая"
+	duties = "Общайтесь с главами отделов вашей Зоны. Делегируйте обязанности высокого уровня. Управляйте Зоной во время текущих угроз."
 
 /datum/job/captain/get_access()
 	return get_all_site_access()
 
 /datum/job/hop
-	title = "Site Manager"
-	department = "Command"
-	supervisors = "The Site Director"
+	title = "Менеджер Зоны"
+	department = "Командование"
+	supervisors = "Директор Зоны"
 	department_flag = COM|CIV|BUR|SRV
 	selection_color = "#2f2f7f"
 	head_position = TRUE
@@ -56,7 +56,7 @@
 	outfit_type = /decl/hierarchy/outfit/job/command/headofhr
 	class = CLASS_A
 	hud_icon = "hudhumanresources"
-	alt_titles = list("Assistant Site Director")
+	alt_titles = list("Помощник Директора Зоны")
 	requirements = list(EXP_TYPE_COMMAND = 120, EXP_TYPE_BUR = 300)
 
 	access = list(
@@ -88,17 +88,17 @@
 	)
 	skill_points = 20
 
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Low - Medium"
-	duties = "Manage available jobs. Change people's jobs and access levels. Assist the Site Director with human resources."
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Низкая - Средняя"
+	duties = "Управляйте доступными должностями. Меняйте должности и уровни доступа сотрудников. Помогайте Директору Зоны с кадровыми вопросами."
 
 // COMMUNICATIONS
 
 /datum/job/commsofficer
-	title = "Communications Officer"
-	department = "Command"
+	title = "Офицер Коммуникации"
+	department = "Командование"
 	department_flag = COM|ENG|SEC
-	supervisors = "the Guard Commander and Site Director"
+	supervisors = "Командир Охраны и Директор Зоны"
 	selection_color = "#2f2f7f"
 	total_positions = 1
 	spawn_positions = 1
@@ -108,7 +108,8 @@
 	outfit_type = /decl/hierarchy/outfit/job/command/commsofficer
 	class = CLASS_B
 	hud_icon = "hudcommsofficer"
-	requirements = list("Communications Technician" = 360)
+	alt_titles = list("Офицер связи") // Это моя отсебятина, ну а с другой стороны чебы нет?
+	requirements = list("Коммуникационный техник" = 360)
 
 	access = list(
 		ACCESS_SCIENCE_LVL1,
@@ -153,21 +154,21 @@
 	)
 	skill_points = 30
 
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Medium"
-	duties = "Keep communications systems online. Inform the site of on-going threats. Dispatch security. Manage your department."
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Средняя"
+	duties = "Поддерживайте работу систем связи. Информируйте Зону о текущих угрозах. Отправляйте охрану. Управляйте своим отделом."
 
 // MISC
 
 /datum/job/tribunal
 
-	title = "Internal Tribunal Department Officer"
-	department = "Civilian"
+	title = "Офицер Внутреннего Трибунала"
+	department = "Гражданский"
 	selection_color = "#2f2f7f"
 	department_flag = COM|BUR
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "The Tribunal Department"
+	supervisors = "Отдел Трибунала"
 	economic_power = 4
 	minimal_player_age = 5
 	ideal_character_age = 30
@@ -198,19 +199,19 @@
 	)
 	skill_points = 20
 
-	roleplay_difficulty = "Hard"
-	mechanical_difficulty = "Easy"
-	duties = "Ensure Foundation protocols are followed. Keep security in line."
+	roleplay_difficulty = "Тяжёлая"
+	mechanical_difficulty = "Лёгкая"
+	duties = "Обеспечивайте соблюдение протоколов Фонда. Следите за порядком в службе безопасности."
 
 /datum/job/ethicsliaison
 
-	title = "Ethics Committee Liaison"
-	department = "Civilian"
+	title = "Представитель Комитета по Этике"
+	department = "Гражданский"
 	selection_color = "#2f2f7f"
 	department_flag = COM|BUR
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Ethics Committee"
+	supervisors = "Комитет по Этике"
 	economic_power = 4
 	minimal_player_age = 5
 	ideal_character_age = 30
@@ -241,26 +242,26 @@
 	)
 	skill_points = 20
 
-	roleplay_difficulty = "Hard"
-	mechanical_difficulty = "Easy"
-	duties = "Ensure that proper ethics is upheld, both with the treatment of personnel and of SCPs. Communicate with the Ethics Committee. Keep security in line."
+	roleplay_difficulty = "Тяжёлая"
+	mechanical_difficulty = "Лёгкая"
+	duties = "Следите за соблюдением этических норм, как при обращении с персоналом, так и с SCP. Поддерживайте связь с Комитетом по Этике. Контролируйте охрану."
 
 /datum/job/goirep
-	title = "Global Occult Coalition Representative"
-	department = "Command"
+	title = "Представитель Глобальной Оккультной Коалиции"
+	department = "Командование"
 	department_flag = REP|BUR
 	selection_color = "#2f2f7f"
-	supervisors = "Your respective Group of Interest leaders"
+	supervisors = "Ваше руководство Группы Интересов"
 	total_positions = 1
 	spawn_positions = 1
 	economic_power = 5
 	minimal_player_age = 9
 	ideal_character_age = 30
 	alt_titles = list(
-		"Global Occult Coalition Ambassador",
-		"UIU Relations Agent" = /decl/hierarchy/outfit/job/civ/uiu,
-		"Marshall, Carter, and Dark Corporate Liaison" = /decl/hierarchy/outfit/job/civ/MCDRep,
-		"Goldbaker-Reinz Corporate Liaison" = /decl/hierarchy/outfit/job/civ/grcl
+		"Посол Глобальной Оккультной Коалиции",
+		"Агент по связям с ОНП" = /decl/hierarchy/outfit/job/civ/uiu,
+		"Корпоративный представитель МКиД" = /decl/hierarchy/outfit/job/civ/MCDRep,
+		"Корпоративный представитель Goldbaker-Reinz" = /decl/hierarchy/outfit/job/civ/grcl
 	)
 	outfit_type = /decl/hierarchy/outfit/job/civ/gocrep
 	class = CLASS_A
@@ -271,8 +272,7 @@
 		ACCESS_COM_COMMS,
 		ACCESS_ADMIN_LVL1,
 		ACCESS_CHAPEL_OFFICE,
-		ACCESS_SECURITY_LVL1,
-		ACCESS_SECURITY_LVL2,
+		ACCESS_SECURITY_LVL2
 	)
 
 	minimal_access = list()
@@ -290,9 +290,9 @@
 	)
 	skill_points = 20
 
-	roleplay_difficulty = "Hard"
-	mechanical_difficulty = "Easy"
-	duties = "Communicate with your respective Group of Interest and maintain diplomatic relations with the Foundation while also pursuing your group's interests."
+	roleplay_difficulty = "Тяжёлая"
+	mechanical_difficulty = "Лёгкая"
+	duties = "Поддерживайте связь с вашей Группой Интересов и дипломатические отношения с Фондом, одновременно продвигая интересы своей организации."
 
 /*/datum/job/commeng
 	title = "Communications Technician"

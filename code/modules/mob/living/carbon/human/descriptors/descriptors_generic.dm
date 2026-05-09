@@ -1,45 +1,45 @@
 /datum/mob_descriptor/height
-	name = "height"
+	name = "рост"
 	standalone_value_descriptors = list(
-		"very short",
-		"short",
-		"of average height",
-		"tall",
-		"very tall"
+		"очень низкий",
+		"низкий",
+		"среднего роста",
+		"высокий",
+		"очень высокий"
 		)
-	comparative_value_descriptor_equivalent = "around the same height as you"
+	comparative_value_descriptor_equivalent = "примерно одного роста с вами"
 	comparative_value_descriptors_smaller = list(
-		"slightly shorter than you",
-		"shorter than you",
-		"much shorter than you",
-		"tiny and insignificant next to you"
+		"немного ниже вас",
+		"ниже вас",
+		"значительно ниже вас",
+		"крошечный и незначительный рядом с вами"
 		)
 	comparative_value_descriptors_larger = list(
-		"slightly taller than you",
-		"taller than you",
-		"much taller than you",
-		"towering over you"
+		"немного выше вас",
+		"выше вас",
+		"значительно выше вас",
+		"возвышается над вами"
 		)
 
 /datum/mob_descriptor/build
-	name = "build"
-	comparative_value_descriptor_equivalent = "around the same build as you"
+	name = "телосложение"
+	comparative_value_descriptor_equivalent = "примерно такого же телосложения, как вы"
 	standalone_value_descriptors = list(
-		"rail thin",
-		"thin",
-		"of average build",
-		"well-built",
-		"heavily built"
+		"очень худой",
+		"худой",
+		"среднего телосложения",
+		"хорошо сложён",
+		"плотного телосложения"
 		)
 	comparative_value_descriptors_smaller = list(
-		"a bit smaller in build than you",
-		"smaller in build than you",
-		"much smaller in build than you",
-		"dwarfed by your bulk"
+		"немного меньше вас по комплекции",
+		"меньше вас по комплекции",
+		"значительно меньше вас по комплекции",
+		"совсем крошечный по сравнению с вами"
 		)
 	comparative_value_descriptors_larger = list(
-		"slightly larger than you in build",
-		"built larger than you",
-		"built much larger than you",
-		"dwarfing you"
+		"немного крупнее вас",
+		"крупнее вас",
+		"значительно крупнее вас",
+		"подавляет вас размерами"
 		)

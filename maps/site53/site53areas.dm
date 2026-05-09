@@ -123,7 +123,7 @@
 	name = "Chaos Insurgency Helicopter"
 	icon_state = "Sleep"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/centcom/chaos
@@ -137,28 +137,50 @@
 	name = "Global Occult Coalition Truck"
 	icon_state = "Sleep"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/site53/tram/goc2
 	name = "Global Occult Coalition Helicopter"
 	icon_state = "Sleep"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/centcom/goc
 	name = "Global Occult Coalition Headquarters"
 	icon_state = "Sleep"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/centcom/uiu
+	name = "Unusual Incidents Unit Headquarters"
+	icon_state = "Sleep"
+	requires_power = 0
+	dynamic_lighting = 0
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/centcom/uiuroof
+	name = "Unusual Incidents Unit Roof"
+	icon_state = "Sleep"
+	requires_power = 0
+	dynamic_lighting = 0
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/site53/tram/uiu1
+	name = "Unusual Incidents Unit Helicopter"
+	icon_state = "Sleep"
+	requires_power = 0
+	dynamic_lighting = 0
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
 
 /area/site53/tram/scpcar
 	name = "Car"
 	icon_state = "Sleep"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 
@@ -166,7 +188,7 @@
 	name = "Mobile Task Force Helicopter"
 	icon_state = "Sleep"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/site53/tram/maintrain
@@ -577,6 +599,11 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	icon_state = "checkpoint1"
 
+/area/site53/tlcz/thirdfloorcheckpoint
+	name = "\improper Third Floor Containment Zone Checkpoint"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	icon_state = "checkpoint1"
+
 /area/site53/ulcz/hallways
 	name = "\improper Upper Light Containment Hallway"
 	icon_state = "hallC1"
@@ -606,6 +633,12 @@
 	'sounds/ambience/lcz/crb/Ambient8.ogg'
 	)
 */
+
+/area/site53/ulcz/thirdfloorhallways
+	name = "\improper Third Floor Light Containment Hallway"
+	icon_state = "hallC1"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	sound_env = LARGE_ENCLOSED
 
 /area/site53/ulcz/office
 	name = "\improper Upper Light Containment Office"
@@ -1316,8 +1349,13 @@
 	icon_state = "research"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/site53/lhcz/scp939observation
-	name = "\improper SCP-939 Observation Room"
+/area/site53/lhcz/scp939upperobservation
+	name = "\improper SCP-939 Upper Observation Room"
+	icon_state = "research"
+	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/site53/lhcz/scp939lowerobservation
+	name = "\improper SCP-939 Lower Observation Room"
 	icon_state = "research"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
@@ -1332,6 +1370,11 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	requires_power = 0
 	dynamic_lighting = 0
+
+/area/site53/lhcz/scp966chamber
+	name = "\improper SCP-966 Containment Chamber"
+	icon_state = "research"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/site53/lhcz/scp1102room
 	name = "\improper SCP-1102-RU Containment Chamber"
@@ -1414,3 +1457,13 @@
 	icon_state = "research"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	requires_power = 1
+
+/area/scp/dimension004/scp610
+    name = "SCP-004 Dimension - SCP-610 Ruin"
+    has_gravity = 1
+    luminosity = 0
+    dynamic_lighting = 0
+
+/area/scp/dimension004/scp860
+	name = "SCP-860 Dimension - Dark Forest"
+	has_gravity = 1

@@ -1,6 +1,6 @@
 /datum/job/rd
-	title = "Research Director"
-	department = "Science"
+	title = "Директор Исследовательского Отдела"
+	department = "Научный отдел"
 	department_flag = COM|SCI
 	selection_color = "#ad6bad"
 	head_position = 1
@@ -9,7 +9,7 @@
 	economic_power = 15
 	requirements = list(EXP_TYPE_SCIENCE = 720)
 	req_admin_notify = 1
-	supervisors = "the Site Director"
+	supervisors = "Директор Зоны"
 	minimal_player_age = 20
 	ideal_character_age = 40
 	spawn_positions = 6
@@ -53,14 +53,14 @@
 	)
 
 	skill_points = 25
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Medium - Hard"
-	duties = "Manage the Research department. Coordinate experiments and technological developments."
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя - Тяжёлая"
+	duties = "Управляйте Исследовательским отделом. Координируйте эксперименты и технологические разработки."
 
 
 /*/datum/job/ard
-	title = "Assistant Research Director"
-	department = "Science"
+	title = "Помощник Директора Исследовательского Отдела"
+	department = "Научный отдел"
 	department_flag = COM|SCI
 	selection_color = "#ad6bad"
 	total_positions = 1
@@ -68,7 +68,7 @@
 	economic_power = 10
 	requirements = list(EXP_TYPE_SCIENCE = 620)
 	req_admin_notify = 1
-	supervisors = "the Site Director and Research Director"
+	supervisors = "Директор Зоны и Директор Исследовательского Отдела"
 	minimal_player_age = 18
 	ideal_character_age = 40
 	spawn_positions = 6
@@ -109,20 +109,21 @@
 	)
 
 	skill_points = 12
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Easy - Medium"*/
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Лёгкая - Средняя"
+	duties = "Помогайте Директору Исследовательского Отдела в управлении отделом и проведении экспериментов."*/
 
 /datum/job/seniormentalist
-	title = "Senior Psychotronics Researcher"
-	department = "Science"
+	title = "Старший Исследователь Психотроники"
+	department = "Научный отдел"
 	department_flag = SCI
 	selection_color = "#633d63"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Research Director and Assistant Research Director"
+	supervisors = "Директор Исследовательского Отдела и Помощник Директора Исследовательского Отдела"
 	economic_power = 4
 	requirements = list(EXP_TYPE_SCIENCE = 620)
-	alt_titles = list("Senior Mentalist")
+	alt_titles = list("Старший Менталист")
 	minimal_player_age = 10
 	ideal_character_age = 35
 	outfit_type = /decl/hierarchy/outfit/job/science/seniormentalist
@@ -160,20 +161,20 @@
 	)
 
 	skill_points = 20
-	roleplay_difficulty = "Medium - Hard"
-	mechanical_difficulty = "Medium"
+	roleplay_difficulty = "Средняя - Тяжёлая"
+	mechanical_difficulty = "Средняя"
 
 /datum/job/mentalist
-	title = "Psychotronics Researcher"
-	department = "Science"
+	title = "Исследователь Психотроники"
+	department = "Научный отдел"
 	department_flag = SCI
 	selection_color = "#633d63"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Senior Psychotronics Researcher, Research Director, and Assistant Research Director"
+	supervisors = "Старший Исследователь Психотроники, Директор Исследовательского Отдела и Помощник Директора Исследовательского Отдела"
 	economic_power = 4
 	requirements = list(EXP_TYPE_SCIENCE = 480)
-	alt_titles = list("Mentalist")
+	alt_titles = list("Менталист")
 	minimal_player_age = 10
 	ideal_character_age = 35
 	outfit_type = /decl/hierarchy/outfit/job/science/mentalist
@@ -205,17 +206,17 @@
 		PSI_COERCION = PSI_RANK_OPERANT) //Basic level of Psionics, with ability to read others.
 
 /datum/job/seniorscientist
-	title = "Senior Researcher"
-	department = "Science"
+	title = "Старший Научный Сотрудник"
+	department = "Научный отдел"
 	department_flag = SCI
 	selection_color = "#633d63"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Research Director and Assistant Research Director"
+	supervisors = "Директор Исследовательского Отдела и Помощник Директора Исследовательского Отдела"
 	economic_power = 4
 	requirements = list(EXP_TYPE_SCIENCE = 480)
 
-	alt_titles = list("Senior Xenobiologist", "Senior Xenoarcheologist", "Senior Xenobotanist")
+	alt_titles = list("Старший Ксенобиолог", "Старший Ксеноархеолог", "Старший Ксеноботаник")
 	minimal_player_age = 7
 	ideal_character_age = 30
 	outfit_type = /decl/hierarchy/outfit/job/science/seniorscientist
@@ -246,21 +247,21 @@
 
 	skill_points = 20
 
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Medium"
-	duties = "Perform experiments and develop new technologies. Manage subordinate researchers."
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Средняя"
+	duties = "Проводите эксперименты и разрабатывайте новые технологии. Управляйте подчинёнными научными сотрудниками."
 
 /datum/job/seniorroboticist
-	title = "Senior Robotics Technician"
-	department = "Science"
+	title = "Старший Техник по Робототехнике"
+	department = "Научный отдел"
 	department_flag = SCI
 	selection_color = "#633d63"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the Research Director and Assistant Research Director"
+	supervisors = "Директор Исследовательского Отдела и Помощник Директора Исследовательского Отдела"
 	economic_power = 4
 	requirements = list(EXP_TYPE_SCIENCE = 480)
-	alt_titles = list("Senior Exoskeleton Technician", "Senior Hardsuit Technician")
+	alt_titles = list("Старший Техник по Экзоскелетам", "Старший Техник по Хардсьютам")
 	minimal_player_age = 7
 	ideal_character_age = 30
 	outfit_type = /decl/hierarchy/outfit/job/science/seniorroboticist
@@ -291,21 +292,21 @@
 	)
 
 	skill_points = 18
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Medium"
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Средняя"
 
 
 /datum/job/scientist
-	title = "Researcher"
-	department = "Science"
+	title = "Научный Сотрудник"
+	department = "Научный отдел"
 	department_flag = SCI
 	total_positions = 8
 	spawn_positions = 8
 	selection_color = "#633d63"
-	supervisors = "the Research Director and Assistant Research Director"
+	supervisors = "Директор Исследовательского Отдела и Помощник Директора Исследовательского Отдела"
 	economic_power = 4
 	requirements = list(EXP_TYPE_SCIENCE = 60)
-	alt_titles = list("Xenobiologist", "Xenoarcheologist", "Xenobotanist", "Junior Mentalist")
+	alt_titles = list("Ксенобиолог", "Ксеноархеолог", "Ксеноботаник", "Младший Менталист")
 	minimal_player_age = 3
 	ideal_character_age = 24
 	outfit_type = /decl/hierarchy/outfit/job/science/scientist
@@ -335,16 +336,16 @@
 	skill_points = 15
 
 /datum/job/roboticist
-	title = "Robotics Technician"
-	department = "Science"
+	title = "Техник по Робототехнике"
+	department = "Научный отдел"
 	department_flag = SCI
 	selection_color = "#633d63"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Research Director and Assistant Research Director"
+	supervisors = "Директор Исследовательского Отдела и Помощник Директора Исследовательского Отдела"
 	economic_power = 4
 	requirements = list(EXP_TYPE_SCIENCE = 60)
-	alt_titles = list("Exoskeleton Technician", "Hardsuit Technician")
+	alt_titles = list("Техник по Экзоскелетам", "Техник по Хардсьютам")
 	minimal_player_age = 3
 	ideal_character_age = 24
 	outfit_type = /decl/hierarchy/outfit/job/science/roboticist
@@ -373,20 +374,20 @@
 	    SKILL_SCIENCE     = SKILL_MASTER
 	)
 	skill_points = 20
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Medium - Hard"
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Средняя - Тяжёлая"
 
 
 /datum/job/juniorscientist
-	title = "Researcher Associate"
-	department = "Science"
+	title = "Младший Научный Сотрудник"
+	department = "Научный отдел"
 	department_flag = SCI
 	selection_color = "#633d63"
 	total_positions = 10
 	spawn_positions = 10
-	supervisors = "the Research Director and Assistant Research Director"
+	supervisors = "Директор Исследовательского Отдела и Помощник Директора Исследовательского Отдела"
 	economic_power = 4
-	alt_titles = list("Junior Xenobiologist", "Junior Xenoarcheologist", "Junior Xenobotanist", "Assistant Researcher", "Research Assistant", "Research Intern", "Junior Researcher")
+	alt_titles = list("Младший Ксенобиолог", "Младший Ксеноархеолог", "Младший Ксеноботаник", "Ассистент Исследователя", "Помощник Исследователя", "Интерн-Исследователь", "Младший Исследователь")
 	ideal_character_age = 20
 	outfit_type = /decl/hierarchy/outfit/job/science/juniorscientist
 	class = CLASS_C
@@ -410,20 +411,20 @@
 	    SKILL_SCIENCE     = SKILL_MASTER
 	)
 	skill_points = 12
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Easy - Medium"
-	duties = "Assist with experiments and technological developments."
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Лёгкая - Средняя"
+	duties = "Помогайте в проведении экспериментов и технологических разработках."
 
 /datum/job/juniorroboticist
-	title = "Junior Robotics Technician"
-	department = "Science"
+	title = "Младший Техник по Робототехнике"
+	department = "Научный отдел"
 	department_flag = SCI
 	selection_color = "#633d63"
 	total_positions = 5
 	spawn_positions = 5
-	supervisors = "the Research Director and Assistant Research Director"
+	supervisors = "Директор Исследовательского Отдела и Помощник Директора Исследовательского Отдела"
 	economic_power = 4
-	alt_titles = list("Junior Exoskeleton Technician", "Junior Hardsuit Technician")
+	alt_titles = list("Младший Техник по Экзоскелетам", "Младший Техник по Хардсьютам")
 	ideal_character_age = 20
 	outfit_type = /decl/hierarchy/outfit/job/science/juniorroboticist
 	class = CLASS_C
@@ -451,6 +452,6 @@
 	)
 
 	skill_points = 12
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Easy - Medium"
-	duties = "Assist with experiments and technological developments."
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Лёгкая - Средняя"
+	duties = "Помогайте в проведении экспериментов и технологических разработках."

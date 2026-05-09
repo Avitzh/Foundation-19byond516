@@ -741,11 +741,18 @@ var/global/floorIsLava = 0
 		return //alert("Round end delayed", null, null, null, null, null)
 	SSticker.round_progressing = !SSticker.round_progressing
 	if (!SSticker.round_progressing)
-		to_world("<b>The game start has been delayed.</b>")
+		to_world(SPAN_FLASH_RED("The game start has been delayed."))
 		log_admin("[key_name(usr)] delayed the game.")
+		for(var/mob/new_player/N in GLOB.player_list)
+			sound_to(N, sound('sounds/misc/notice1.ogg', repeat = 0, wait = 0, volume = 100))
+
 	else
-		to_world("<b>The game will start soon.</b>")
+		to_world(SPAN_FLASH_GREEN("The game will start soon."))
 		log_admin("[key_name(usr)] removed the delay.")
+		playsound(world, )
+		for(var/mob/new_player/N in GLOB.player_list)
+			sound_to(N, sound('sounds/misc/notice2.ogg', repeat = 0, wait = 0, volume = 100))
+
 	SSstatistics.add_field_details("admin_verb","DELAY") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/adjump()

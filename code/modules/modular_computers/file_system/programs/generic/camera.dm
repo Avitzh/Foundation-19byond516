@@ -75,6 +75,10 @@
 	user.machine = nano_host()
 	user.reset_view(current_camera)
 
+	if(isliving(user))
+		var/mob/living/living_user = user
+		living_user.update_vision_cone()
+
 // Intended to be overriden by subtypes to manually add non-station networks to the list.
 /datum/nano_module/program/camera_monitor/proc/modify_networks_list(list/networks)
 	return networks
@@ -132,6 +136,11 @@
 		return 1
 
 	set_current(C)
+
+	if(isliving(user))
+		var/mob/living/living_user = user
+		living_user.update_vision_cone()
+
 	return 1
 
 /datum/nano_module/program/camera_monitor/proc/set_current(obj/machinery/camera/C)

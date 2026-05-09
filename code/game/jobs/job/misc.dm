@@ -1,11 +1,11 @@
 /datum/job/classd
-	title = "Class D"
-	department = "Civilian"
+	title = "Класс D"
+	department = "Гражданский"
 	selection_color = "#E55700"
 	economic_power = 1
 	total_positions = 999
 	spawn_positions = 999
-	supervisors = "all Foundation Personnel"
+	supervisors = "весь персонал Фонда"
 	access = list()
 	minimal_access = list()
 	outfit_type = /decl/hierarchy/outfit/job/civ/classd
@@ -18,9 +18,9 @@
 		SKILL_WEAPONS = SKILL_TRAINED
 	)
 
-	roleplay_difficulty = "Variable"
-	mechanical_difficulty = "Variable"
-	duties = "You're a prisoner. You have no duties!"
+	roleplay_difficulty = "Переменная"
+	mechanical_difficulty = "Переменная"
+	duties = "Вы заключённый. У вас нет обязанностей!"
 
 /datum/job/classd/equip(mob/living/carbon/human/H)
 	H.fully_replace_character_name(random_name(H.gender, H.species.name))
@@ -35,17 +35,17 @@
 
 // LOGISTICS DEPARTMENT
 /datum/job/qm
-	title = "Logistics Officer"
-	department = "Logistics"
+	title = "Офицер Логистики"
+	department = "Логистика"
 	department_flag = SUP|BUR
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Site Director"
+	supervisors = "Директор Зоны"
 	selection_color = "#c4a071"
 	economic_power = 5
 	minimal_player_age = 7
 	ideal_character_age = 35
-	requirements = list("Logistics Specialist" = 300)
+	requirements = list("Специалист по логистике" = 300)
 	outfit_type = /decl/hierarchy/outfit/job/command/logisticsofficer
 	hud_icon = "huddeckchief"
 	class = CLASS_B
@@ -75,18 +75,18 @@
 	software_on_spawn = list(/datum/computer_file/program/supply,
 							/datum/computer_file/program/reports)
 
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Medium"
-	duties = "Manage the Logistics department. Facilitate logistics throughout the site. Buy supplies."
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Средняя"
+	duties = "Управляйте отделом логистики. Обеспечивайте снабжение всей Зоны. Закупайте припасы."
 
 /datum/job/cargo_tech
-	title = "Logistics Specialist"
-	department = "Logistics"
+	title = "Специалист по логистике"
+	department = "Логистика"
 	department_flag = SUP|BUR
 	total_positions = 2
 	spawn_positions = 2
 	selection_color = "#927248"
-	supervisors = "the Logistics Officer"
+	supervisors = "Офицер Логистики"
 	minimal_player_age = 3
 	ideal_character_age = 24
 	outfit_type = /decl/hierarchy/outfit/job/command/logisticspecialist
@@ -116,15 +116,15 @@
 	software_on_spawn = list(/datum/computer_file/program/supply,
 							/datum/computer_file/program/reports)
 
-	roleplay_difficulty = "Easy - Medium"
-	mechanical_difficulty = "Medium"
-	duties = "Facilitate logistics throughout the site. Buy supplies."
+	roleplay_difficulty = "Лёгкая - Средняя"
+	mechanical_difficulty = "Средняя"
+	duties = "Обеспечивайте снабжение всей Зоны. Закупайте припасы."
 
 //Office Worker
 
 /datum/job/officeworker
-	title = "Office Worker"
-	department = "Civilian"
+	title = "Офисный работник"
+	department = "Гражданский"
 	department_flag = CIV|BUR
 	total_positions = 100
 	spawn_positions = 100
@@ -132,7 +132,7 @@
 	economic_power = 2
 	minimal_player_age = 5
 	ideal_character_age = 30
-	alt_titles = list("Administrative Assistant", "Accountant", "Auditor", "Secretary")
+	alt_titles = list("Административный помощник", "Бухгалтер", "Аудитор", "Секретарь")
 	outfit_type = /decl/hierarchy/outfit/job/civ/officeworker
 	class = CLASS_C
 	hud_icon = "hudcrewman"
@@ -148,23 +148,23 @@
 
 	minimal_access = list()
 
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Easy - Medium"
-	duties = "Work with, and for, various departments. Fill out forms. Maximize bureaucracy."
-	codex_guides = list("<l>Paperwork</l>")
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Лёгкая - Средняя"
+	duties = "Работайте с различными отделами и на них. Заполняйте формуляры. Доводите бюрократию до совершенства."
+	codex_guides = list("<l>Бумажная работа</l>")
 
 // MISC JOBS
 
 /datum/job/janitor
-	title = "Janitor"
-	department = "Civilian"
+	title = "Уборщик"
+	department = "Гражданский"
 	department_flag = CIV|SRV
 	selection_color = "#515151"
 	total_positions = 3
 	spawn_positions = 3
-	supervisors = "the Human Resources Officer"
+	supervisors = "Менеджер Зоны"
 	ideal_character_age = 16
-	alt_titles = list("Interior caretaker")
+	alt_titles = list("Смотритель помещений")
 	outfit_type = /decl/hierarchy/outfit/job/civ/janitor
 	class = CLASS_C
 	hud_icon = "hudsanitationtechnician"
@@ -182,20 +182,20 @@
 		SKILL_HAULING = SKILL_BASIC
 	)
 
-	roleplay_difficulty = "Easy"
-	mechanical_difficulty = "Easy - Medium"
-	duties = "Keep the site clean at all costs."
+	roleplay_difficulty = "Лёгкая"
+	mechanical_difficulty = "Лёгкая - Средняя"
+	duties = "Поддерживайте чистоту на Зоне любой ценой."
 
 /datum/job/chef
-	title = "Chef"
-	department = "Civilian"
+	title = "Шеф-повар"
+	department = "Гражданский"
 	department_flag = CIV|SRV
 	selection_color = "#515151"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Human Resources Officer"
+	supervisors = "Менеджер Зоны"
 	ideal_character_age = 18
-	alt_titles = list("Cook")
+	alt_titles = list("Повар")
 	outfit_type = /decl/hierarchy/outfit/job/civ/chef
 	class = CLASS_C
 	hud_icon = "hudcook"
@@ -215,21 +215,21 @@
 		SKILL_CHEMISTRY = SKILL_BASIC
 	)
 
-	roleplay_difficulty = "Easy - Medium"
-	mechanical_difficulty = "Medium"
-	duties = "Cook up delicious meals (or inedible slop). Manage the kitchen."
+	roleplay_difficulty = "Лёгкая - Средняя"
+	mechanical_difficulty = "Средняя"
+	duties = "Готовьте вкусные блюда (или несъедобную бурду). Управляйте кухней."
 
 
 /datum/job/bartender
-	title = "Bartender"
-	department = "Civilian"
+	title = "Бармен"
+	department = "Гражданский"
 	department_flag = CIV|SRV
 	selection_color = "#515151"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the Human Resources Officer"
+	supervisors = "Менеджер Зоны"
 	ideal_character_age = 21
-	alt_titles = list("Waiter")
+	alt_titles = list("Официант")
 	outfit_type = /decl/hierarchy/outfit/job/civ/bartender
 	class = CLASS_C
 	hud_icon = "hudbartender"
@@ -249,13 +249,13 @@
 		SKILL_CHEMISTRY = SKILL_BASIC
 	)
 
-	roleplay_difficulty = "Easy - Medium"
-	mechanical_difficulty = "Medium"
-	duties = "Mix up drinks for the staff. Manage the bar."
+	roleplay_difficulty = "Лёгкая - Средняя"
+	mechanical_difficulty = "Средняя"
+	duties = "Смешивайте напитки для персонала. Управляйте баром."
 
 /datum/job/chaplain
-	title = "Chaplain"
-	department = "Civilian"
+	title = "Священник"
+	department = "Гражданский"
 	department_flag = CIV|SRV
 
 	total_positions = 1
@@ -271,8 +271,8 @@
 	outfit_type = /decl/hierarchy/outfit/job/chaplain
 	class = CLASS_C
 
-	roleplay_difficulty = "Medium"
-	mechanical_difficulty = "Easy"
+	roleplay_difficulty = "Средняя"
+	mechanical_difficulty = "Лёгкая"
 
 /datum/job/chaplain/equip(mob/living/carbon/human/H, alt_title, ask_questions = TRUE)
 	. = ..()
@@ -284,102 +284,102 @@
 		return
 
 	spawn(0)
-		var/religion_name = "Christianity"
-		var/new_religion = sanitize(input(H, "You are the crew services officer. Would you like to change your religion? Default is Christianity.", "Name change", religion_name), MAX_NAME_LEN)
+		var/religion_name = "Христианство"
+		var/new_religion = sanitize(input(H, "Вы — сотрудник службы досуга персонала. Хотите изменить свою религию? По умолчанию выбрано христианство.", "Смена имени", religion_name), MAX_NAME_LEN)
 
 		if (!new_religion)
 			new_religion = religion_name
 		switch(lowertext(new_religion))
-			if("christianity")
-				B.SetName("The Holy Bible")
-			if("satanism")
-				B.SetName("The Unholy Bible")
-			if("cthulu")
-				B.SetName("The Necronomicon")
-			if("islam")
-				B.SetName("Quran")
-			if("scientology")
-				B.SetName(pick("The Biography of L. Ron Hubbard","Dianetics"))
-			if("chaos")
-				B.SetName("The Book of Lorgar")
-			if("imperium")
-				B.SetName("Uplifting Primer")
-			if("toolboxia")
-				B.SetName("Toolbox Manifesto")
-			if("homosexuality")
-				B.SetName("Guys Gone Wild")
-			if("science")
-				B.SetName(pick("Principle of Relativity", "Quantum Enigma: Physics Encounters Consciousness", "Programming the Universe", "Quantum Physics and Theology", "String Theory for Dummies", "How To: Build Your Own Warp Drive", "The Mysteries of Bluespace", "Playing God: Collector's Edition"))
+			if("христианство")
+				B.SetName("Святая Библия")
+			if("сатанизм")
+				B.SetName("Нечестивая Библия")
+			if("ктулху")
+				B.SetName("Некрономикон")
+			if("ислам")
+				B.SetName("Коран")
+			if("саентология")
+				B.SetName(pick("Биография Л. Рона Хаббарда","Дианетика"))
+			if("хаос")
+				B.SetName("Книга Лоргара")
+			if("империум")
+				B.SetName("Боевой Устав")
+			if("тулбоксия")
+				B.SetName("Манифест Тулбокса")
+			if("гомосексуализм")
+				B.SetName("Парни пошли вразнос")
+			if("наука")
+				B.SetName(pick("Принцип относительности", "Квантовая загадка: физика встречает сознание", "Программируя Вселенную", "Квантовая физика и теология", "Теория струн для чайников", "Как построить собственный варп-двигатель", "Тайны блюспейса", "Игра в Бога: коллекционное издание"))
 			else
-				B.SetName("The Holy Book of [new_religion]")
+				B.SetName("Святая книга [new_religion]")
 		SSstatistics.set_field_details("religion_name","[new_religion]")
 
 	spawn(1)
-		var/deity_name = "Space Jesus"
-		var/new_deity = sanitize(input(H, "Would you like to change your deity? Default is Space Jesus.", "Name change", deity_name), MAX_NAME_LEN)
+		var/deity_name = "Космический Иисус"
+		var/new_deity = sanitize(input(H, "Хотите изменить божество? По умолчанию — Космический Иисус.", "Смена имени", deity_name), MAX_NAME_LEN)
 
-		if ((length(new_deity) == 0) || (new_deity == "Space Jesus") )
+		if ((length(new_deity) == 0) || (new_deity == "Космический Иисус") )
 			new_deity = deity_name
 		B.deity_name = new_deity
 
 		var/accepted = 0
 		var/outoftime = 0
-		spawn(200) // 20 seconds to choose
+		spawn(200) // 20 секунд на выбор
 			outoftime = 1
-		var/new_book_style = "Bible"
+		var/new_book_style = "Библия"
 
 		while(!accepted)
-			if(!B) break // prevents possible runtime errors
-			new_book_style = input(H,"Which bible style would you like?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Athiest", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
+			if(!B) break // предотвращает возможные ошибки времени выполнения
+			new_book_style = input(H,"Какой стиль библии вы бы хотели?") in list("Библия", "Коран", "Альбом", "Крипер", "Белая Библия", "Святой Свет", "Атеист", "Том", "Король в Жёлтом", "Итаква", "Саентология", "Библия плавится", "Некрономикон")
 			switch(new_book_style)
-				if("Koran")
+				if("Коран")
 					B.icon_state = "koran"
 					B.item_state = "koran"
-				if("Scrapbook")
+				if("Альбом")
 					B.icon_state = "scrapbook"
 					B.item_state = "scrapbook"
-				if("Creeper")
+				if("Крипер")
 					B.icon_state = "creeper"
 					B.item_state = "syringe_kit"
-				if("White Bible")
+				if("Белая Библия")
 					B.icon_state = "white"
 					B.item_state = "syringe_kit"
-				if("Holy Light")
+				if("Святой Свет")
 					B.icon_state = "holylight"
 					B.item_state = "syringe_kit"
-				if("Athiest")
+				if("Атеист")
 					B.icon_state = "athiest"
 					B.item_state = "syringe_kit"
-				if("Tome")
+				if("Том")
 					B.icon_state = "tome"
 					B.item_state = "syringe_kit"
-				if("The King in Yellow")
+				if("Король в Жёлтом")
 					B.icon_state = "kingyellow"
 					B.item_state = "kingyellow"
-				if("Ithaqua")
+				if("Итаква")
 					B.icon_state = "ithaqua"
 					B.item_state = "ithaqua"
-				if("Scientology")
+				if("Саентология")
 					B.icon_state = "scientology"
 					B.item_state = "scientology"
-				if("the bible melts")
+				if("Библия плавится")
 					B.icon_state = "melted"
 					B.item_state = "melted"
-				if("Necronomicon")
+				if("Некрономикон")
 					B.icon_state = "necronomicon"
 					B.item_state = "necronomicon"
 				else
 					B.icon_state = "bible"
 					B.item_state = "bible"
 
-			H.update_inv_l_hand() // so that it updates the bible's item_state in his hand
+			H.update_inv_l_hand() // чтобы обновить item_state библии в руке
 
-			switch(input(H,"Look at your bible - is this what you want?") in list("Yes","No"))
-				if("Yes")
+			switch(input(H,"Посмотрите на свою библию — это то, что вы хотите?") in list("Да","Нет"))
+				if("Да")
 					accepted = 1
-				if("No")
+				if("Нет")
 					if(outoftime)
-						to_chat(H, "Welp, out of time, buddy. You're stuck. Next time choose faster.")
+						to_chat(H, "Ну всё, время вышло, дружище. Придётся довольствоваться тем, что есть. В следующий раз выбирай быстрее.")
 						accepted = 1
 
 		SSstatistics.set_field_details("religion_deity","[new_deity]")

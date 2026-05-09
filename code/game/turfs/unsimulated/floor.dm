@@ -55,6 +55,7 @@
 	icon_state = "grass0"
 
 /turf/unsimulated/floor/plating
+	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
 
 /turf/unsimulated/floor/steeldirty

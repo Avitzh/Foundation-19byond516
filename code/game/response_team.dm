@@ -65,13 +65,13 @@ var/global/datum/antagonist/mtf/active_ert = null
 	if(!team.starting_locations || !team.starting_locations.len)
 		team.get_starting_locations()
 
-	command_announcement.Announce("It would appear that a Mobile Task Force was requested for [station_name()]. We will prepare and send one as soon as possible.", "[GLOB.using_map.boss_name]", 'sounds/scp/mtf_dispatch.ogg')
+	command_announcement.Announce(replacetext(team.ert_announce_text, "%STATION%", station_name()), "[GLOB.using_map.boss_name]", team.ert_announce_sound)
 
 	team.reason = reason
 	active_ert = team
 
 	send_emergency_team = 1
-	sleep(600 * 5)
+	sleep(600 * 5)   // 5 минут на сбор
 	send_emergency_team = 0
 	active_ert = null
 

@@ -3,7 +3,7 @@
 	BACKPACK_OVERRIDE_CLASSD
 
 /decl/hierarchy/outfit/job/civ/classd
-	name = OUTFIT_JOB_NAME("Class D")
+	name = OUTFIT_JOB_NAME("Класс D")
 	uniform = /obj/item/clothing/under/scp/dclass
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = null

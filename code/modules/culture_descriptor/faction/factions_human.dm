@@ -1,43 +1,43 @@
 /decl/cultural_info/faction/scp_foundation
 	name = FACTION_SCP_FOUNDATION
-	description = "The SCP Foundation, also known as the Foundation or SCP, is a highly secretive organization dedicated \
-	to securing, containing, and protecting anomalous items or instances known as SCPs. Its main goal is to shield the public\
-	from these anomalies, which have occasionally breached containment, resulting in significant loss of life and requiring amnestic\
-	therapy for affected individuals. Operating under strict protocols and employing specialized personnel, the Foundation works\
-	diligently to understand and manage these anomalies while keeping its existence hidden from the public eye."
+	description = "SCP Foundation, также известный как Фонд или SCP, — это строго засекреченная организация, занимающаяся \
+	обнаружением, содержанием и защитой аномальных объектов и явлений, именуемых SCP. Её главная цель — оградить человечество \
+	от этих аномалий, которые время от времени нарушали условия содержания, что приводило к значительным жертвам и требовало \
+	применения амнезирующей терапии для пострадавших. Действуя по строгим протоколам и привлекая специализированный персонал, \
+	Фонд неустанно изучает и контролирует аномалии, скрывая своё существование от глаз общественности."
 
 /decl/cultural_info/faction/goc
 	name = FACTION_GOC
-	description = "The Global Occult Coalition (GOC), also known as the United Nations Global Occult Coalition (UNGOC) is\
-	a major power and among the SCP Foundation's most prominent rivals. It serves as the official protector of the human race,\
-	overseen by the United Nations. It was founded after the Seventh Occult War/WWII. They share the Foundation's view of protecting\
-	mankind from the anomalies (or as they call them 'parathreats'), though instead of containing them, they usually\
-	destroy all anomalies they can, even if they are completely harmless, making them a more controversial group."
+	description = "Глобальная Оккультная Коалиция (GOC), также известная как Глобальная Оккультная Коалиция Объединённых Наций (UNGOC), \
+	является крупной силой и одним из самых заметных соперников фонда SCP. Она выступает официальным защитником человеческой расы \
+	под надзором ООН. Коалиция была основана после Седьмой Оккультной войны (Второй мировой войны). GOC разделяет взгляды Фонда на защиту \
+	человечества от аномалий (или, как их называют в Коалиции, «параугроз»), но вместо содержания они обычно уничтожают все аномалии, \
+	до которых могут добраться, даже совершенно безвредные, что делает их более противоречивой группой."
 
 /decl/cultural_info/faction/serpents_hand
 	name = FACTION_SERPENT_HAND
-	description = "The Serpent's Hand is a clandestine and loosely organized group that opposes the SCP Foundation and other\
-	powerful organizations' approach to anomalous beings. They believe in the freedom and autonomy of these entities, viewing them\
-	as individuals with their own rights. The Serpent's Hand aims to liberate anomalous beings from containment and assist them\
-	in integrating into society, advocating for coexistence between humans and anomalies. They operate through hidden networks,\
-	sharing knowledge about SCPs and working to undermine the efforts of the Foundation and of the GOC. "
+	description = "«Длань Змея» — это тайная и слабо организованная группа, выступающая против подхода фонда SCP и других \
+	могущественных организаций к аномальным существам. Они верят в свободу и автономию этих созданий, рассматривая их как личностей \
+	с собственными правами. «Длань Змея» стремится освобождать аномальных существ из условий содержания и помогать им интегрироваться \
+	в общество, выступая за мирное сосуществование людей и аномалий. Группа действует через скрытые сети, обмениваясь знаниями об SCP \
+	и саботируя усилия Фонда и GOC."
 
 /decl/cultural_info/faction/chaos_insurgency
 	name = FACTION_CHAOS_INSURGENCY
-	description = "The Chaos Insurgency is a renegade faction that operates as a splinter group from the SCP Foundation.\
-	Originally, they were part of the Foundation but grew disillusioned with its methods and philosophy. The Chaos Insurgency\
-	believes that anomalies should not be contained or destroyed but harnessed for their own benefit and the benefit of mankind.\
-	They view the Foundation as too restrictive and secretive, hindering humanity's progress by suppressing the true potential\
-	of anomalous objects and entities."
+	description = "Повстанцы Хаоса — это отколовшаяся фракция, действующая как группа, отделившаяся от Фонда SCP. \
+	Изначально они были частью Фонда, но разочаровались в его методах и философии. Повстанцы Хаоса считают, что аномалии следует \
+	не содержать или уничтожать, а использовать во благо себе и человечеству. По их мнению, Фонд слишком ограничивает и засекречивает \
+	всё, тормозя прогресс человечества, подавляя истинный потенциал аномальных объектов и существ."
 
 /decl/cultural_info/faction/uiu
 	name = FACTION_UIU
-	description = "The Unusual Incidents Unit (UIU) is a division of the Federal Bureau of Investigation (FBI) with a primary focus on\
-	investigating and addressing paranormal and anomalous occurrences within the United States. Unlike the SCP Foundation and some\
-	other factions, the UIU operates with a more public presence, working alongside regular law enforcement agencies. They are tasked\
-	with handling anomalous incidents that may pose a threat to national security or public safety, while attempting to minimize\
-	disruption to civilian life and maintain normalcy."
+	description = "Отдел Необычных Инцидентов (UIU) — это подразделение Федерального бюро расследований (ФБР), специализирующееся \
+	на расследовании и устранении паранормальных и аномальных явлений на территории Соединённых Штатов. В отличие от фонда SCP \
+	и некоторых других фракций, UIU действует более открыто, сотрудничая с обычными правоохранительными органами. В их задачи входит \
+	работа с аномальными инцидентами, которые могут угрожать национальной безопасности или общественному порядку, при этом они стараются \
+	минимизировать нарушения повседневной жизни и поддерживать видимость нормальности."
 
 /decl/cultural_info/faction/other
 	name = FACTION_OTHER
-	description = "You belong to one of the many other factions that operate in the world. Numerous, too numerous to list, these factions represent a variety of interests, purposes, intents and goals."
+	description = "Вы принадлежите к одной из многих других фракций, действующих в мире. Этих группировок слишком много, чтобы \
+	перечислять, и они представляют самые разные интересы, цели, намерения и устремления."

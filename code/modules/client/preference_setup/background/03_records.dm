@@ -7,7 +7,7 @@
 	var/email_pass = ""
 
 /datum/category_item/player_setup_item/background/records
-	name = "Records"
+	name = "Записи"
 	sort_order = 3
 
 /datum/category_item/player_setup_item/background/records/load_character(datum/pref_record_reader/R)
@@ -29,54 +29,54 @@
 /datum/category_item/player_setup_item/background/records/content(mob/user)
 	. = list()
 
-	. += "<br><b>Records</b>:"
+	. += "<br><b>Личное дело</b>:"
 	if (jobban_isbanned(user, "Records"))
 		. += "[SPAN_WARNING("You are banned from using character records.")]"
 	else
-		.+= UIBUTTON("set_public_record", TextPreview(pref.public_record, 40), "Public")
-		.+= UIBUTTON("set_medical_records", TextPreview(pref.med_record, 40), "Medical")
-		.+= UIBUTTON("set_general_records", TextPreview(pref.gen_record, 40), "Employment")
-		.+= UIBUTTON("set_security_records", TextPreview(pref.sec_record, 40), "Security")
-		.+= UIBUTTON("set_memory", TextPreview(pref.memory, 40), "Memory")
+		.+= UIBUTTON("set_public_record", TextPreview(pref.public_record, 40), "Публичные")
+		.+= UIBUTTON("set_medical_records", TextPreview(pref.med_record, 40), "Медицинские")
+		.+= UIBUTTON("set_general_records", TextPreview(pref.gen_record, 40), "Записи работодателя")
+		.+= UIBUTTON("set_security_records", TextPreview(pref.sec_record, 40), "Записи СБ")
+		.+= UIBUTTON("set_memory", TextPreview(pref.memory, 40), "Память персонажа")
 
 	. += "<br><b>Other</b>:"
 
-	. += UIBUTTON("set_email_pass", pref.email_pass ? pref.email_pass : "(random)", "Email Password")
+	. += UIBUTTON("set_email_pass", pref.email_pass ? pref.email_pass : "(random)", "Пароль Электронной Почты")
 	. = jointext(., "<br>")
 
 /datum/category_item/player_setup_item/background/records/OnTopic(href,list/href_list, mob/user)
 	if (href_list["set_public_record"])
-		var/new_public = sanitize(input(user,"Enter general public record information here.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.public_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
+		var/new_public = sanitize(input(user,"Введите публичные записи здесь.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.public_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 		if (!isnull(new_public) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.public_record = new_public
 		return TOPIC_REFRESH
 
 	else if(href_list["set_medical_records"])
-		var/new_medical = sanitize(input(user,"Enter medical information here.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.med_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
+		var/new_medical = sanitize(input(user,"Введите медицинские записи здесь.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.med_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 		if(!isnull(new_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.med_record = new_medical
 		return TOPIC_REFRESH
 
 	else if(href_list["set_general_records"])
-		var/new_general = sanitize(input(user,"Enter employment information here.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.gen_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
+		var/new_general = sanitize(input(user,"Введите сюда информацию о трудоустройстве.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.gen_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 		if(!isnull(new_general) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.gen_record = new_general
 		return TOPIC_REFRESH
 
 	else if(href_list["set_security_records"])
-		var/sec_medical = sanitize(input(user,"Enter security information here.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.sec_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
+		var/sec_medical = sanitize(input(user,"Введите сюда записи от Службы Безопасности.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.sec_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 		if(!isnull(sec_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.sec_record = sec_medical
 		return TOPIC_REFRESH
 
 	else if(href_list["set_memory"])
-		var/memes = sanitize(input(user,"Enter memorized information here.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.memory)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
+		var/memes = sanitize(input(user,"Введите сюда запомненную информацию.",CHARACTER_PREFERENCE_INPUT_TITLE, html_decode(pref.memory)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 		if(!isnull(memes) && CanUseTopic(user))
 			pref.memory = memes
 		return TOPIC_REFRESH
 
 	else if (href_list["set_email_pass"])
-		var/value = input(user, "Enter email password:", "Email Password", pref.email_pass) as text
+		var/value = input(user, "Введите пароль электронной почты:", "Пароль Электронной почты", pref.email_pass) as text
 		if (isnull(value) || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		if (value != "")

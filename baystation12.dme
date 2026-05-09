@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "code\game\jobs\landmark_renamer.dm"
 #include "code\__byond_version_compat.dm"
 #include "code\_compile_options.dm"
 #include "code\_debugger.dm"
@@ -669,6 +670,7 @@
 #include "code\game\antagonist\station\traitor.dm"
 #include "code\game\antagonist\station\d-class\informant.dm"
 #include "code\game\antagonist\station\d-class\trader.dm"
+#include "code\game\objects\items\devices\Calculator.dm"
 #include "code\game\area\area_access.dm"
 #include "code\game\area\area_power.dm"
 #include "code\game\area\areas.dm"
@@ -3171,6 +3173,7 @@
 #include "code\modules\SCP\SCPs\SCP-263.dm"
 #include "code\modules\SCP\SCPs\SCP-280.dm"
 #include "code\modules\SCP\SCPs\SCP-294.dm"
+#include "code\modules\SCP\SCPs\SCP-306.dm"
 #include "code\modules\SCP\SCPs\SCP-330.dm"
 #include "code\modules\SCP\SCPs\SCP-3349.dm"
 #include "code\modules\SCP\SCPs\SCP-343.dm"
@@ -3195,6 +3198,7 @@
 #include "code\modules\SCP\SCPs\SCP-914.dm"
 #include "code\modules\SCP\SCPs\SCP-939.dm"
 #include "code\modules\SCP\SCPs\SCP-999.dm"
+#include "code\modules\SCP\SCPs\SCP-1678_A.dm"
 #include "code\modules\security levels\keycard authentication.dm"
 #include "code\modules\shield_generators\floor_diffuser.dm"
 #include "code\modules\shield_generators\handheld_diffuser.dm"
@@ -3604,4 +3608,9 @@
 #include "maps\~mapsystem\maps_jobs.dm"
 #include "maps\~mapsystem\maps_unit_testing.dm"
 #include "maps\~unit_tests\unit_testing.dm"
+#include "code\modules\client\tgui\hair_picker.dm"
+#include "code\modules\client\tgui\facial_hair_picker.dm"
+#include "code\modules\SCP\SCPs\SCP-993.dm"
+#include "code\modules\SCP\SCPs\SCP-860.dm"
+#include "code\modules\SCP\SCPs\SCP-005.dm"
 // END_INCLUDE

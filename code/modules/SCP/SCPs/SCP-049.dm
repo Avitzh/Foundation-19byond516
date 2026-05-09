@@ -93,10 +93,7 @@
 	skillset.skill_list[SKILL_MEDICAL] = SKILL_MASTER
 	skillset.skill_list[SKILL_SCIENCE] = SKILL_EXPERIENCED
 	skillset.on_levels_change()
-	if(!(MUTATION_XRAY in mutations))
-		mutations.Add(MUTATION_XRAY)
-		update_mutations()
-		update_sight()
+
 
 /mob/living/carbon/human/scp049/do_possession(mob/observer/ghost/possessor)
 	if(!..())

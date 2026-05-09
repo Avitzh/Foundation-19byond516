@@ -140,7 +140,7 @@
 	character = SSjobs.equip_rank(character, job.title, 1)					//equips the human
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
-	if(character.mind.assigned_role == "AIC")
+	if(character.mind.assigned_role == "ИИ")
 
 		character = character.AIize(move = FALSE) // AIize the character, but don't move them yet
 
@@ -401,7 +401,7 @@
 /mob/new_player/say(message)
 	sanitize_and_communicate(/decl/communication_channel/ooc, client, message)
 
-/mob/new_player/verb/next_lobby_track()
+/mob/new_player/verb/next_lobby_track() // for admin to all players in lobby
 	set popup_menu = FALSE
 	set name = "Play Different Lobby Track"
 	set category = "Server"
@@ -434,3 +434,12 @@
 		sound_to(N, sound(selected_track.source, repeat = 1, wait = 5, volume = 100, channel = GLOB.lobby_sound_channel))
 	to_chat(world, SPAN_GLOW("Now playing: [selected_track.title] by [selected_track.author]")) // green blink
 
+/mob/new_player/verb/player_next_lobby_track() // for players in lobby
+	set name = "Change Lobby Track"
+	set category = "OOC"
+
+	if(get_preference_value(/datum/client_preference/play_lobby_music) == GLOB.PREF_NO)
+		return
+	var/decl/audio/track/track = GLOB.using_map.get_lobby_track(GLOB.using_map.lobby_track.type)
+	sound_to(src, track.get_sound())
+	to_chat(src, track.get_info())

@@ -2,7 +2,7 @@
 	var/list/alternate_languages
 
 /datum/category_item/player_setup_item/background/languages
-	name = "Languages"
+	name = "Языки"
 	sort_order = 2
 	var/list/allowed_languages
 	var/list/free_languages
@@ -20,7 +20,7 @@
 
 /datum/category_item/player_setup_item/background/languages/content()
 	. = list()
-	. += "<b>Languages</b><br>"
+	. += "<b>Языки</b><br>"
 	var/list/show_langs = get_language_text()
 	if(LAZYLEN(show_langs))
 		for(var/lang in show_langs)

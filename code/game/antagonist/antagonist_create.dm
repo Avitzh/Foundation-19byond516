@@ -75,7 +75,7 @@
 
 /datum/antagonist/proc/set_antag_name(mob/living/player)
 	// Choose a name, if any.
-	var/newname = sanitize(input(player, "You are a [role_text]. Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
+	var/newname = sanitize(tgui_input_text(player, "Вы — [role_text]. Хотите изменить своё имя на другое?", "Смена имени", player.real_name, MAX_NAME_LEN))
 	if (newname)
 		player.real_name = newname
 		player.SetName(player.real_name)
@@ -84,3 +84,27 @@
 	if(player.mind) player.mind.name = player.name
 	// Update any ID cards.
 	update_access(player)
+
+/datum/antagonist/traitor/create_antagonist(datum/mind/target, move, gag_announcement, preserve_appearance)
+	. = ..()
+	if(!. || !target.current)
+		return
+
+	// Выбор фракции
+	if(!traitor_faction)
+		var/chosen_name = input(target.current, "Выберите организацию, на которую вы работаете:", "Выбор фракции") as null|anything in available_factions
+		if(!chosen_name)
+			traitor_faction = "goc"
+		else
+			traitor_faction = available_factions[chosen_name]
+		to_chat(target.current, "Вы – агент [chosen_name] под глубоким прикрытием.")   // исправлено
+
+	// Предложить кастомные цели, если система включена
+	if(custom_objectives_enabled)
+		if(alert(target.current, "Хотите сами предложить цели для вашего задания?", "Цели", "Да", "Нет") == "Да")
+			propose_custom_objectives(target.current)
+			return
+		else
+			create_objectives(target)
+	else
+		create_objectives(target)

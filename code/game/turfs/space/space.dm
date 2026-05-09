@@ -34,18 +34,20 @@
 		build_dust_cache()
 	add_overlay(dust_cache["[((x + y) ^ ~(x * y) + z) % 25]"])
 
+	// Если под нами есть другой тайл и мы не находимся снаружи здания —
+	// значит, мы появились внутри станции (например, после взрыва).
+	// Чтобы не создавать утечку воздуха, сразу же превращаемся в герметичный пол.
 	if(!HasBelow(z))
 		return
 	var/turf/below = GetBelow(src)
-
 	if(isspaceturf(below))
 		return
 	var/area/A = below.loc
-
 	if(!below.density && (A.area_flags & AREA_FLAG_EXTERNAL))
 		return
 
-	return INITIALIZE_HINT_LATELOAD // oh no! we need to switch to being a different kind of turf!
+	// Мы внутри станции — заменяем космос на безопасный пол.
+	ChangeTurf(/turf/simulated/floor/airless, keep_air = TRUE)
 
 /turf/space/Destroy()
 	// Cleanup cached z_eventually_space values above us.

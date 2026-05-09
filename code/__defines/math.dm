@@ -34,3 +34,15 @@
 
 /// Linear conversion from range of [minx, maxx] to [miny, maxy] regarding the value x. Clamps excesses.
 #define TRANSLATE_RANGE(x, minx, maxx, miny, maxy) clamp(((x - minx) * (maxy - miny) / (maxx - minx)) + miny, miny, maxy)
+
+
+// var/const/Pi = 3.141592653589793
+
+/// Переводит градусы в радианы
+/proc/deg2rad(deg)
+    return deg * (3.141592653589793 / 180)
+
+/// Переводит радианы в градусы
+/proc/rad2deg(rad)
+    return rad * (180 / 3.141592653589793)
+

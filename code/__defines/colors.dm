@@ -129,9 +129,9 @@
 #define WOOD_COLOR_CHOCOLATE   "#543c30"
 #define WOOD_COLOR_YELLOW      "#e3994e"
 
-#define GLASS_COLOR            "#aaccff"
+#define GLASS_COLOR            "#aaccffc7"
 #define GLASS_COLOR_PHORON     "#7c3a9a"
-#define GLASS_COLOR_TINTED     "#222222"
+#define GLASS_COLOR_TINTED     "#222222ff"
 #define GLASS_COLOR_FROSTED    "#eeeeee"
 
 #define COLOR_BLOOD_HUMAN      "#a10808"

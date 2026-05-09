@@ -292,3 +292,33 @@
 
 	SSvote.tgui_interact(usr) //see vote.dm
 
+
+
+/proc/show_menu_blurb(client/C)
+	var/blurb_text = "[stationdate2text()], [station_time_timestamp("hh:mm")]\n[station_name()]"
+	menu_blurb(C, blurb_text)
+
+
+/proc/menu_blurb(client/C, blurb_text, our_loc = "LEFT+1,NORTH-2", our_style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;")
+	set waitfor = 0
+
+	blurb_text = "[stationdate2text()], [station_time_timestamp("hh:mm")]\n[station_name()]\nCurrent Gamemode: [SSticker.mode ? SSticker.mode.name : SSticker.master_mode]"
+
+	if(!C)
+		return
+
+	var/style = our_style
+	var/text = blurb_text
+	text = uppertext(text)
+
+	var/obj/effect/overlay/T = new()
+	T.maptext_height = 64
+	T.maptext_width = 448
+	T.layer = FLOAT_LAYER
+	T.plane = ABOVE_HUD_PLANE
+	T.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
+	T.screen_loc = our_loc
+
+	C.screen += T
+	animate(T, alpha = 255, time = INFINITY)
+	T.maptext = "<span style=\"[style]\">[text] </span>"

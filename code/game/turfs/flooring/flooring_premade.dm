@@ -395,6 +395,7 @@
 	name = "airless plating"
 	initial_gas = null
 	temperature = TCMB
+	blocks_air = AIR_BLOCKED
 
 /turf/simulated/floor/tiled/airless
 	name = "airless floor"

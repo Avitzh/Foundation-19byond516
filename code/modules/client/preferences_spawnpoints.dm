@@ -60,7 +60,7 @@ GLOBAL_VAR(spawntypes)
 /datum/spawnpoint/cryo
 	display_name = "Cryogenic Storage"
 	msg = "has completed cryogenic revival"
-	disallow_job = list("Robot", "Class D")
+	disallow_job = list("Robot", "Class D", "Класс D")
 
 /datum/spawnpoint/cryo/New()
 	..()
@@ -120,7 +120,7 @@ GLOBAL_VAR(spawntypes)
 /datum/spawnpoint/dclass
 	display_name = "D-Cells"
 	msg = "has been delivered to the Class D Area"
-	restrict_job = list("Class D", "Assistant")
+	restrict_job = list("Class D", "Класс D", "Assistant")
 
 /datum/spawnpoint/dclass/New()
 	..()
