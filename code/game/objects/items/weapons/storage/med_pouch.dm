@@ -197,7 +197,9 @@ Single Use Emergency Pouches
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/inaprovaline
 	name = "emergency inaprovaline autoinjector"
-	starts_with = list(/datum/reagent/medicine/inaprovaline = 5)
+	icon_state = "inaprovalinepen"
+	item_state = "inaprovalinepen"
+	starts_with = list(/datum/reagent/medicine/inaprovaline = 15)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/deletrathol
 	name = "emergency deletrathol autoinjector"
@@ -205,13 +207,13 @@ Single Use Emergency Pouches
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dylovene
 	name = "emergency dylovene autoinjector"
-	starts_with = list(/datum/reagent/medicine/dylovene = 5)
+	starts_with = list(/datum/reagent/medicine/dylovene = 15)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin
 	name = "emergency dexalin autoinjector"
-	starts_with = list(/datum/reagent/medicine/dexalin = 5)
+	starts_with = list(/datum/reagent/medicine/dexalin = 10)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
 	name = "emergency adrenaline autoinjector"
 	amount_per_transfer_from_this = 8
-	starts_with = list(/datum/reagent/medicine/adrenaline = 8)
+	starts_with = list(/datum/reagent/medicine/adrenaline = 10)

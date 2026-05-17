@@ -25,6 +25,8 @@
 	pipe_class = PIPE_CLASS_BINARY
 	atom_flags = ATOM_FLAG_CAN_BE_PAINTED
 
+	explosion_resistance = INFINITY
+
 /obj/machinery/atmospherics/pipe/drain_power()
 	return -1
 

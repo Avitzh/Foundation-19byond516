@@ -62,6 +62,12 @@
 	)
 	add_verb(src, /client/proc/scpooc)
 
+	var/datum/spell/S = new /datum/spell/aimed/flamethrower
+	S.invocation = null
+	S.invocation_type = null
+	S.cooldown_reduc = 2 MINUTES
+	src.add_spell(S)
+
 	spawn_area = get_area(src)
 	start_turf = get_turf(src)
 	add_language(LANGUAGE_EAL, FALSE)

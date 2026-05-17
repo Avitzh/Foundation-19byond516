@@ -1,5 +1,5 @@
 /obj/item/clothing/accessory/scp_427
-	name = "A beautiful amulet"
+	name = "beautiful amulet"
 	desc = "A small, ornately carved locket made out of polished silver material."
 	icon_state = "locket"
 	item_state = "locket"
@@ -28,6 +28,15 @@
 	var/datum/sound_token/sound_token_transform
 	var/sound_id_transform
 	var/transform_sound = 'sounds/scp/427/transform.ogg'
+
+/obj/item/clothing/accessory/scp_427/Initialize()
+	. = ..()
+	SCP = new /datum/scp(
+		src,
+		"beautiful amulet",
+		SCP_SAFE,
+		"427"
+	)
 
 /obj/item/clothing/accessory/scp_427/Initialize()
 	. = ..()

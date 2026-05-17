@@ -65,7 +65,7 @@
 	gloves = /obj/item/clothing/gloves/thick/combat
 	l_hand = /obj/item/stamp/gocrep
 	l_pocket = /obj/item/device/radio
-	id_type = /obj/item/card/id/adminlvl3
+	id_type = /obj/item/card/id/gocrep
 	l_ear = /obj/item/device/radio/headset/heads/goc
 	backpack_contents = list(/obj/item/ammo_magazine/scp/usp45 = 1)
 	belt = /obj/item/gun/projectile/pistol/usp45
@@ -89,7 +89,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/monocle
 	l_pocket = /obj/item/device/radio
-	id_type = /obj/item/card/id/adminlvl3
+	id_type = /obj/item/card/id/mcid
 	r_hand = /obj/item/storage/secure/briefcase/money
 	l_hand = /obj/item/cane
 	l_ear = /obj/item/device/radio/headset/heads/mcd
@@ -112,7 +112,7 @@
 	uniform = /obj/item/clothing/under/suit_jacket/really_black
 	shoes = /obj/item/clothing/shoes/laceup
 	l_pocket = /obj/item/device/radio
-	id_type = /obj/item/card/id/adminlvl5
+	id_type = /obj/item/card/id/ethics
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	backpack_contents = list(/obj/item/ammo_magazine/scp/m1911 = 1)
 	belt = /obj/item/gun/projectile/pistol/m1911/gold
@@ -123,7 +123,7 @@
 	suit = /obj/item/clothing/suit/armor/itd
 	shoes = /obj/item/clothing/shoes/laceup
 	l_pocket = /obj/item/device/radio
-	id_type = /obj/item/card/id/adminlvl5
+	id_type = /obj/item/card/id/tribunal
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	backpack_contents = list(/obj/item/ammo_magazine/scp/m1911 = 1)
 	belt = /obj/item/gun/projectile/pistol/m1911/gold

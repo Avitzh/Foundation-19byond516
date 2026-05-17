@@ -8,11 +8,11 @@
 
 	genders = list(MALE)
 
-	// icon overrides
+	hud_type = /datum/hud_data/scp527
+
 	icobase = 'icons/SCP/scp-527.dmi'
 	deform = null
 
-	// damage icon overrides
 	damage_overlays = null
 	damage_mask = null
 	blood_mask = null

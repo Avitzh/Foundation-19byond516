@@ -14,10 +14,14 @@
 	see_in_dark = 7
 	universal_speak = 1	// 999 can understand and speak every language, although his text gets altered
 	speak_emote = list("blubbers", "glubs")
+	///Current size multiplier from feeding
+	var/resize = 1
 	///sound cooldown track
 	var/sound_cooldown
 	///Sound cooldown
 	var/sound_cooldown_time = 5 SECONDS
+	///Tracks number of feedings for pixel_y growth
+	var/feeding_count = 0
 
 /mob/living/scp999/Initialize()
 	. = ..()
@@ -39,6 +43,17 @@
 	for(var/i = (max(0, length(match) - 3)), i > 0, i--)
 		. += "u"
 	. += "b"
+
+/mob/living/scp999/attackby(obj/item/O as obj, mob/user as mob)
+	if(istype(O, /obj/item/reagent_containers/food/snacks)) //feeding all snacks
+		user.visible_message(SPAN_NOTICE("[user] feeds [O] to [name]!"),SPAN_NOTICE("You feed [O] to [name]!"))
+		resize *= 1.01
+		transform = matrix() * resize
+		feeding_count++
+		if(feeding_count >= 5)
+			feeding_count = 0
+			pixel_y += 1
+		qdel(O)
 
 //Overrides
 

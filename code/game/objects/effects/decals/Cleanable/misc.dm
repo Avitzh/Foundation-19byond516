@@ -97,6 +97,8 @@
 	color = reagents.get_color()
 
 /obj/effect/decal/cleanable/vomit/scp173
+	icon = 'icons/SCP/scp-173_refuse.dmi'
+	random_icon_states = list("173_refuse_1","173_refuse_2","173_refuse_3","173_refuse_4","173_refuse_big")
 	desc = "Gosh, how unpleasant. You'll really have to scrub hard to get it out."
 
 /obj/effect/decal/cleanable/tomato_smudge

@@ -568,9 +568,9 @@ GLOBAL_VAR_INIT(world_topic_last, world.timeofday)
 		s += "<br>"
 		s += config.server_desc
 
-	s += "<br>"
+		s += "<br>"
 	if(SSticker.master_mode)
-		s += "Gamemode: [SSticker.master_mode]"
+		s += "Gamemode: <b>[SSticker.master_mode]</b>"
 	else
 		s += "<b>ROUND STARTING</b>"
 
@@ -579,11 +579,7 @@ GLOBAL_VAR_INIT(world_topic_last, world.timeofday)
 		s += "Server closed"
 
 	s += "<br>"
-	s += config.abandon_allowed ? "Respawn allowed" : "No respawn"
-
-	if (config && config.hostedby)
-		s += "<br>"
-		s += "Hosted by <b>[config.hostedby]</b>"
+	s += "Current Map: <b>Site 53</b>"
 
 	// Forum link
 	if(config && config.forumurl)
@@ -595,24 +591,33 @@ GLOBAL_VAR_INIT(world_topic_last, world.timeofday)
 	// Discord link
 	if(config && config.discordurl)
 		s += "<br>"
-		s += "<a href=\"[config.discordurl]\">"
+		s += "<b><a href=\"[config.discordurl]\">"
 		s += "Discord"
-		s += "</a>"
+		s += "</a></b>"
 
 	// rule link
 	if(config && config.rulesurl)
 		s += "<br>"
-		s += "<a href=\"[config.rulesurl]\">"
+		s += "<b><a href=\"[config.rulesurl]\">"
 		s += "Rules"
-		s += "</a>"
+		s += "</a></b>"
 
 	// lore link
 	if(config && config.loreurl)
 		s += "<br>"
-		s += "<a href=\"[config.loreurl]\">"
+		s += "<b><a href=\"[config.loreurl]\">"
 		s += "Lore"
-		s += "</a>"
+		s += "</a></b>"
 	/* does this help? I do not know */
+
+	s += "<br>"
+	s += config.abandon_allowed ? "<b>Respawn allowed</b>" : "<b>No respawn</b>"
+
+	if (config && config.hostedby)
+		s += "<br>"
+		s += "<br>"
+		s += "<font color=\"#FF0000\" size=\"10\">Hosted by <b>[config.hostedby]</b></font>"
+
 	if (src.status != s)
 		src.status = s
 

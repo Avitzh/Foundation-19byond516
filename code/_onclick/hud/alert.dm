@@ -325,3 +325,59 @@
 	master = null
 	owner = null
 	screen_loc = ""
+
+/atom/movable/screen/alert/notify_action
+	name = "Body created"
+	icon_state = "template"
+	timeout = 300
+	var/atom/target = null
+	var/action = NOTIFY_JUMP
+
+/atom/movable/screen/alert/notify_action/Click()
+	. = ..()
+	if(!.)
+		return
+	if(!target)
+		return
+	var/mob/observer/ghost/ghost_owner = owner
+	if(!istype(ghost_owner))
+		return
+	switch(action)
+		if(NOTIFY_ATTACK)
+			target.attack_ghost(ghost_owner)
+		if(NOTIFY_JUMP)
+			var/turf/target_turf = get_turf(target)
+			if(target_turf && isturf(target_turf))
+				ghost_owner.forceMove(target_turf)
+		if(NOTIFY_FOLLOW)
+			ghost_owner.start_following(target)
+
+		if(NOTIFY_POSSES)
+			ghost_owner.start_following(target)
+
+			if(!GLOB.available_mobs_for_possess["\ref[target]"])
+				to_chat(ghost_owner, SPAN_NOTICE("Unable to possess mob!"))
+				return
+			if(tgui_alert(ghost_owner, "Become [target.name]?","Possesing mob",list("Yes","No")) == "Yes")
+				ghost_owner.try_to_occupy(target)
+
+		if(NOTIFY_VOTE)
+			ghost_owner.vote()
+
+
+/atom/movable/screen/alert/mtf
+	name = "Join MTF Squad"
+	desc = "Join MTF Squad"
+	icon_state = "ert"
+
+/atom/movable/screen/alert/mtf/Click()
+	. = ..()
+	if(!.)
+		return
+
+	var/mob/observer/ghost/ghost_owner = owner
+	if(!istype(ghost_owner))
+		return
+
+	ghost_owner.client.JoinResponseTeam()
+

@@ -109,13 +109,6 @@
 	..()
 	icon_state = "snowbush[rand(1, 6)]"
 
-/obj/structure/flora/pottedplant
-	name = "potted plant"
-	icon = 'icons/obj/plants.dmi'
-	icon_state = "plant-26"
-	layer = ABOVE_HUMAN_LAYER
-	plane = 3
-
 //newbushes
 
 /obj/structure/flora/ausbushes
@@ -242,6 +235,7 @@
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-01"
 	layer = ABOVE_HUMAN_LAYER
+	plane = 2
 
 /obj/structure/flora/pottedplant/fern
 	name = "potted fern"
@@ -274,8 +268,8 @@
 	icon_state = "plant-07"
 
 /obj/structure/flora/pottedplant/smalltree
-	name = "small potted tree"
-	desc = "This is a small tree. It is rather pleasant."
+	name = "decorative potted plant"
+	desc = "This is a decorative shrub. It's been trimmed into the shape of an apple."
 	icon_state = "plant-08"
 
 /obj/structure/flora/pottedplant/unusual
@@ -376,11 +370,6 @@
 	desc = "This is a large plant. Three branches support pairs of waxy leaves."
 	icon_state = "plant-26"
 
-/obj/structure/flora/pottedplant/decorative
-	name = "decorative potted plant"
-	desc = "This is a decorative shrub. It's been trimmed into the shape of an apple."
-	icon_state = "applebush"
-
 /obj/structure/flora/pottedplant/deskfern
 	name = "fancy ferny potted plant"
 	desc = "This leafy desk fern could do with a trim."
@@ -400,6 +389,81 @@
 	name = "fancy trimmed ferny potted plant"
 	desc = "This leafy desk fern seems to have been trimmed too much."
 	icon_state = "plant-30"
+
+/obj/structure/flora/pottedplant/deskferngr
+	name = "fancy green ferny potted plant"
+	desc = "This leafy desk fern could do with a trim."
+	icon_state = "plant-31"
+
+/obj/structure/flora/pottedplant/floorleafgr
+	name = "fancy green leafy floor plant"
+	desc = "This plant has remarkably waxy green leaves."
+	icon_state = "plant-32"
+
+/obj/structure/flora/pottedplant/smalldeskleaf
+	name = "small green potted desk plant"
+	desc = "A small green leafed plant specimen."
+	icon_state = "plant-33"
+
+/obj/structure/flora/pottedplant/appletrimmed
+	name = "green trimmed potted plant"
+	desc = "This green leafy potted plant seems to have been trimmed too much."
+	icon_state = "plant-34"
+
+/obj/structure/flora/pottedplant/flowerplant
+	name = "fancy flowery potted plant"
+	desc = "Fancy potted plant with some beautiful flowers."
+	icon_state = "plant-35"
+
+/obj/structure/flora/pottedplant/deskfernygreen
+	name = "small green ferny potted plant"
+	desc = "This a small leafy desk fern."
+	icon_state = "plant-31"
+
+/obj/structure/flora/pottedplant/tallroseplant
+	name = "tall fancy red potted plant"
+	desc = "A tall fancy potted plant with some roses."
+	icon_state = "plant-37"
+
+/obj/structure/flora/pottedplant/greenfloorleaf
+	name = "green fancy leafy floor plant"
+	desc = "This plant has remarkably green waxy leaves."
+	icon_state = "plant-38"
+
+/obj/structure/flora/pottedplant/fernyplant
+	name = "big ferny potted plant"
+	desc = "This big very ferny potted plant."
+	icon_state = "plant-39"
+
+/obj/structure/flora/pottedplant/greendeskshaped
+	name = "fancy green shaped potted plant"
+	desc = "Leafy green potted plant. Looks very leafy."
+	icon_state = "plant-40"
+
+/obj/structure/flora/pottedplant/tallflower
+	name = "tall flowery potted plant"
+	desc = "Tall white flowery potted plant."
+	icon_state = "plant-41"
+
+/obj/structure/flora/pottedplant/greenyplant
+	name = "fancy green potted plant"
+	desc = "Fancy green potted plant looks like normal tree. Very cool."
+	icon_state = "plant-42"
+
+/obj/structure/flora/pottedplant/driedplant
+	name = "dried leafy potted plant"
+	desc = "This dried plant seems to have been trimmed too much."
+	icon_state = "plant-43"
+
+/obj/structure/flora/pottedplant/pinkyplant
+	name = "tall pink potted plant"
+	desc = "Tall pinky potted plant looks like Sakura."
+	icon_state = "plant-44"
+
+/obj/structure/flora/pottedplant/darkplant
+	name = "dark leafy potted plant"
+	desc = "Tall dark potted plant seems to have been trimmed too much."
+	icon_state = "plant-45"
 
 /obj/structure/flora/tree/bigtree
 	icon = 'icons/misc/trees.dmi'

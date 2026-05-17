@@ -46,8 +46,12 @@
 		//chance to go crazy and start wacking stuff
 		if(!length(ai_holder.attackers) && prob(1))
 			var/list/nearby_stuff = hearers(src, ai_holder.vision_range)
-			if (length(nearby_stuff))
-				ai_holder.react_to_attack(pick(nearby_stuff))
+
+			if(length(nearby_stuff))
+				var/mob/living/L = pick(nearby_stuff)
+				if(istype(L, /mob/living/simple_animal/friendly)) // dont attack his friends
+					return
+				ai_holder.react_to_attack(L)
 
 		if(length(ai_holder.attackers) && prob(10))
 			ai_holder.attackers = list()

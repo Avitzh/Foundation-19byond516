@@ -16,3 +16,4 @@ nikolatarizzz - TrialAdmin
 johnevans - TrialAdmin
 rinoglaz - Developer
 Ilmir037 - Host
+Hotsosi - Host

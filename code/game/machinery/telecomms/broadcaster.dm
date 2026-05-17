@@ -328,6 +328,14 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	// Get a list of mobs who can hear from the radios we collected.
 	var/list/receive = get_mobs_in_radio_ranges(radios)
 
+	// Play the radiohiss sound for each person wearing a headset in their ears
+	// to indicate they're receiving a radio transmission.
+	for(var/mob/listener in receive)
+		if(ishuman(listener))
+			var/mob/living/carbon/human/H = listener
+			if(H.has_headset_in_ears())
+				playsound(H.loc, 'sounds/effects/radiohiss.ogg', 15, 0, -1)
+
   /* ###### Organize the receivers into categories for displaying the message ###### */
 
   	// Understood the message:
@@ -393,7 +401,6 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b_extra = ""
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
-		var/part_a = "<span style='color: [channel_color]'><b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
 		var/part_b = "</span> <span class='message'>" // Tweaked for security headsets -- TLE
@@ -406,18 +413,24 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_masked))
 			for (var/mob/R in heard_masked)
+				var/radio_icon = radio ? icon2html(radio, R) : ""
+				var/part_a = "<span style='color: [channel_color]'>[radio_icon]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>"
 				R.hear_radio(message,verbage, speaking, part_a, part_b, part_c, M, 0, name)
 
 		/* --- Process all the mobs that heard the voice normally (understood) --- */
 
 		if (length(heard_normal))
 			for (var/mob/R in heard_normal)
+				var/radio_icon = radio ? icon2html(radio, R) : ""
+				var/part_a = "<span style='color: [channel_color]'>[radio_icon]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>"
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, realname)
 
 		/* --- Process all the mobs that heard the voice normally (did not understand) --- */
 
 		if (length(heard_voice))
 			for (var/mob/R in heard_voice)
+				var/radio_icon = radio ? icon2html(radio, R) : ""
+				var/part_a = "<span style='color: [channel_color]'>[radio_icon]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>"
 				R.hear_radio(message,verbage, speaking, part_a, part_b, part_c, M,0, vname)
 
 		/* --- Process all the mobs that heard a garbled voice (did not understand) --- */
@@ -425,6 +438,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_garbled))
 			for (var/mob/R in heard_garbled)
+				var/radio_icon = radio ? icon2html(radio, R) : ""
+				var/part_a = "<span style='color: [channel_color]'>[radio_icon]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>"
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 1, vname)
 
 
@@ -432,8 +447,9 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_gibberish))
 			for (var/mob/R in heard_gibberish)
+				var/radio_icon = radio ? icon2html(radio, R) : ""
+				var/part_a = "<span style='color: [channel_color]'>[radio_icon]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>"
 				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, compression)
-
 	return 1
 
 /proc/Broadcast_SimpleMessage(source, frequency, text, data, mob/M, compression, level, channel_tag, channel_color)

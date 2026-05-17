@@ -1365,3 +1365,57 @@ var/list/random_useful_
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "cola"
 	spawn_object = /obj/item/reagent_containers/food/drinks/cans/cola
+
+/obj/random/plant
+	name = "random potted plants"
+	desc = "This is a random potted plants."
+	icon = 'icons/obj/plants.dmi'
+	icon_state = "random"
+
+/obj/random/plant/spawn_choices()
+	return list(/obj/structure/flora/pottedplant,
+				/obj/structure/flora/pottedplant/fern,
+				/obj/structure/flora/pottedplant/overgrown,
+				/obj/structure/flora/pottedplant/bamboo,
+				/obj/structure/flora/pottedplant/largebush,
+				/obj/structure/flora/pottedplant/thinbush,
+				/obj/structure/flora/pottedplant/mysterious,
+				/obj/structure/flora/pottedplant/smalltree,
+				/obj/structure/flora/pottedplant/unusual,
+				/obj/structure/flora/pottedplant/orientaltree,
+				/obj/structure/flora/pottedplant/smallcactus,
+				/obj/structure/flora/pottedplant/tall,
+				/obj/structure/flora/pottedplant/sticky,
+				/obj/structure/flora/pottedplant/smelly,
+				/obj/structure/flora/pottedplant/small,
+				/obj/structure/flora/pottedplant/aquatic,
+				/obj/structure/flora/pottedplant/shoot,
+				/obj/structure/flora/pottedplant/flower,
+				/obj/structure/flora/pottedplant/crystal,
+				/obj/structure/flora/pottedplant/subterranean,
+				/obj/structure/flora/pottedplant/minitree,
+				/obj/structure/flora/pottedplant/stoutbush,
+				/obj/structure/flora/pottedplant/drooping,
+				/obj/structure/flora/pottedplant/tropical,
+				/obj/structure/flora/pottedplant/dead,
+				/obj/structure/flora/pottedplant/large,
+				/obj/structure/flora/pottedplant/deskfern,
+				/obj/structure/flora/pottedplant/floorleaf,
+				/obj/structure/flora/pottedplant/deskleaf,
+				/obj/structure/flora/pottedplant/deskferntrim,
+				/obj/structure/flora/pottedplant/deskferngr,
+				/obj/structure/flora/pottedplant/floorleafgr,
+				/obj/structure/flora/pottedplant/smalldeskleaf,
+				/obj/structure/flora/pottedplant/appletrimmed,
+				/obj/structure/flora/pottedplant/flowerplant,
+				/obj/structure/flora/pottedplant/deskfernygreen,
+				/obj/structure/flora/pottedplant/tallroseplant,
+				/obj/structure/flora/pottedplant/greenfloorleaf,
+				/obj/structure/flora/pottedplant/fernyplant,
+				/obj/structure/flora/pottedplant/greendeskshaped,
+				/obj/structure/flora/pottedplant/tallflower,
+				/obj/structure/flora/pottedplant/greenyplant,
+				/obj/structure/flora/pottedplant/driedplant,
+				/obj/structure/flora/pottedplant/pinkyplant,
+				/obj/structure/flora/pottedplant/darkplant
+				)

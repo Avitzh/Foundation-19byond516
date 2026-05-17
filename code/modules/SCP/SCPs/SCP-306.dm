@@ -112,7 +112,7 @@
 	return TRUE
 
 // ============================================================================
-// SCP-306 FROG (playable, non-hostile like SCP-999)
+// SCP-306 FROG
 // ============================================================================
 
 /mob/living/simple_animal/scp306_frog
@@ -148,9 +148,9 @@
 	SCP = new /datum/scp(
 		src,
 		"giant frog",
-		SCP_EUCLID,
+		SCP_KETER,
 		"306",
-		SCP_PLAYABLE | SCP_ROLEPLAY
+		SCP_PLAYABLE
 	)
 	add_verb(src, /client/proc/scpooc)
 	SCP.min_time = 15 MINUTES

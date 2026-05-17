@@ -7,7 +7,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	min_bruised_damage = 5
 	min_broken_damage = 5
-	max_damage = 70
+	max_damage = 90
 	relative_size = 30
 
 	var/active_breathing = 1
@@ -150,10 +150,10 @@
 
 	var/safe_pressure_min = min_breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 	// Lung damage increases the minimum safe pressure.
-	safe_pressure_min *= 1 + rand(1,4) * damage/max_damage
+	safe_pressure_min *= 1 + rand(1,2) * damage/max_damage
 
 	if(!forced && owner.chem_effects[CE_BREATHLOSS] && !owner.chem_effects[CE_STABLE]) //opiates are bad mmkay
-		safe_pressure_min *= 1 + rand(1,4) * owner.chem_effects[CE_BREATHLOSS]
+		safe_pressure_min *= 1 + rand(1,2) * owner.chem_effects[CE_BREATHLOSS]
 
 	var/failed_inhale = 0
 	var/failed_exhale = 0

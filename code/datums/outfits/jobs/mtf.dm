@@ -221,7 +221,7 @@
 	suit = /obj/item/clothing/suit/armor/vest/scp/isd
 	head = /obj/item/clothing/head/beret/isd/fedora
 	l_pocket = /obj/item/reagent_containers/spray/pepper
-	belt = /obj/item/gun/energy/pulse_rifle/pistol
+	belt = /obj/item/gun/projectile/automatic/machine_pistol
 
 /decl/hierarchy/outfit/mtf/o5rep
 	name = OUTFIT_JOB_NAME("O5 Representative")

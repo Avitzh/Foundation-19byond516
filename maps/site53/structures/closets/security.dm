@@ -319,6 +319,7 @@
 		/obj/item/ammo_magazine/box/a9mm,
 		/obj/item/gun/energy/stunrevolver/taser,
 		/obj/item/ammo_magazine/scp/mk9 = 3,
+		/obj/item/clothing/head/beret/sec/guard_ez
 	)
 
 // EZ - Sergeant
@@ -367,6 +368,7 @@
 		/obj/item/melee/telebaton,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/clothing/accessory/storage/holster/thigh,
+		/obj/item/storage/belt/holster/security/tactical,
 		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
 		/obj/item/clothing/accessory/solgov/department/security/marine,
 		/obj/item/clothing/head/beret/sec/guardcom,
@@ -410,6 +412,30 @@
 		/obj/item/gun/projectile/pistol/usp45,
 		/obj/item/ammo_magazine/scp/usp45 = 3,
 		/obj/item/ammo_magazine/box/acp45,
+	)
+
+/obj/structure/closet/secure_closet/guard/zone_commander/ez/WillContain()
+	return list(
+		/obj/item/handcuffs = 4,
+		/obj/item/storage/box/ifak,
+		/obj/item/crowbar/emergency_forcing_tool,
+		/obj/item/material/knife/combat,
+		/obj/item/melee/telebaton,
+		/obj/item/clothing/accessory/storage/black_vest,
+		/obj/item/clothing/accessory/storage/holster/thigh,
+		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
+		/obj/item/clothing/accessory/armor/unobtainable/tag/base/com/zonecomm,
+		/obj/item/storage/belt/holster/security/tactical,
+		/obj/item/clothing/head/beret/sec/corporate/hos,
+		/obj/item/clothing/suit/armor/pcarrier/scp/tactical,
+		/obj/item/clothing/suit/bio_suit/security,
+		/obj/item/clothing/head/bio_hood/security,
+		/obj/item/storage/pill_bottle/amnesticsa,
+		/obj/item/gun/projectile/pistol/usp45,
+		/obj/item/ammo_magazine/scp/usp45 = 3,
+		/obj/item/ammo_magazine/box/acp45,
+		/obj/item/clothing/head/beret/sec/supervisor_ez
+
 	)
 
 /obj/structure/closet/secure_closet/guard/zone_commander/hcz

@@ -502,10 +502,10 @@
 /obj/item/gun/proc/play_fire_sound(mob/user, obj/item/projectile/P)
 	var/shot_sound = (istype(P) && P.fire_sound)? P.fire_sound : fire_sound
 	if(silenced)
-		playsound(user, shot_sound, 10, 1)
+		playsound(user, SFX_SILENT_FIRE, 50, 1)
 		show_sound_effect(get_turf(src), user, SFX_ICON_SMALL)
 	else
-		playsound(user, shot_sound, 50, 1)
+		playsound(user, shot_sound, 90, 1)
 		show_sound_effect(get_turf(src), user, SFX_ICON_JAGGED)
 
 //Suicide handling.
@@ -527,7 +527,7 @@
 		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
 		var/shot_sound = in_chamber.fire_sound? in_chamber.fire_sound : fire_sound
 		if(silenced)
-			playsound(user, shot_sound, 10, 1)
+			fire_sound = SFX_SILENT_FIRE
 		else
 			playsound(user, shot_sound, 50, 1)
 		if(istype(in_chamber, /obj/item/projectile/beam/lastertag))

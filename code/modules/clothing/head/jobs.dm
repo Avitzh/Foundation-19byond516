@@ -143,6 +143,19 @@
 	desc = "A black beret with a red badge, in the shape of two chevrons, it feels durable due to the materials it's been made from."
 	icon_state = "beret_guard"
 	armor = list(melee = 30, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
+
+/obj/item/clothing/head/beret/sec/guard_ez
+	name = "EZ Guard Beret"
+	desc = "A black beret with a red and blue badge, in the shape of two chevrons, it feels durable due to the materials it's been made from."
+	icon_state = "beret_guard_ez"
+	armor = list(melee = 30, bullet = 30, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
+
+/obj/item/clothing/head/beret/sec/supervisor_ez
+	name = "EZ Supervisor Beret"
+	desc = "A black beret with a red and yellow badge, in the shape of two chevrons, it feels durable due to the materials it's been made from."
+	icon_state = "beret_supervisor_ez"
+	armor = list(melee = 40, bullet = 45, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
+
 /obj/item/clothing/head/beret/sec/sergeant
 	name = "Non-Commissioned Officer Beret"
 	desc = "A black beret with a silver badge, in the shape of three chevrons, it feels durable due to the materials it's been made from."
@@ -158,7 +171,7 @@
 	desc = "A white beret with a golden badge in the shape of a shield, it feels durable due to the materials it's been made from."
 	icon_state = "beret_guardcom"
 	armor = list(melee = 50, bullet = 70, laser = 20,energy = 20, bomb = 15, bio = 15, rad = 15)
-	
+
 // ENDING NEW SECURITY BERETS //
 
 /obj/item/clothing/head/beret/goc

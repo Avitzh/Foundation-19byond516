@@ -74,6 +74,12 @@
 		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
 		if (should_admin_log)
 			admin_inject_log(user, M, src, contained, trans)
+		if(istype(src, /obj/item/reagent_containers/hypospray/autoinjector))
+			icon_state = "injector0"
+			item_state = "injector0"
+		else
+			item_state = "hypo"
+			icon_state = "hypo"
 		to_chat(user, SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
 
 	return

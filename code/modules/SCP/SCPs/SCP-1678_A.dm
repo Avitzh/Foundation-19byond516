@@ -1,43 +1,45 @@
 // ==================================================================
-// SCP-1678-A - моб
+// SCP-1678-A - Masked Figure
 // ==================================================================
 
 /mob/living/carbon/human/scp1678
-	name = "tall masked figure"
-	desc = "A tall, unnerving figure with fabric scraps covering its face."
+	name = "masked figure"
+	desc = "An unnerving figure with fabric scraps covering its face."
 	icon = 'icons/SCP/scp-1678.dmi'
 	icon_state = null
 
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	see_in_dark = 7
-	status_flags = CANPUSH
-	maxHealth = 250
-	health = 250
-
-	roundstart_traits = list(TRAIT_ADVANCED_TOOL_USER)
+	status_flags = NO_ANTAG
+	maxHealth = 200
+	health = 200
 
 	var/emote_cooldown = 5 SECONDS
 	var/emote_cooldown_track = 0
-	var/area/spawn_area
-	var/turf/start_turf
 
 /mob/living/carbon/human/scp1678/Initialize(mapload, new_species = "SCP-1678-A")
-	. = ..(mapload, "SCP-1678-A")
-	SCP = new /datum/scp(src, "tall masked figure", SCP_EUCLID, "1678-A", SCP_PLAYABLE|SCP_ROLEPLAY)
+	. = ..()
 
-	add_verb(src, list(/client/proc/scpooc, /mob/living/carbon/human/scp1678/verb/SayPhrase))
+	SCP = new /datum/scp(
+		src,
+		"masked figure",
+		SCP_KETER,
+		"1678-A",
+		SCP_PLAYABLE
+	)
 
-	add_language(LANGUAGE_ENGLISH)
-	add_language(LANGUAGE_EAL)
-	add_language(LANGUAGE_GUTTER)
+	add_verb(src, list(
+		/client/proc/scpooc,
+		/mob/living/carbon/human/scp1678/verb/SayPhrase
+	))
 
-	SCP.min_time = 15 MINUTES
-	SCP.min_playercount = 10
+	add_language(LANGUAGE_ENGLISH, FALSE)
+	add_language(LANGUAGE_EAL, FALSE)
+	add_language(LANGUAGE_GUTTER, FALSE)
 
-	spawn_area = get_area(src)
-	start_turf = get_turf(src)
+	SCP.min_time = 0
+	SCP.min_playercount = 0
 
-	// Рентгеновское зрение
 	if(!(MUTATION_XRAY in mutations))
 		mutations.Add(MUTATION_XRAY)
 		update_mutations()
@@ -45,8 +47,12 @@
 
 	queue_icon_update()
 
+	REMOVE_TRAIT(src, TRAIT_HANDS_BLOCKED, STAT_TRAIT)
+	REMOVE_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
+	REMOVE_TRAIT(src, TRAIT_UI_BLOCKED, STAT_TRAIT)
+
 // ==================================================================
-// Отрисовка иконки (минимальная, как у 106)
+// Icon rendering
 // ==================================================================
 
 /mob/living/carbon/human/scp1678/update_icons()
@@ -61,7 +67,7 @@
 	return
 
 // ==================================================================
-// Защита от падений и оглушений
+// Stun and weakness immunity
 // ==================================================================
 
 /mob/living/carbon/human/scp1678/handle_stunned()
@@ -80,11 +86,17 @@
 
 /mob/living/carbon/human/scp1678/Life()
 	. = ..()
-	if(lying) lying = 0
-	if(resting) resting = 0
-	if(weakened) weakened = 0
-	if(stunned) stunned = 0
-	if(stat == UNCONSCIOUS) stat = CONSCIOUS
+
+	if(lying)
+		lying = 0
+	if(resting)
+		resting = 0
+	if(weakened)
+		weakened = 0
+	if(stunned)
+		stunned = 0
+	if(stat == UNCONSCIOUS)
+		stat = CONSCIOUS
 
 /mob/living/carbon/human/scp1678/get_pressure_weakness()
 	return 0
@@ -93,14 +105,14 @@
 	return 1
 
 // ==================================================================
-// Скорость (медленнее обычного человека)
+// Movement speed
 // ==================================================================
 
 /mob/living/carbon/human/scp1678/movement_delay(decl/move_intent/using_intent = move_intent)
 	return 4.0
 
 // ==================================================================
-// Звуки шагов (опционально)
+// Footstep sounds
 // ==================================================================
 
 /mob/living/carbon/human/scp1678/play_special_footstep_sound(turf/T, volume = 30, range = 1)
@@ -108,11 +120,13 @@
 	return TRUE
 
 // ==================================================================
-// Ограничение речи (только через SayPhrase)
+// Speech
 // ==================================================================
 
-/mob/living/carbon/human/scp1678/say(message, datum/language/speaking = null, whispering)
-	to_chat(src, SPAN_NOTICE("You cannot speak normally. Use 'Say Phrase'."))
+/mob/living/carbon/human/scp1678/say(message, datum/language/speaking = null, whispered)
+	if(whispered)
+		return ..()
+	to_chat(src, SPAN_NOTICE("You cannot speak normally. Use 'Say Phrase' verb."))
 	return 0
 
 /mob/living/carbon/human/scp1678/verb/SayPhrase()
@@ -142,20 +156,27 @@
 	emote_cooldown_track = world.time + emote_cooldown
 
 // ==================================================================
-// Смерть (исчезает)
+// Death
 // ==================================================================
 
-/mob/living/carbon/human/scp1678/death(gibbed)
-	visible_message(SPAN_DANGER("[src] collapses and crumbles into dust!"))
+/mob/living/carbon/human/scp1678/death(gibbed,deathmessage="disappeared into thin air...", show_dead_message = "You have died.")
 	playsound(get_turf(src), 'sounds/scp/1678/whistle.ogg', 30, 1)
 	qdel(src)
 
 // ==================================================================
-// AI для автоматического передвижения (когда не под игроком)
+// Baton
 // ==================================================================
 
-/datum/ai_holder/simple_animal/melee/scp1678
-	mauling = TRUE
-	vision_range = 10
-
-/mob/living/carbon/human/scp1678/ai_holder_type = /datum/ai_holder/simple_animal/melee/scp1678
+/obj/item/melee/baton/scp1678
+	name = "ornate baton"
+	desc = "A heavy, silver-colored baton."
+	icon = 'icons/obj/weapons/melee_physical.dmi'
+	icon_state = "metalbat0"
+	item_state = "metalbat"
+	force = 20
+	throwforce = 7
+	w_class = ITEM_SIZE_NORMAL
+	slot_flags = SLOT_BELT
+	attack_verb = list("smashed", "beaten", "slammed", "struck", "battered", "bonked")
+	hitsound = 'sounds/weapons/genhit3.ogg'
+	canremove = TRUE

@@ -413,3 +413,10 @@
 			if((covered_parts & HEAD) && (covered_parts & FACE))
 				return FALSE
 	return TRUE
+
+///Checks if a human can make direct contact with another humans bare skin, factoring in HCZ hazmat protection. Uses the select ui to determine where to check.
+/mob/living/carbon/human/proc/can_touch_hazmat_bare_skin(mob/living/carbon/human/target)
+	// If the target is wearing both the HCZ hazmat suit AND helmet, they are fully protected.
+	if(istype(target.wear_suit, /obj/item/clothing/suit/hcz_hazmat) && istype(target.head, /obj/item/clothing/head/hcz_hazmat))
+		return FALSE
+	return can_touch_bare_skin(target)

@@ -1461,8 +1461,6 @@
 /area/scp/dimension004/scp610
     name = "SCP-004 Dimension - SCP-610 Ruin"
     has_gravity = 1
-    luminosity = 0
-    dynamic_lighting = 0
 
 /area/scp/dimension004/scp860
 	name = "SCP-860 Dimension - Dark Forest"

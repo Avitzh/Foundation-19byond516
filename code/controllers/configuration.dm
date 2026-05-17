@@ -2,7 +2,7 @@ var/list/gamemode_cache = list()
 
 /datum/configuration
 	var/server_name = null				// server name (for world name / status)
-	var/server_desc = "<font color=\"#ff0000\"><b>Name:</b> Russian SCP Foundation 13<br>RP Mode: <b> HRP</b><br><b>Game Map:</b> Site 53<BR><b>Game Mode:</b> Extended"
+	var/server_desc = "Welcome to RUSSIAN FOUNDATION 13! From <i>*Vandal Sosal Project*</i>"
 	var/server_suffix = null			// message to appear right after server's name
 	var/game_version = "Baystation12" //for topic status requests
 
@@ -93,7 +93,7 @@ var/list/gamemode_cache = list()
 	var/discordurl
 	var/githuburl
 	var/issuereporturl
-	var/rulesurl
+	var/rulesurl = "https://scp13.aperture13.online/wiki/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0"
 	var/loreurl = "https://scp13.aperture13.online/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0"
 
 	var/list/chat_markup

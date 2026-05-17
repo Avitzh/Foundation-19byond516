@@ -240,6 +240,38 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 	send_fax_loop(copyitem, destination, department) // Forward to any listening fax machines
 	visible_message("[src] beeps, \"Message transmitted successfully.\"")
 
+
+/obj/machinery/photocopier/faxmachine/verb/eject_id()
+	set name = "Remove ID"
+	set category = "Object"
+	set src in view(1)
+
+	if(usr.incapacitated() || !istype(usr, /mob/living))
+		to_chat(usr, SPAN_WARNING("You can't do that."))
+		return
+
+	if(!Adjacent(usr))
+		to_chat(usr, SPAN_WARNING("You can't reach it."))
+		return
+
+	proc_eject_id(usr)
+	return TOPIC_REFRESH
+
+/obj/machinery/photocopier/faxmachine/proc/proc_eject_id(mob/user)
+	if(!user)
+		user = usr
+
+	if(!scan)
+		to_chat(user, "\The [src] does not have an ID card inserted")
+		return
+
+	scan.forceMove(get_turf(src))
+	if(!issilicon(user))
+		user.put_in_hands(scan)
+	to_chat(user, "You remove [scan] from [src].")
+	scan = null
+	authenticated = 0
+
 /// Retrieves a list of all fax machines matching the given department tag.
 /proc/get_fax_machines_by_department(department)
 	if(!department)
